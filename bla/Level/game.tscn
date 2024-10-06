@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=15 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="PackedScene" uid="uid://dcqu4ou8ax8un" path="res://Level/Décor/Village/maison 1/maison 1.tscn" id="2_w68xo"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bfi75gpu4aalp" path="res://Level/Décor/Prairie/arbre 5.png" id="7_n42c8"]
 [ext_resource type="Texture2D" uid="uid://chp8jbgiberxj" path="res://Level/Décor/Prairie/arbre 3.png" id="8_20gs6"]
 [ext_resource type="Texture2D" uid="uid://hctrmkuvyifs" path="res://Level/Décor/Prairie/arbre 4.png" id="9_jscf0"]
+[ext_resource type="PackedScene" uid="uid://cwswub0u8qanb" path="res://Unit/Joueur/player.tscn" id="12_l25pa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klef5"]
 texture = ExtResource("1_8iq6g")
@@ -278,3 +279,5 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("6_2ynj0")
 text = "Press E to interact"
+
+[node name="Player" parent="." instance=ExtResource("12_l25pa")]
