@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6oo0yqtwrpdj"
-path="res://.godot/imported/Maison 2.png-cd54c702f21e4083c272545d532d1277.ctex"
+uid="uid://hctrmkuvyifs"
+path="res://.godot/imported/arbre 4.png-fdcdb71d8b82f90c001615c0bdc86f94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Décor/Village/Maison 2.png"
-dest_files=["res://.godot/imported/Maison 2.png-cd54c702f21e4083c272545d532d1277.ctex"]
+source_file="res://Level/Décor/Prairie/arbre 4.png"
+dest_files=["res://.godot/imported/arbre 4.png-fdcdb71d8b82f90c001615c0bdc86f94.ctex"]
 
 [params]
 

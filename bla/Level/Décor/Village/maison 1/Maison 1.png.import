@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beo5imhc4x2ej"
-path="res://.godot/imported/Tour du sorcier.png-6390397774843721c8d63fe869cd8880.ctex"
+uid="uid://crdu1aq6vb7u1"
+path="res://.godot/imported/Maison 1.png-7b35a9ff8e4d776dd520007a68b312dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Décor/Village/Tour du sorcier.png"
-dest_files=["res://.godot/imported/Tour du sorcier.png-6390397774843721c8d63fe869cd8880.ctex"]
+source_file="res://Level/Décor/Village/maison 1/Maison 1.png"
+dest_files=["res://.godot/imported/Maison 1.png-7b35a9ff8e4d776dd520007a68b312dc.ctex"]
 
 [params]
 

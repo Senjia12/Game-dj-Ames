@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b63qt1vknke1"]
+
+[ext_resource type="Texture2D" uid="uid://beo5imhc4x2ej" path="res://Level/Décor/Village/tour du mage/Tour du sorcier.png" id="1_kt7ud"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gnrb"]
+atlas = ExtResource("1_kt7ud")
+region = Rect2(0, 0, 56, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqtmw"]
+atlas = ExtResource("1_kt7ud")
+region = Rect2(56, 0, 56, 118)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5r1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gnrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqtmw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwxy4"]
+size = Vector2(44, 33)
+
+[node name="tour du mage" type="StaticBody2D"]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -59)
+sprite_frames = SubResource("SpriteFrames_i5r1l")
+speed_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_hwxy4")

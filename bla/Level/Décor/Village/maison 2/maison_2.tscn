@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs10g4tv3jrsw"]
+
+[ext_resource type="Texture2D" uid="uid://b6oo0yqtwrpdj" path="res://Level/Décor/Village/maison 2/Maison 2.png" id="1_sejlv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmm0o"]
+atlas = ExtResource("1_sejlv")
+region = Rect2(0, 0, 64, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd57t"]
+atlas = ExtResource("1_sejlv")
+region = Rect2(64, 0, 64, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_of7wk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmm0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd57t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tktrb"]
+size = Vector2(60, 24)
+
+[node name="maison 2" type="StaticBody2D"]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-10, -29.5)
+sprite_frames = SubResource("SpriteFrames_of7wk")
+speed_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, -12)
+shape = SubResource("RectangleShape2D_tktrb")

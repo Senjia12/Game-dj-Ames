@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=7 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
-[ext_resource type="PackedScene" uid="uid://dcqu4ou8ax8un" path="res://Level/Décor/Village/maison.tscn" id="2_w68xo"]
+[ext_resource type="PackedScene" uid="uid://dcqu4ou8ax8un" path="res://Level/Décor/Village/maison 1/maison 1.tscn" id="2_w68xo"]
+[ext_resource type="PackedScene" uid="uid://bs10g4tv3jrsw" path="res://Level/Décor/Village/maison 2/maison_2.tscn" id="3_efe0o"]
+[ext_resource type="PackedScene" uid="uid://b63qt1vknke1" path="res://Level/Décor/Village/tour du mage/tour_du_mage.tscn" id="4_bb3nm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klef5"]
 texture = ExtResource("1_8iq6g")
@@ -15,20 +17,20 @@ sources/0 = SubResource("TileSetAtlasSource_klef5")
 
 [node name="route" type="TileMapLayer" parent="."]
 position = Vector2(0, 8)
-tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAAOAP//AAAAAAAAAAAPAP//AAAAAAAAAAAQAP//AAAAAAAAAAARAP//AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAAAAAAAAAUAP//AAAAAAAAAAAVAP//AAAAAAAAAAAWAP//AAAAAAAAAAAXAP//AAAAAAAAAAAYAP//AAAAAAAAAAAZAP//AAAAAAAAAAAaAP//AAAAAAAAAAAbAP//AAAAAAAAAAAcAP//AAAAAAAAAAAdAP//AAAAAAAAAAAeAP//AAAAAAAAAAAfAP//AAAAAAAAAAAgAP//AAAAAAAAAAAhAP//AAAAAAAAAAAiAP//AAAAAAAAAAAjAP//AAAAAAAAAAAkAP//AAAAAAAAAAAlAP//AAAAAAAAAAAmAP//AAAAAAAAAAAnAP//AAAAAAAAAAAoAP//AAAAAAAAAAApAP//AAAAAAAAAAAqAP//AAAAAAAAAAArAP//AAAAAAAAAAAsAP//AAAAAAAAAAAtAP//AAAAAAAAAAD/////AAAAAAAAAAD+////AAAAAAAAAAD9////AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAD/////AAAAAAAAAAD+////AAAAAAAAAAD9////AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_8wvo0")
 
 [node name="Maison" parent="." instance=ExtResource("2_w68xo")]
-position = Vector2(26, -32.5)
+position = Vector2(-28, -32)
 
 [node name="Maison2" parent="." instance=ExtResource("2_w68xo")]
-position = Vector2(90, -32.5)
-building_type = 1
+position = Vector2(80, -32)
 
 [node name="Maison3" parent="." instance=ExtResource("2_w68xo")]
-position = Vector2(150, -32.5)
-building_type = 2
+position = Vector2(124, -32)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(102, -45)
-zoom = Vector2(5, 5)
+[node name="maison 2" parent="." instance=ExtResource("3_efe0o")]
+position = Vector2(36, -32)
+
+[node name="tour du mage" parent="." instance=ExtResource("4_bb3nm")]
+position = Vector2(169, -32)

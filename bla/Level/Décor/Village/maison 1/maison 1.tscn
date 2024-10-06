@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://dcqu4ou8ax8un"]
 
-[ext_resource type="Script" path="res://Level/Décor/Village/maison.gd" id="1_twgpd"]
-[ext_resource type="Texture2D" uid="uid://crdu1aq6vb7u1" path="res://Level/Décor/Village/Maison 1.png" id="2_fq6bh"]
-[ext_resource type="Texture2D" uid="uid://b6oo0yqtwrpdj" path="res://Level/Décor/Village/Maison 2.png" id="3_bg8px"]
-[ext_resource type="Texture2D" uid="uid://beo5imhc4x2ej" path="res://Level/Décor/Village/Tour du sorcier.png" id="4_jw166"]
+[ext_resource type="Script" path="res://Level/Décor/Village/maison 1/maison 1.gd" id="1_twgpd"]
+[ext_resource type="Texture2D" uid="uid://crdu1aq6vb7u1" path="res://Level/Décor/Village/maison 1/Maison 1.png" id="2_fq6bh"]
+[ext_resource type="Texture2D" uid="uid://b6oo0yqtwrpdj" path="res://Level/Décor/Village/maison 2/Maison 2.png" id="3_bg8px"]
+[ext_resource type="Texture2D" uid="uid://beo5imhc4x2ej" path="res://Level/Décor/Village/tour du mage/Tour du sorcier.png" id="4_jw166"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xynjk"]
 atlas = ExtResource("2_fq6bh")
@@ -66,18 +66,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5f88a"]
-size = Vector2(60, 36)
+size = Vector2(40, 33)
 
 [node name="Maison" type="StaticBody2D"]
 script = ExtResource("1_twgpd")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -29)
+position = Vector2(0, -29.5)
 sprite_frames = SubResource("SpriteFrames_2ioyf")
 animation = &"maison 1"
 speed_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -17)
+position = Vector2(0, -16.5)
 shape = SubResource("RectangleShape2D_5f88a")
