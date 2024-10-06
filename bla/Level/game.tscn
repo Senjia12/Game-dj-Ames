@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=43 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="Texture2D" uid="uid://2q8lx3x5n3dl" path="res://Level/Décor/Prairie/Tile_dherbe.png" id="1_om7bl"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cgpwhvfopas3p" path="res://Level/Décor/Village/arbre brulé/arbre_feu_5.tscn" id="15_wmllm"]
 [ext_resource type="PackedScene" uid="uid://deb32hb4c86on" path="res://Level/Décor/Village/arbre brulé/arbre_feu_1.tscn" id="16_qhkgf"]
 [ext_resource type="PackedScene" uid="uid://bbupulttciuby" path="res://Unit/soul detector/soul_detector.tscn" id="22_chmqr"]
+[ext_resource type="Script" path="res://Level/day_night.gd" id="23_4xs1l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klef5"]
 texture = ExtResource("1_8iq6g")
@@ -288,6 +289,44 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_j1rey"),
 "dmg": SubResource("Animation_ck84q")
+}
+
+[sub_resource type="Animation" id="Animation_65846"]
+resource_name = "day night cycle"
+length = 24.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("day night/CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.4, 7, 7.66667, 7.7, 12, 19.3, 20, 20.6333, 24),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.161868, 0.210692, 0.289592, 1), Color(0.198003, 0.254349, 0.345387, 1), Color(0.664028, 0.481586, 0.329708, 1), Color(0.784046, 0.828889, 0.911244, 1), Color(0.705891, 0.765611, 0.875665, 1), Color(1, 1, 1, 1), Color(0.784046, 0.828889, 0.911244, 1), Color(0.651644, 0.439326, 0.347303, 1), Color(0.198003, 0.254349, 0.345387, 1), Color(0.161868, 0.210692, 0.289592, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rsv0h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("day night/CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8j3bw"]
+_data = {
+"RESET": SubResource("Animation_rsv0h"),
+"day night cycle": SubResource("Animation_65846")
 }
 
 [node name="Game" type="Node2D"]
@@ -991,3 +1030,13 @@ libraries = {
 [node name="Player" parent="." instance=ExtResource("12_l25pa")]
 
 [node name="soul detector" parent="." instance=ExtResource("22_chmqr")]
+
+[node name="day night" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8j3bw")
+}
+speed_scale = 0.1
+script = ExtResource("23_4xs1l")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="day night"]
+position = Vector2(2, 0)
