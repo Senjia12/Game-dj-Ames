@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2mamrqjwbeff"]
+[gd_scene load_steps=11 format=3 uid="uid://d2mamrqjwbeff"]
 
-[ext_resource type="Texture2D" uid="uid://cim4x1wkgiq4b" path="res://Unit/Âme/Âme idle.png" id="1_6gcdh"]
+[ext_resource type="Texture2D" uid="uid://cim4x1wkgiq4b" path="res://Unit/soul/Âme idle.png" id="1_6gcdh"]
 [ext_resource type="Script" path="res://Unit/soul/soul.gd" id="1_dqplt"]
-[ext_resource type="FontFile" uid="uid://bon0hj0i22w3e" path="res://UI/font pxl.ttf" id="3_mmwa2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b2be2"]
 radius = 8.0
@@ -29,22 +28,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_bxkxf"]
-resource_name = "spawn"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_x1e50"]
 length = 0.001
 tracks/0/type = "value"
@@ -60,6 +43,22 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_bxkxf"]
+resource_name = "spawn"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.729412)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t8q35"]
 _data = {
 "RESET": SubResource("Animation_x1e50"),
@@ -68,43 +67,6 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_opff4"]
 radius = 32.0156
-
-[sub_resource type="Animation" id="Animation_4v22u"]
-resource_name = "text display"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("blabla:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="Animation" id="Animation_geiff"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("blabla:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7st3"]
-_data = {
-"RESET": SubResource("Animation_geiff"),
-"text display": SubResource("Animation_4v22u")
-}
 
 [node name="Soul" type="StaticBody2D" groups=["soul"]]
 collision_layer = 2
@@ -117,8 +79,10 @@ shape = SubResource("CircleShape2D_b2be2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_pjn5m")
 frame_progress = 0.209392
+speed_scale = 0.4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -131,28 +95,37 @@ libraries = {
 visible = false
 shape = SubResource("CircleShape2D_opff4")
 
-[node name="blabla" type="Label" parent="."]
-offset_left = -58.0
-offset_top = -13.0
-offset_right = 329.0
-offset_bottom = 3.0
+[node name="MarginContainer" type="VBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -171.0
+offset_right = 176.0
+offset_bottom = 366.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(0.3, 0.3)
-theme_override_colors/font_color = Color(0.76795, 0.998505, 0.960546, 1)
+alignment = 2
+
+[node name="blabla" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0.160784, 0.976471, 0.894118, 1)
-theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_outline_size = 3
-theme_override_fonts/font = ExtResource("3_mmwa2")
-text = "Coincoincoincoincoincoincoin"
-horizontal_alignment = 1
-vertical_alignment = 1
+bbcode_enabled = true
+text = "[wave amp=20][center][i]coincoin[/i][/center][/wave]"
+fit_content = true
 visible_characters = 0
 visible_characters_behavior = 1
 visible_ratio = 0.0
 
-[node name="text display" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_h7st3")
-}
+[node name="text display 2" type="Timer" parent="."]
+wait_time = 0.001
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="text display 2" to="." method="_on_text_display_2_timeout"]

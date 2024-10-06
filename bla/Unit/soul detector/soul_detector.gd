@@ -13,3 +13,11 @@ func _physics_process(delta: float) -> void:
 		for i in area_2d.get_overlapping_bodies():
 			if i.is_in_group("soul"):
 				i.activate()
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("soul"):
+		body.desactivate()
+		
+		
+		

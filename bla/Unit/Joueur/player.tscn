@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwswub0u8qanb"]
+[gd_scene load_steps=3 format=3 uid="uid://cwswub0u8qanb"]
 
 [ext_resource type="Script" path="res://Unit/Joueur/player.gd" id="1_1bhd3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hqjl"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_1bhd3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0hqjl")
