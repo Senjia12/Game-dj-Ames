@@ -2,6 +2,16 @@ extends StaticBody2D
 
 
 
+@export var position_int := Vector2.ZERO
+
+
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("interact"):
+		Globals.player.global_position = position_int
+
+
+
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

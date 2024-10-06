@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dovjaq5ndtxrh"]
+
+[sub_resource type="Curve" id="Curve_14e4f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.860082, 0.912088), -2.6052, -2.6052, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jea67"]
+curve = SubResource("Curve_14e4f")
+
+[sub_resource type="Gradient" id="Gradient_pfw18"]
+colors = PackedColorArray(0.849792, 0.710406, 0, 1, 0.993682, 0.402344, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wlkw4"]
+gradient = SubResource("Gradient_pfw18")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8fqg8"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector3(0, -60, 0)
+color_initial_ramp = SubResource("GradientTexture1D_wlkw4")
+alpha_curve = SubResource("CurveTexture_jea67")
+turbulence_enabled = true
+turbulence_influence_min = 0.0
+
+[node name="feu point" type="GPUParticles2D"]
+show_behind_parent = true
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_8fqg8")
+lifetime = 1.5

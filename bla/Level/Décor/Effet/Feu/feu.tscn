@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://qukvulslymot"]
+
+[ext_resource type="Texture2D" uid="uid://cinsm43i3ojel" path="res://Level/Décor/Effet/Feu/feu.png" id="1_lj021"]
+[ext_resource type="Script" path="res://Level/Décor/Effet/Feu/feu.gd" id="2_4i6by"]
+[ext_resource type="PackedScene" uid="uid://dovjaq5ndtxrh" path="res://Level/Décor/Effet/Feu/particule feu point.tscn" id="3_s4cyj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgcdb"]
+atlas = ExtResource("1_lj021")
+region = Rect2(0, 0, 14, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5lrb"]
+atlas = ExtResource("1_lj021")
+region = Rect2(14, 0, 14, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk7ju"]
+atlas = ExtResource("1_lj021")
+region = Rect2(28, 0, 14, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2eod"]
+atlas = ExtResource("1_lj021")
+region = Rect2(42, 0, 14, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_415jl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgcdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5lrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk7ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2eod")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="feu" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_415jl")
+frame_progress = 0.633439
+speed_scale = 2.0
+script = ExtResource("2_4i6by")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("3_s4cyj")]
+z_index = -1
+position = Vector2(0, 3)

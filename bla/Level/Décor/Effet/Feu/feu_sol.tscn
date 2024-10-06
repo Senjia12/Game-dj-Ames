@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://brvh4plhrt3h6"]
+
+[ext_resource type="Texture2D" uid="uid://cvolx46a1y5x2" path="res://Level/Décor/Effet/Feu/feu_sol.png" id="1_o4muo"]
+[ext_resource type="Script" path="res://Level/Décor/Effet/Feu/feu_sol.gd" id="2_31c3o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kws2j"]
+atlas = ExtResource("1_o4muo")
+region = Rect2(0, 0, 14, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8cit"]
+atlas = ExtResource("1_o4muo")
+region = Rect2(14, 0, 14, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnqxk"]
+atlas = ExtResource("1_o4muo")
+region = Rect2(42, 0, 14, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x83v3"]
+atlas = ExtResource("1_o4muo")
+region = Rect2(28, 0, 14, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vrhtk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kws2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8cit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnqxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x83v3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6s4uw"]
+size = Vector2(10, 3)
+
+[node name="feu sol" type="AnimatedSprite2D"]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_vrhtk")
+frame_progress = 0.495638
+speed_scale = 2.0
+script = ExtResource("2_31c3o")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_6s4uw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

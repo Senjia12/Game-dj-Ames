@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbcwg8duvifad"]
+
+[ext_resource type="Texture2D" uid="uid://bfv1rotx43i4u" path="res://Level/Décor/Village/arbre brulé/arbre_feu_2.png" id="1_1io8u"]
+[ext_resource type="Script" path="res://Level/Décor/Village/arbre brulé/arbre_feu.gd" id="2_0qeyn"]
+[ext_resource type="PackedScene" uid="uid://dovjaq5ndtxrh" path="res://Level/Décor/Effet/Feu/particule feu point.tscn" id="2_l63a7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8l0i"]
+atlas = ExtResource("1_1io8u")
+region = Rect2(0, 0, 57, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjnho"]
+atlas = ExtResource("1_1io8u")
+region = Rect2(57, 0, 57, 87)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjfdd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8l0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjnho")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="arebre_feu_2" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_xjfdd")
+script = ExtResource("2_0qeyn")
+
+[node name="feu point" parent="." instance=ExtResource("2_l63a7")]
+position = Vector2(-13, 7)
+
+[node name="feu point2" parent="." instance=ExtResource("2_l63a7")]
+position = Vector2(-15, 1)
+
+[node name="feu point3" parent="." instance=ExtResource("2_l63a7")]
+position = Vector2(-18, -33)
+
+[node name="feu point4" parent="." instance=ExtResource("2_l63a7")]
+position = Vector2(10, -34)
+
+[node name="feu point5" parent="." instance=ExtResource("2_l63a7")]
+position = Vector2(19, -29)
