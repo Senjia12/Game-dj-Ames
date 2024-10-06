@@ -1,9 +1,16 @@
-[gd_scene load_steps=7 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=14 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="PackedScene" uid="uid://dcqu4ou8ax8un" path="res://Level/Décor/Village/maison 1/maison 1.tscn" id="2_w68xo"]
 [ext_resource type="PackedScene" uid="uid://bs10g4tv3jrsw" path="res://Level/Décor/Village/maison 2/maison_2.tscn" id="3_efe0o"]
 [ext_resource type="PackedScene" uid="uid://b63qt1vknke1" path="res://Level/Décor/Village/tour du mage/tour_du_mage.tscn" id="4_bb3nm"]
+[ext_resource type="Texture2D" uid="uid://dn4s04f3n85qq" path="res://Level/Décor/Prairie/arbre 2.png" id="5_i0rva"]
+[ext_resource type="Script" path="res://UI/ui.gd" id="5_ib1sl"]
+[ext_resource type="FontFile" uid="uid://bon0hj0i22w3e" path="res://UI/font pxl.ttf" id="6_2ynj0"]
+[ext_resource type="Texture2D" uid="uid://ca4dgbssyc8l8" path="res://Level/Décor/Prairie/arbre.png" id="6_7x6f4"]
+[ext_resource type="Texture2D" uid="uid://bfi75gpu4aalp" path="res://Level/Décor/Prairie/arbre 5.png" id="7_n42c8"]
+[ext_resource type="Texture2D" uid="uid://chp8jbgiberxj" path="res://Level/Décor/Prairie/arbre 3.png" id="8_20gs6"]
+[ext_resource type="Texture2D" uid="uid://hctrmkuvyifs" path="res://Level/Décor/Prairie/arbre 4.png" id="9_jscf0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klef5"]
 texture = ExtResource("1_8iq6g")
@@ -15,22 +22,259 @@ sources/0 = SubResource("TileSetAtlasSource_klef5")
 
 [node name="Game" type="Node2D"]
 
-[node name="route" type="TileMapLayer" parent="."]
+[node name="village" type="Node2D" parent="."]
+
+[node name="route" type="TileMapLayer" parent="village"]
 position = Vector2(0, 8)
 tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAD/////AAAAAAAAAAD+////AAAAAAAAAAD9////AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_8wvo0")
 
-[node name="Maison" parent="." instance=ExtResource("2_w68xo")]
-position = Vector2(-28, -32)
-
-[node name="Maison2" parent="." instance=ExtResource("2_w68xo")]
+[node name="Maison2" parent="village" instance=ExtResource("2_w68xo")]
 position = Vector2(80, -32)
 
-[node name="Maison3" parent="." instance=ExtResource("2_w68xo")]
+[node name="Maison3" parent="village" instance=ExtResource("2_w68xo")]
 position = Vector2(124, -32)
 
-[node name="maison 2" parent="." instance=ExtResource("3_efe0o")]
+[node name="maison 2" parent="village" instance=ExtResource("3_efe0o")]
 position = Vector2(36, -32)
 
-[node name="tour du mage" parent="." instance=ExtResource("4_bb3nm")]
+[node name="tour du mage" parent="village" instance=ExtResource("4_bb3nm")]
 position = Vector2(169, -32)
+
+[node name="Maison" parent="village" instance=ExtResource("2_w68xo")]
+position = Vector2(-28, -32)
+
+[node name="arbre" type="Sprite2D" parent="village"]
+z_index = -1
+position = Vector2(-13, -93)
+texture = ExtResource("5_i0rva")
+
+[node name="arbre2" type="Sprite2D" parent="village"]
+z_index = -1
+position = Vector2(55, -112)
+texture = ExtResource("5_i0rva")
+
+[node name="arbre3" type="Sprite2D" parent="village"]
+z_index = -1
+position = Vector2(101, -86)
+texture = ExtResource("5_i0rva")
+
+[node name="arbre5" type="Sprite2D" parent="village"]
+z_index = -1
+position = Vector2(7, -78)
+texture = ExtResource("6_7x6f4")
+
+[node name="arbre6" type="Sprite2D" parent="village"]
+z_index = -2
+position = Vector2(140, -98)
+texture = ExtResource("6_7x6f4")
+
+[node name="arbre7" type="Sprite2D" parent="village"]
+z_index = -2
+position = Vector2(23, -106)
+texture = ExtResource("7_n42c8")
+
+[node name="arbre8" type="Sprite2D" parent="village"]
+z_index = -2
+position = Vector2(95, -107)
+texture = ExtResource("7_n42c8")
+
+[node name="arbre9" type="Sprite2D" parent="village"]
+z_index = -2
+position = Vector2(-52, -92)
+texture = ExtResource("7_n42c8")
+
+[node name="arbre10" type="Sprite2D" parent="village"]
+z_index = -2
+position = Vector2(183, -105)
+texture = ExtResource("7_n42c8")
+
+[node name="arbre11" type="Sprite2D" parent="village"]
+position = Vector2(-70, -60)
+texture = ExtResource("7_n42c8")
+
+[node name="arbre12" type="Sprite2D" parent="village"]
+position = Vector2(-74, -36)
+texture = ExtResource("5_i0rva")
+
+[node name="arbre19" type="Sprite2D" parent="village"]
+z_index = 1
+position = Vector2(-64, 15)
+texture = ExtResource("5_i0rva")
+
+[node name="arbre20" type="Sprite2D" parent="village"]
+z_index = 1
+position = Vector2(-52, 37)
+texture = ExtResource("6_7x6f4")
+
+[node name="arbre21" type="Sprite2D" parent="village"]
+z_index = 1
+position = Vector2(-48, 55)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre22" type="Sprite2D" parent="village"]
+z_index = 1
+position = Vector2(-8, 40)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre23" type="Sprite2D" parent="village"]
+z_index = 2
+position = Vector2(41, 58)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre24" type="Sprite2D" parent="village"]
+z_index = 1
+position = Vector2(114, 41)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre25" type="Sprite2D" parent="village"]
+z_index = 1
+position = Vector2(208, 43)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre26" type="Sprite2D" parent="village"]
+z_index = 2
+position = Vector2(168, 71)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre27" type="Sprite2D" parent="village"]
+z_index = 1
+position = Vector2(17, 42)
+texture = ExtResource("9_jscf0")
+
+[node name="arbre13" type="Sprite2D" parent="village"]
+position = Vector2(-67, -18)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre14" type="Sprite2D" parent="village"]
+position = Vector2(215, -71)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre15" type="Sprite2D" parent="village"]
+z_index = -2
+position = Vector2(68, -87)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre16" type="Sprite2D" parent="village"]
+z_index = -2
+position = Vector2(2, -70)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre17" type="Sprite2D" parent="village"]
+z_index = -2
+position = Vector2(-30, -79)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre18" type="Sprite2D" parent="village"]
+z_index = -2
+position = Vector2(141, -77)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre4" type="Sprite2D" parent="village"]
+position = Vector2(205, -75.5)
+texture = ExtResource("5_i0rva")
+
+[node name="arbre28" type="Sprite2D" parent="village"]
+z_index = 1
+position = Vector2(71, 47)
+texture = ExtResource("5_i0rva")
+
+[node name="arbre29" type="Sprite2D" parent="village"]
+z_index = 1
+position = Vector2(157, 51)
+texture = ExtResource("5_i0rva")
+
+[node name="arbre30" type="Sprite2D" parent="village"]
+z_index = 1
+position = Vector2(103, 76)
+texture = ExtResource("5_i0rva")
+
+[node name="arbre31" type="Sprite2D" parent="village"]
+z_index = 1
+position = Vector2(-16, 81)
+texture = ExtResource("5_i0rva")
+
+[node name="arbre32" type="Sprite2D" parent="village"]
+z_index = 2
+position = Vector2(12, 87)
+texture = ExtResource("7_n42c8")
+
+[node name="arbre33" type="Sprite2D" parent="village"]
+z_index = 2
+position = Vector2(64, 97)
+texture = ExtResource("7_n42c8")
+
+[node name="arbre34" type="Sprite2D" parent="village"]
+z_index = 2
+position = Vector2(131, 93)
+texture = ExtResource("7_n42c8")
+
+[node name="arbre35" type="Sprite2D" parent="village"]
+z_index = 2
+position = Vector2(198, 84)
+texture = ExtResource("7_n42c8")
+
+[node name="arbre37" type="Sprite2D" parent="village"]
+z_index = 2
+position = Vector2(-99, 41)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre38" type="Sprite2D" parent="village"]
+z_index = -1
+position = Vector2(-108, -62)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre39" type="Sprite2D" parent="village"]
+z_index = -1
+position = Vector2(-111, -21)
+texture = ExtResource("9_jscf0")
+
+[node name="arbre40" type="Sprite2D" parent="village"]
+z_index = -1
+position = Vector2(-111, 29)
+texture = ExtResource("5_i0rva")
+
+[node name="arbre41" type="Sprite2D" parent="village"]
+z_index = -1
+position = Vector2(51, -78)
+texture = ExtResource("8_20gs6")
+
+[node name="arbre36" type="Sprite2D" parent="village"]
+z_index = 2
+position = Vector2(-75, 77)
+texture = ExtResource("7_n42c8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="village"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="village/StaticBody2D"]
+visible = false
+polygon = PackedVector2Array(223, -33, -55, -32, -56, 33, 223, 31, 215, 134, -13, 145, -119, 77, -124, -71, -34, -111, 227, -104)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_ib1sl")
+
+[node name="press e" type="Label" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.5
+offset_top = -148.0
+offset_right = 73.5
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_2ynj0")
+text = "Press E to interact"
