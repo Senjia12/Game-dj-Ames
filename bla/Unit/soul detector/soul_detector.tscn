@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbupulttciuby"]
+
+[ext_resource type="Script" path="res://Unit/soul detector/soul_detector.gd" id="1_tq5rd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ufxb1"]
+radius = 164.003
+
+[sub_resource type="Animation" id="Animation_0uvny"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1.78814e-07)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.6, 0.894118, 0.152941)]
+}
+
+[sub_resource type="Animation" id="Animation_qeonc"]
+resource_name = "scan"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1.78814e-07), Vector2(400, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.633333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.6, 0.894118, 0.152941), Color(0, 0.6, 0.894118, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v6afr"]
+_data = {
+"RESET": SubResource("Animation_0uvny"),
+"scan": SubResource("Animation_qeonc")
+}
+
+[sub_resource type="SphereMesh" id="SphereMesh_qkayj"]
+
+[node name="soul detector" type="Node2D"]
+script = ExtResource("1_tq5rd")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_ufxb1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v6afr")
+}
+speed_scale = 1.5
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0.6, 0.894118, 0.152941)
+z_index = 50
+position = Vector2(0, -8.94069e-08)
+scale = Vector2(1e-05, 1e-05)
+mesh = SubResource("SphereMesh_qkayj")

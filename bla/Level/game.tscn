@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=40 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="Texture2D" uid="uid://2q8lx3x5n3dl" path="res://Level/Décor/Prairie/Tile_dherbe.png" id="1_om7bl"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://bp7nj3jn3eudd" path="res://Level/Décor/Village/arbre brulé/arbre_feu_4.tscn" id="14_5tgih"]
 [ext_resource type="PackedScene" uid="uid://cgpwhvfopas3p" path="res://Level/Décor/Village/arbre brulé/arbre_feu_5.tscn" id="15_wmllm"]
 [ext_resource type="PackedScene" uid="uid://deb32hb4c86on" path="res://Level/Décor/Village/arbre brulé/arbre_feu_1.tscn" id="16_qhkgf"]
+[ext_resource type="PackedScene" uid="uid://bbupulttciuby" path="res://Unit/soul detector/soul_detector.tscn" id="22_chmqr"]
+[ext_resource type="PackedScene" uid="uid://d2mamrqjwbeff" path="res://Unit/soul/soul.tscn" id="23_juvpv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klef5"]
 texture = ExtResource("1_8iq6g")
@@ -252,6 +254,21 @@ sources/2 = SubResource("TileSetAtlasSource_43els")
 sources/3 = SubResource("TileSetAtlasSource_aiwnn")
 sources/4 = SubResource("TileSetAtlasSource_ycl8a")
 
+[sub_resource type="Animation" id="Animation_j1rey"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dmg:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.231373, 0.164706, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ck84q"]
 resource_name = "dmg"
 length = 2.0
@@ -266,21 +283,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 0.231373, 0.164706, 0), Color(1, 0.231373, 0.164706, 0.372549), Color(1, 0.231373, 0.164706, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_j1rey"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("dmg:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0.231373, 0.164706, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lq6uo"]
@@ -988,3 +990,8 @@ libraries = {
 }
 
 [node name="Player" parent="." instance=ExtResource("12_l25pa")]
+
+[node name="soul detector" parent="." instance=ExtResource("22_chmqr")]
+
+[node name="Soul" parent="." instance=ExtResource("23_juvpv")]
+position = Vector2(12, -14)
