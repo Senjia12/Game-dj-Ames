@@ -1906,6 +1906,26 @@ texture = ExtResource("25_upair")
 
 [node name="Player" parent="." instance=ExtResource("12_l25pa")]
 
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Player"]
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Player"]
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Player"]
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Player"]
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Player"]
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Player"]
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Player"]
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Player"]
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Player"]
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Player"]
+
 [node name="soul detector" parent="." instance=ExtResource("22_chmqr")]
 
 [node name="day night" type="AnimationPlayer" parent="."]
@@ -1915,5 +1935,7 @@ libraries = {
 speed_scale = 0.1
 script = ExtResource("23_4xs1l")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="day night"]
+[node name="CanvasModulate" type="CanvasModulate" parent="day night" groups=["player"]]
 position = Vector2(2, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="day night/CanvasModulate"]
