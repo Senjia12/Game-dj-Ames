@@ -27,6 +27,7 @@ animations = [{
 }]
 
 [node name="arbre_feu_4" type="AnimatedSprite2D"]
+position = Vector2(-4, -43)
 sprite_frames = SubResource("SpriteFrames_xwmnj")
 script = ExtResource("2_ivov3")
 
