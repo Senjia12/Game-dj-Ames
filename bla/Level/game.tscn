@@ -489,7 +489,7 @@ position = Vector2(-30, -71)
 
 [node name="particule feu7" parent="village" instance=ExtResource("12_l0c8p")]
 y_sort_enabled = true
-position = Vector2(17, -53)
+position = Vector2(17, -63)
 
 [node name="particule feu8" parent="village" instance=ExtResource("12_l0c8p")]
 y_sort_enabled = true
@@ -582,7 +582,7 @@ position = Vector2(184, -110)
 
 [node name="arbre_feu_11" parent="village" instance=ExtResource("15_wmllm")]
 y_sort_enabled = true
-position = Vector2(-67, -44)
+position = Vector2(-69, -35)
 
 [node name="arbre_feu_12" parent="village" instance=ExtResource("15_wmllm")]
 y_sort_enabled = true
