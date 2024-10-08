@@ -26,28 +26,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="arbre_feu_4" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
+[node name="arbre_feu_4" type="AnimatedSprite2D"]
 position = Vector2(-4, -43)
 sprite_frames = SubResource("SpriteFrames_xwmnj")
 script = ExtResource("2_ivov3")
 
-[node name="feu point" parent="arbre_feu_4" instance=ExtResource("3_obp7h")]
+[node name="feu point" parent="." instance=ExtResource("3_obp7h")]
 position = Vector2(-17, -32)
 
-[node name="feu point2" parent="arbre_feu_4" instance=ExtResource("3_obp7h")]
+[node name="feu point2" parent="." instance=ExtResource("3_obp7h")]
 position = Vector2(-8, -36)
 
-[node name="feu point3" parent="arbre_feu_4" instance=ExtResource("3_obp7h")]
+[node name="feu point3" parent="." instance=ExtResource("3_obp7h")]
 position = Vector2(0, -38)
 
-[node name="feu point4" parent="arbre_feu_4" instance=ExtResource("3_obp7h")]
+[node name="feu point4" parent="." instance=ExtResource("3_obp7h")]
 position = Vector2(14, -35)
 
-[node name="feu point5" parent="arbre_feu_4" instance=ExtResource("3_obp7h")]
+[node name="feu point5" parent="." instance=ExtResource("3_obp7h")]
 position = Vector2(21, -32)
 
-[node name="feu point6" parent="arbre_feu_4" instance=ExtResource("3_obp7h")]
+[node name="feu point6" parent="." instance=ExtResource("3_obp7h")]
 position = Vector2(26, -4)
