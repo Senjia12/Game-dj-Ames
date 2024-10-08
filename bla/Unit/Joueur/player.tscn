@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://wmypuowe8xvb" path="res://Unit/Joueur/joueur idle.png" id="2_6qa3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hqjl"]
+size = Vector2(6, 4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mn75f"]
 atlas = ExtResource("2_6qa3j")
@@ -27,16 +28,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_1bhd3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_0hqjl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_8c61l")
