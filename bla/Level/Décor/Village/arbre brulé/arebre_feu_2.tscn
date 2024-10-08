@@ -27,21 +27,21 @@ animations = [{
 }]
 
 [node name="arebre_feu_2" type="AnimatedSprite2D"]
-position = Vector2(-3, -43)
 sprite_frames = SubResource("SpriteFrames_xjfdd")
+offset = Vector2(0, -43.5)
 script = ExtResource("2_0qeyn")
 
 [node name="feu point" parent="." instance=ExtResource("2_l63a7")]
-position = Vector2(-13, 7)
+position = Vector2(-11, -40)
 
 [node name="feu point2" parent="." instance=ExtResource("2_l63a7")]
-position = Vector2(-15, 1)
+position = Vector2(-14, -41)
 
 [node name="feu point3" parent="." instance=ExtResource("2_l63a7")]
-position = Vector2(-18, -33)
+position = Vector2(-17, -75)
 
 [node name="feu point4" parent="." instance=ExtResource("2_l63a7")]
-position = Vector2(10, -34)
+position = Vector2(11, -76)
 
 [node name="feu point5" parent="." instance=ExtResource("2_l63a7")]
-position = Vector2(19, -29)
+position = Vector2(20, -71)

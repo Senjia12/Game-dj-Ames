@@ -27,23 +27,23 @@ animations = [{
 }]
 
 [node name="arbre feu 1" type="AnimatedSprite2D"]
-position = Vector2(1, -35)
 sprite_frames = SubResource("SpriteFrames_2ubvi")
 frame = 1
 frame_progress = 0.199264
+offset = Vector2(0, -35)
 script = ExtResource("2_aj2q1")
 
 [node name="GPUParticles2D" parent="." instance=ExtResource("3_it1eh")]
-position = Vector2(-16, -5)
+position = Vector2(-16, -41)
 
 [node name="GPUParticles2D2" parent="." instance=ExtResource("3_it1eh")]
-position = Vector2(-14, -23)
+position = Vector2(-14, -59)
 
 [node name="GPUParticles2D3" parent="." instance=ExtResource("3_it1eh")]
-position = Vector2(8, -29)
+position = Vector2(8, -65)
 
 [node name="GPUParticles2D4" parent="." instance=ExtResource("3_it1eh")]
-position = Vector2(17, -21)
+position = Vector2(17, -57)
 
 [node name="GPUParticles2D5" parent="." instance=ExtResource("3_it1eh")]
-position = Vector2(10, 5)
+position = Vector2(10, -31)
