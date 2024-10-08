@@ -35,9 +35,9 @@ size = Vector2(10, 6)
 script = ExtResource("1_42uot")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -59)
 sprite_frames = SubResource("SpriteFrames_i5r1l")
 speed_scale = 0.0
+offset = Vector2(0, -59)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
