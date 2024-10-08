@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwswub0u8qanb"]
+[gd_scene load_steps=12 format=3 uid="uid://cwswub0u8qanb"]
 
 [ext_resource type="Script" path="res://Unit/Joueur/player.gd" id="1_1bhd3"]
-[ext_resource type="Texture2D" uid="uid://wmypuowe8xvb" path="res://Unit/Joueur/joueur idle.png" id="2_6qa3j"]
+[ext_resource type="Texture2D" uid="uid://wmypuowe8xvb" path="res://Unit/Joueur/joueur_idle.png" id="2_6qa3j"]
+[ext_resource type="Texture2D" uid="uid://c6d34i7av3uaj" path="res://Unit/Joueur/joueur_run.png" id="3_17vfp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hqjl"]
 size = Vector2(6, 4)
@@ -13,6 +14,22 @@ region = Rect2(0, 0, 10, 15)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1uv58"]
 atlas = ExtResource("2_6qa3j")
 region = Rect2(10, 0, 10, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4qcm"]
+atlas = ExtResource("3_17vfp")
+region = Rect2(0, 0, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76rx3"]
+atlas = ExtResource("3_17vfp")
+region = Rect2(12, 0, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boopr"]
+atlas = ExtResource("3_17vfp")
+region = Rect2(24, 0, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o67f7"]
+atlas = ExtResource("3_17vfp")
+region = Rect2(36, 0, 12, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8c61l"]
 animations = [{
@@ -26,6 +43,23 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4qcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76rx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boopr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o67f7")
+}],
+"loop": true,
+"name": &"walking player",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -35,6 +69,7 @@ script = ExtResource("1_1bhd3")
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_0hqjl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="idle player" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8c61l")
+speed_scale = 0.3
 offset = Vector2(0, -7)
