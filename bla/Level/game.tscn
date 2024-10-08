@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=74 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="Texture2D" uid="uid://2q8lx3x5n3dl" path="res://Level/Décor/Prairie/Tile_dherbe.png" id="1_om7bl"]
@@ -35,7 +35,6 @@
 [ext_resource type="Script" path="res://Level/day_night.gd" id="23_4xs1l"]
 [ext_resource type="Texture2D" uid="uid://clksy14mehqbh" path="res://Level/Décor/Prairie/Pave_1.png" id="23_tt6vj"]
 [ext_resource type="Texture2D" uid="uid://v6o8rsxhwhmo" path="res://Level/Décor/Prairie/Pave_2.png" id="24_ac0kq"]
-[ext_resource type="Texture2D" uid="uid://boiiujdyrwdum" path="res://Level/Décor/motagne + point de vue/Ciel_vue_badasse.png" id="25_upair"]
 [ext_resource type="Texture2D" uid="uid://cbdldis862pg" path="res://Level/Décor/Prairie/Pave_3.png" id="25_w4p3i"]
 [ext_resource type="Texture2D" uid="uid://co6s0lffpigr8" path="res://Level/Décor/Prairie/Pave_4.png" id="26_bw248"]
 [ext_resource type="Texture2D" uid="uid://caylyeqt0pyl" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_1.png" id="33_jrqys"]
@@ -2040,14 +2039,6 @@ libraries = {
 "": SubResource("AnimationLibrary_lq6uo")
 }
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="CielVueBadasse" type="Sprite2D" parent="ParallaxBackground"]
-position = Vector2(630, -568)
-texture = ExtResource("25_upair")
-
 [node name="soul detector" parent="." instance=ExtResource("22_chmqr")]
 
 [node name="day night" type="AnimationPlayer" parent="."]
@@ -2065,3 +2056,5 @@ position = Vector2(2, 0)
 [node name="Player" parent="." instance=ExtResource("12_l25pa")]
 process_mode = 3
 position = Vector2(15, -23)
+
+[node name="Camera2D" type="Camera2D" parent="."]
