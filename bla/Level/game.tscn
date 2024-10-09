@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=99 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="Texture2D" uid="uid://2q8lx3x5n3dl" path="res://Level/Décor/Prairie/Tile_dherbe.png" id="1_om7bl"]
@@ -51,6 +51,45 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uur4i"]
 size = Vector2(48, 84.986)
+
+[sub_resource type="Animation" id="Animation_qiu7v"]
+resource_name = "transi"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transi/MeshInstance2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pwdwl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transi/MeshInstance2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q68w2"]
+_data = {
+"RESET": SubResource("Animation_pwdwl"),
+"transi": SubResource("Animation_qiu7v")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_isv8e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klef5"]
 texture = ExtResource("1_8iq6g")
@@ -523,6 +562,18 @@ script = ExtResource("15_phhvv")
 position = Vector2(-112.744, 12.8505)
 rotation = -0.771057
 shape = SubResource("RectangleShape2D_uur4i")
+
+[node name="transi" type="AnimationPlayer" parent="village/GrotteDuDragon"]
+libraries = {
+"": SubResource("AnimationLibrary_q68w2")
+}
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="village/GrotteDuDragon/transi"]
+modulate = Color(1, 1, 1, 0)
+z_index = 4096
+position = Vector2(795.5, -6.00004)
+scale = Vector2(2991, 1634)
+mesh = SubResource("BoxMesh_isv8e")
 
 [node name="route" type="TileMapLayer" parent="village"]
 z_index = -1
@@ -2581,7 +2632,7 @@ position = Vector2(2, 0)
 
 [node name="Player" parent="." instance=ExtResource("12_l25pa")]
 process_mode = 3
-position = Vector2(879, 27)
+position = Vector2(1001, 9)
 
 [node name="Cam Controller" parent="." instance=ExtResource("45_v5qgh")]
 
@@ -2718,7 +2769,16 @@ motion_mirroring = Vector2(758, 0)
 position = Vector2(0, 92.5)
 texture = ExtResource("46_1u8yh")
 
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-758, 92.5)
+texture = ExtResource("46_1u8yh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(758, 92.5)
+texture = ExtResource("46_1u8yh")
+
 [connection signal="body_entered" from="village/GrotteDuDragon/Area2D" to="village/GrotteDuDragon" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="village/GrotteDuDragon/Area2D" to="village/GrotteDuDragon" method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="village/GrotteDuDragon/transi" to="village/GrotteDuDragon" method="_on_transi_animation_finished"]
 [connection signal="body_entered" from="village/intérieur/int_detect" to="village/intérieur/int_detect" method="_on_body_entered"]
 [connection signal="body_exited" from="village/intérieur/int_detect" to="village/intérieur/int_detect" method="_on_body_exited"]

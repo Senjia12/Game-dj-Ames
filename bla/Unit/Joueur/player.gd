@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	Globals.player = self
 
 func _physics_process(delta):
