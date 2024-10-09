@@ -8,6 +8,7 @@ func _physics_process(delta):
 	var idle_player = $"idle player"
 	velocity.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	velocity.y = Input.get_action_strength("bottom") - Input.get_action_strength("top")
+	velocity = velocity.normalized()
 	velocity *= 50
 	
 	if velocity.length() > 0:
