@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 func _enter_tree() -> void:
 	Globals.player = self
 
@@ -13,6 +12,7 @@ func _physics_process(delta):
 	sword_direction = sword_direction.normalized()
 	
 	$sword.look_at(mouse_position)
+	$sword.rotation_degrees += 90
 	$sword.show()
 	
 	velocity.x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -32,7 +32,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if $sword.global_position.distance_to(global_position) > 20:
-		$sword.position = (global_position - $sword.global_position).normalized() * 10
+		$sword.position = ($sword.global_position - global_position).normalized() * 10
 				
 	if Input.is_action_just_pressed("espace") == true:
 		$sword.play("sword_attack")
