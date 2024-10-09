@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0stg7wvum1ci"]
+
+[ext_resource type="Texture2D" uid="uid://uubi1f1de04n" path="res://Level/Livre de compétence/livre_des_Ames_1.png" id="1_sxii5"]
+[ext_resource type="Script" path="res://Level/Livre de compétence/book.gd" id="2_jti5g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62p6d"]
+radius = 11.0
+
+[node name="book" type="Sprite2D"]
+texture = ExtResource("1_sxii5")
+script = ExtResource("2_jti5g")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_62p6d")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

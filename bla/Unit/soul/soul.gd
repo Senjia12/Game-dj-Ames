@@ -16,10 +16,12 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") && player_in:
-		current_text += 1
+		blabla.visible_characters = 0
 		blabla.text = "[wave amp=20][center][i]" + talk[current_text] + "[/i][/center][/wave]"
+		current_text += 1
+		if current_text == talk.size():
+			current_text = 0
 		$"text display 2".start()
-		
 
 
 func activate():
@@ -43,9 +45,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_in = false
-		$"text display 2".stop()
-		current_text = 0
-		blabla.text = "[wave amp=20][center][i]" + talk[current_text] + "[/i][/center][/wave]"
 
 
 func _on_text_display_2_timeout() -> void:
