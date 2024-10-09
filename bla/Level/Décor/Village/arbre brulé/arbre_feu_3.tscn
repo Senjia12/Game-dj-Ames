@@ -32,13 +32,13 @@ offset = Vector2(0, -29.5)
 script = ExtResource("2_xm6ca")
 
 [node name="feu point" parent="." instance=ExtResource("3_iswar")]
-position = Vector2(-13, -55)
+position = Vector2(-9, -55)
 
 [node name="feu point2" parent="." instance=ExtResource("3_iswar")]
-position = Vector2(-2, -54)
+position = Vector2(1, -53)
 
 [node name="feu point3" parent="." instance=ExtResource("3_iswar")]
-position = Vector2(14, -55)
+position = Vector2(11, -51)
 
 [node name="feu point4" parent="." instance=ExtResource("3_iswar")]
-position = Vector2(-7, -55)
+position = Vector2(-19, -52)

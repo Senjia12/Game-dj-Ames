@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm4p41d4srv03"]
+
+[ext_resource type="Script" path="res://Level/cam_controller.gd" id="1_qr353"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h6flm"]
+
+[node name="Cam Controller" type="Camera2D"]
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+script = ExtResource("1_qr353")
+
+[node name="cam limiter" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cam limiter"]
+shape = SubResource("CircleShape2D_h6flm")
+
+[connection signal="area_entered" from="cam limiter" to="." method="_on_cam_limiter_area_entered"]
+[connection signal="area_exited" from="cam limiter" to="." method="_on_cam_limiter_area_exited"]

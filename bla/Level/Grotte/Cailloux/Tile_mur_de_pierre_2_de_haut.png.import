@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg14re78kw3j6"
-path="res://.godot/imported/Tile_mur_de_pierre_3.png-2d1e744c6b0097e76325edab350e30a9.ctex"
+uid="uid://dtrsyrdy86xbm"
+path="res://.godot/imported/Tile_mur_de_pierre_2_de_haut.png-a16f42d5f6f76896eafb058a5c472784.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/Grotte/Cailloux/Tile_mur_de_pierre_3.png"
-dest_files=["res://.godot/imported/Tile_mur_de_pierre_3.png-2d1e744c6b0097e76325edab350e30a9.ctex"]
+source_file="res://Level/Grotte/Cailloux/Tile_mur_de_pierre_2_de_haut.png"
+dest_files=["res://.godot/imported/Tile_mur_de_pierre_2_de_haut.png-a16f42d5f6f76896eafb058a5c472784.ctex"]
 
 [params]
 

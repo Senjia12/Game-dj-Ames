@@ -44,8 +44,8 @@
 [ext_resource type="Texture2D" uid="uid://8r0yo4xdsp4h" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_3.png" id="35_od2ys"]
 [ext_resource type="Texture2D" uid="uid://cxsnkmigs5bu5" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_4.png" id="36_637gu"]
 [ext_resource type="Texture2D" uid="uid://h354eet7pk0p" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_5.png" id="37_u5eci"]
+[ext_resource type="Script" path="res://Level/cam_controller.gd" id="43_6ya4a"]
 [ext_resource type="Script" path="res://Level/cam limiter.gd" id="44_bbdl7"]
-[ext_resource type="PackedScene" uid="uid://dm4p41d4srv03" path="res://UI/cam_controller.tscn" id="45_v5qgh"]
 [ext_resource type="Texture2D" uid="uid://boiiujdyrwdum" path="res://Level/Décor/motagne + point de vue/Ciel_vue_badasse.png" id="46_1u8yh"]
 [ext_resource type="Script" path="res://Level/parallax_background.gd" id="46_26sb1"]
 
@@ -240,8 +240,6 @@ sources/1 = SubResource("TileSetAtlasSource_04jyh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qelq7"]
 size = Vector2(112, 92)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jxqdx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3m0qn"]
 atlas = ExtResource("21_7gulb")
@@ -469,14 +467,16 @@ _data = {
 "day night cycle": SubResource("Animation_65846")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_h6flm"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83m3b"]
 size = Vector2(51.5, 76.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqjab"]
-size = Vector2(199, 92.5)
+size = Vector2(197, 76.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whiyv"]
-size = Vector2(182, 48)
+size = Vector2(182, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1skj8"]
 size = Vector2(294, 75)
@@ -494,7 +494,7 @@ size = Vector2(92, 337.303)
 size = Vector2(92, 200.932)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dtol"]
-size = Vector2(92, 252.846)
+size = Vector2(92, 265.392)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7jhy"]
 size = Vector2(92, 177.868)
@@ -574,13 +574,6 @@ out_pos = Vector2(80, -40)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="village/intérieur/int_detect"]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_qelq7")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="village/intérieur"]
-modulate = Color(0.0737439, 0.0641776, 0.0385264, 1)
-z_index = -5
-position = Vector2(-383, 97)
-scale = Vector2(344, 612)
-mesh = SubResource("BoxMesh_jxqdx")
 
 [node name="particule feu6" parent="village" instance=ExtResource("12_l0c8p")]
 y_sort_enabled = true
@@ -2581,13 +2574,24 @@ position = Vector2(2, 0)
 
 [node name="Player" parent="." instance=ExtResource("12_l25pa")]
 process_mode = 3
-position = Vector2(879, 27)
+position = Vector2(880, 31)
 
-[node name="Cam Controller" parent="." instance=ExtResource("45_v5qgh")]
+[node name="Cam Controller" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+script = ExtResource("43_6ya4a")
+
+[node name="cam limiter" type="Area2D" parent="Cam Controller"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cam Controller/cam limiter"]
+shape = SubResource("CircleShape2D_h6flm")
 
 [node name="Cam limiter" type="Node2D" parent="."]
 
 [node name="8" type="Area2D" parent="Cam limiter"]
+visible = false
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("44_bbdl7")
@@ -2599,6 +2603,7 @@ position = Vector2(-20.75, 0.25)
 shape = SubResource("RectangleShape2D_83m3b")
 
 [node name="7" type="Area2D" parent="Cam limiter"]
+visible = false
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("44_bbdl7")
@@ -2606,7 +2611,7 @@ target_y = -40
 zoom = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cam limiter/7"]
-position = Vector2(106.5, -7.75)
+position = Vector2(105.5, 0.25)
 shape = SubResource("RectangleShape2D_fqjab")
 
 [node name="3" type="Area2D" parent="Cam limiter"]
@@ -2614,11 +2619,11 @@ position = Vector2(985, 2)
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("44_bbdl7")
-target_y = -25
+target_y = 1
 zoom = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cam limiter/3"]
-position = Vector2(0, 10)
+position = Vector2(0, 25.5)
 shape = SubResource("RectangleShape2D_whiyv")
 
 [node name="2" type="Area2D" parent="Cam limiter"]
@@ -2644,6 +2649,7 @@ position = Vector2(-355, -428.5)
 shape = SubResource("RectangleShape2D_1skj8")
 
 [node name="5" type="Area2D" parent="Cam limiter"]
+visible = false
 position = Vector2(719, 276)
 collision_layer = 128
 collision_mask = 128
@@ -2654,6 +2660,7 @@ zoom = 5
 shape = SubResource("RectangleShape2D_thji4")
 
 [node name="6" type="Area2D" parent="Cam limiter"]
+visible = false
 position = Vector2(719, 276)
 collision_layer = 128
 collision_mask = 128
@@ -2688,7 +2695,7 @@ rotation = -2.53028
 shape = SubResource("RectangleShape2D_6131f")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Cam limiter/6"]
-position = Vector2(-492, -453)
+position = Vector2(-492, -444)
 rotation = -3.0893
 shape = SubResource("RectangleShape2D_7dtol")
 
@@ -2722,3 +2729,5 @@ texture = ExtResource("46_1u8yh")
 [connection signal="body_exited" from="village/GrotteDuDragon/Area2D" to="village/GrotteDuDragon" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="village/intérieur/int_detect" to="village/intérieur/int_detect" method="_on_body_entered"]
 [connection signal="body_exited" from="village/intérieur/int_detect" to="village/intérieur/int_detect" method="_on_body_exited"]
+[connection signal="area_entered" from="Cam Controller/cam limiter" to="Cam Controller" method="_on_cam_limiter_area_entered"]
+[connection signal="area_exited" from="Cam Controller/cam limiter" to="Cam Controller" method="_on_cam_limiter_area_exited"]
