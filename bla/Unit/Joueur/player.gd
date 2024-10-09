@@ -31,8 +31,8 @@ func _physics_process(delta):
 		idle_player.speed_scale = 0.3
 	move_and_slide()
 	
-	if $sword.position.distance_to(player_position) > 20:
-		$sword.position = (global_position - $sword.global_position).normalized() * 20
+	if $sword.global_position.distance_to(global_position) > 20:
+		$sword.position = (global_position - $sword.global_position).normalized() * 10
 				
 	if Input.is_action_just_pressed("espace") == true:
 		$sword.play("sword_attack")
