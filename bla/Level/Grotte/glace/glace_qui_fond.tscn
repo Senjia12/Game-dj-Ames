@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://bl86f3tajgy2"]
+
+[ext_resource type="Script" path="res://Level/Grotte/glace/glace_qui_fond.gd" id="1_prs53"]
+[ext_resource type="Texture2D" uid="uid://fqlh2culqel1" path="res://Level/Grotte/glace/Tiles_3x3_glace_qui_fond.png" id="1_rmsg5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co758"]
+atlas = ExtResource("1_rmsg5")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dert3"]
+atlas = ExtResource("1_rmsg5")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tm4i"]
+atlas = ExtResource("1_rmsg5")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tagnt"]
+atlas = ExtResource("1_rmsg5")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opqox"]
+atlas = ExtResource("1_rmsg5")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q0wx"]
+atlas = ExtResource("1_rmsg5")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1ueq"]
+atlas = ExtResource("1_rmsg5")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq7et"]
+atlas = ExtResource("1_rmsg5")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8f7qj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co758")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dert3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tm4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tagnt")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opqox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3q0wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1ueq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq7et")
+}],
+"loop": false,
+"name": &"rebuild",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc6wl"]
+size = Vector2(48, 48)
+
+[node name="glace qui fond" type="Area2D"]
+script = ExtResource("1_prs53")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_8f7qj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yc6wl")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
