@@ -1,5 +1,12 @@
 extends CharacterBody2D
 
+
+@onready var attack_area: Area2D = $sword/attack_area
+@onready var dash_cd: Timer = $"dash cd"
+@onready var dash_duration: Timer = $"dash duration"
+@onready var attack_cd: Timer = $"attack cd"
+
+
 func _enter_tree() -> void:
 	Globals.player = self
 
@@ -32,7 +39,27 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if $sword.global_position.distance_to(global_position) > 20:
-		$sword.position = ($sword.global_position - global_position).normalized() * 10
+		$sword.position = (global_position - $sword.global_position).normalized() * 10
 				
 	if Input.is_action_just_pressed("espace") == true:
 		$sword.play("sword_attack")
+
+
+func _on_attack_cd_timeout() -> void:
+	pass # Replace with function body.
+
+
+func _on_dash_duration_timeout() -> void:
+	pass # Replace with function body.
+
+
+func _on_dash_cd_timeout() -> void:
+	pass # Replace with function body.
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_attack_area_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.

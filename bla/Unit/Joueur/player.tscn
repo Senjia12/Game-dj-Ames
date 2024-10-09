@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cwswub0u8qanb"]
+[gd_scene load_steps=21 format=3 uid="uid://cwswub0u8qanb"]
 
 [ext_resource type="Script" path="res://Unit/Joueur/player.gd" id="1_1bhd3"]
 [ext_resource type="Texture2D" uid="uid://wmypuowe8xvb" path="res://Unit/Joueur/joueur_idle.png" id="2_6qa3j"]
@@ -122,6 +122,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8w20"]
+size = Vector2(7, 7)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_1bhd3")
 
@@ -140,3 +143,27 @@ offset = Vector2(0, -7)
 position = Vector2(-19, -3)
 sprite_frames = SubResource("SpriteFrames_u0ofu")
 animation = &"sword_attack"
+
+[node name="attack_area" type="Area2D" parent="sword"]
+position = Vector2(19, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sword/attack_area"]
+position = Vector2(-18, -3)
+shape = SubResource("RectangleShape2D_x8w20")
+
+[node name="dash cd" type="Timer" parent="."]
+one_shot = true
+
+[node name="dash duration" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="attack cd" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="sword/attack_area" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="sword/attack_area" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="dash cd" to="." method="_on_dash_cd_timeout"]
+[connection signal="timeout" from="dash duration" to="." method="_on_dash_duration_timeout"]
+[connection signal="timeout" from="attack cd" to="." method="_on_attack_cd_timeout"]
