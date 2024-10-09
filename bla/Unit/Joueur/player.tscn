@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwswub0u8qanb"]
+[gd_scene load_steps=19 format=3 uid="uid://cwswub0u8qanb"]
 
 [ext_resource type="Script" path="res://Unit/Joueur/player.gd" id="1_1bhd3"]
 [ext_resource type="Texture2D" uid="uid://wmypuowe8xvb" path="res://Unit/Joueur/joueur_idle.png" id="2_6qa3j"]
 [ext_resource type="Texture2D" uid="uid://c6d34i7av3uaj" path="res://Unit/Joueur/joueur_run.png" id="3_17vfp"]
+[ext_resource type="Texture2D" uid="uid://cgws10si06i4k" path="res://Unit/Joueur/Attaque_epee.png" id="3_rxnk6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s1b7y"]
 radius = 2.0
@@ -15,6 +16,30 @@ region = Rect2(0, 0, 10, 15)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1uv58"]
 atlas = ExtResource("2_6qa3j")
 region = Rect2(10, 0, 10, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkshr"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(0, 0, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noqpt"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(8, 0, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3jnf"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(32, 0, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lx63"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(40, 0, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0hck"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(16, 0, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utgyy"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(24, 0, 8, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4qcm"]
 atlas = ExtResource("3_17vfp")
@@ -47,6 +72,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_gkshr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noqpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3jnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lx63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0hck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utgyy")
+}],
+"loop": true,
+"name": &"sword_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_s4qcm")
 }, {
 "duration": 1.0,
@@ -73,5 +121,6 @@ shape = SubResource("CapsuleShape2D_s1b7y")
 
 [node name="idle player" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8c61l")
+animation = &"walking player"
 speed_scale = 0.3
 offset = Vector2(0, -7)
