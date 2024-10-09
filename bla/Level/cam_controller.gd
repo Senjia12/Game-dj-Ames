@@ -35,15 +35,16 @@ func inside_room(pos):
 
 
 func _on_cam_limiter_area_entered(area: Area2D) -> void:
-	targeted_zoom = float(str(area.name))
+	targeted_zoom = area.zoom
 	target_diff = area.pos_diff
 	target_y = area.target_y
-	zoom = lerp(zoom,Vector2(targeted_zoom,targeted_zoom),0.1)
 	
 
 
 func _on_cam_limiter_area_exited(area: Area2D) -> void:
 	if $"cam limiter".get_overlapping_areas() == []:
-		targeted_zoom = 5.0
+		targeted_zoom = 4.0
 		target_y = 0.0
 		target_diff = Vector2.ZERO
+	else:
+		_on_cam_limiter_area_entered($"cam limiter".get_overlapping_areas()[0])

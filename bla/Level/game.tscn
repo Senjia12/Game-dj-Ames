@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=95 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="Texture2D" uid="uid://2q8lx3x5n3dl" path="res://Level/Décor/Prairie/Tile_dherbe.png" id="1_om7bl"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dm7kvvmp8djqc" path="res://Level/Décor/Village/arbre brulé/arbre_feu_3.tscn" id="13_wb7f7"]
 [ext_resource type="PackedScene" uid="uid://bp7nj3jn3eudd" path="res://Level/Décor/Village/arbre brulé/arbre_feu_4.tscn" id="14_5tgih"]
 [ext_resource type="Texture2D" uid="uid://3335ha7b70ky" path="res://Level/Décor/Prairie/gadou.png" id="15_31yra"]
+[ext_resource type="Script" path="res://Level/grotte_du_dragon_entré.gd" id="15_phhvv"]
 [ext_resource type="PackedScene" uid="uid://cgpwhvfopas3p" path="res://Level/Décor/Village/arbre brulé/arbre_feu_5.tscn" id="15_wmllm"]
 [ext_resource type="Texture2D" uid="uid://btk45rhedgylf" path="res://Level/Décor/Prairie/Boue_1.png" id="16_22m1i"]
 [ext_resource type="PackedScene" uid="uid://deb32hb4c86on" path="res://Level/Décor/Village/arbre brulé/arbre_feu_1.tscn" id="16_qhkgf"]
@@ -45,6 +46,11 @@
 [ext_resource type="Texture2D" uid="uid://h354eet7pk0p" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_5.png" id="37_u5eci"]
 [ext_resource type="Script" path="res://Level/cam_controller.gd" id="43_6ya4a"]
 [ext_resource type="Script" path="res://Level/cam limiter.gd" id="44_bbdl7"]
+[ext_resource type="Texture2D" uid="uid://boiiujdyrwdum" path="res://Level/Décor/motagne + point de vue/Ciel_vue_badasse.png" id="46_1u8yh"]
+[ext_resource type="Script" path="res://Level/parallax_background.gd" id="46_26sb1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uur4i"]
+size = Vector2(48, 84.986)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klef5"]
 texture = ExtResource("1_8iq6g")
@@ -469,11 +475,11 @@ size = Vector2(51.5, 76.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqjab"]
 size = Vector2(197, 76.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gjfb"]
-size = Vector2(310, 296)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whiyv"]
-size = Vector2(310, 97)
+size = Vector2(182, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1skj8"]
+size = Vector2(294, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thji4"]
 size = Vector2(186, 146)
@@ -504,6 +510,19 @@ y_sort_enabled = true
 
 [node name="village" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="GrotteDuDragon" type="Sprite2D" parent="village"]
+y_sort_enabled = true
+position = Vector2(1130, -13)
+texture = ExtResource("22_ybsam")
+script = ExtResource("15_phhvv")
+
+[node name="Area2D" type="Area2D" parent="village/GrotteDuDragon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="village/GrotteDuDragon/Area2D"]
+position = Vector2(-112.744, 12.8505)
+rotation = -0.771057
+shape = SubResource("RectangleShape2D_uur4i")
 
 [node name="route" type="TileMapLayer" parent="village"]
 z_index = -1
@@ -539,7 +558,7 @@ y_sort_enabled = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="village/StaticBody2D"]
 visible = false
 z_index = 50
-polygon = PackedVector2Array(215, -33, -46, -32, -44, 0, 5, 5, 87, 10, 219, 15, 228, 127, 254, 172, 274, 283, 315, 352, 373, 391, 415, 433, 479, 448, 801, 441, 891, 398, 960, 325, 1003, 240, 1034, 146, 1041, 88, 1028, 65, 1024, 23, 1006, -10, 974, -8, 922, -24, 908, -79, 927, -174, 979, -219, 1012, -312, 1017, -374, 988, -465, 934, -462, 906, -458, 873, -469, 843, -453, 798, -453, 767, -462, 718, -460, 678, -466, 648, -481, 607, -481, 582, -464, 508, -453, 405, -454, 386, -455, 357, -462, 331, -456, 295, -454, 289, -377, 268, -322, 256, -256, 256, -175, 241, -85, 215, -33, 150, -270, 252, -615, 1033, -601, 1241, 117, 813, 723, 203, 636, -107, 209, -205, -122, 150, -270)
+polygon = PackedVector2Array(215, -33, -46, -32, -44, 0, 5, 5, 87, 10, 219, 15, 228, 127, 254, 172, 274, 283, 315, 352, 373, 391, 415, 433, 479, 448, 801, 441, 891, 398, 960, 325, 1003, 240, 1034, 146, 1041, 88, 1025, 75, 1026, 37, 1017, 13, 997, -5, 975, -11, 922, -24, 908, -79, 927, -174, 979, -219, 1012, -312, 1017, -374, 988, -465, 934, -462, 906, -458, 873, -469, 843, -453, 798, -453, 767, -462, 718, -460, 678, -466, 648, -481, 607, -481, 582, -464, 508, -453, 405, -454, 386, -455, 357, -462, 331, -456, 295, -454, 289, -377, 268, -322, 256, -256, 256, -175, 241, -85, 215, -33, 150, -270, 252, -615, 1033, -601, 1241, 117, 813, 723, 203, 636, -107, 209, -205, -122, 150, -270)
 
 [node name="intérieur" type="TileMapLayer" parent="village"]
 y_sort_enabled = true
@@ -550,9 +569,9 @@ tile_set = SubResource("TileSet_5otyf")
 [node name="int_detect" type="Area2D" parent="village/intérieur"]
 position = Vector2(-360, -51)
 script = ExtResource("7_rf7b1")
+out_pos = Vector2(80, -40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="village/intérieur/int_detect"]
-visible = false
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_qelq7")
 
@@ -1633,11 +1652,6 @@ y_sort_enabled = true
 position = Vector2(928, -168)
 texture = ExtResource("5_i0rva")
 
-[node name="GrotteDuDragon" type="Sprite2D" parent="village"]
-y_sort_enabled = true
-position = Vector2(1130, -13)
-texture = ExtResource("22_ybsam")
-
 [node name="maison sorcière" type="AnimatedSprite2D" parent="village"]
 y_sort_enabled = true
 position = Vector2(719, 269)
@@ -2513,6 +2527,23 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2ynj0")
 text = "Press E to interact"
 
+[node name="press e enter" type="Label" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 16.0
+offset_right = 73.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_2ynj0")
+text = "Press E to enter"
+
 [node name="dmg" type="ColorRect" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = 15
@@ -2543,7 +2574,7 @@ position = Vector2(2, 0)
 
 [node name="Player" parent="." instance=ExtResource("12_l25pa")]
 process_mode = 3
-position = Vector2(259, -18)
+position = Vector2(880, 31)
 
 [node name="Cam Controller" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
@@ -2560,46 +2591,62 @@ shape = SubResource("CircleShape2D_h6flm")
 [node name="Cam limiter" type="Node2D" parent="."]
 
 [node name="8" type="Area2D" parent="Cam limiter"]
+visible = false
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("44_bbdl7")
 target_y = -40
+zoom = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cam limiter/8"]
 position = Vector2(-20.75, 0.25)
 shape = SubResource("RectangleShape2D_83m3b")
 
 [node name="7" type="Area2D" parent="Cam limiter"]
+visible = false
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("44_bbdl7")
 target_y = -40
+zoom = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cam limiter/7"]
 position = Vector2(105.5, 0.25)
 shape = SubResource("RectangleShape2D_fqjab")
 
-[node name="4" type="Area2D" parent="Cam limiter"]
-visible = false
-position = Vector2(719, 276)
-collision_layer = 128
-collision_mask = 128
-script = ExtResource("44_bbdl7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cam limiter/4"]
-shape = SubResource("RectangleShape2D_8gjfb")
-
 [node name="3" type="Area2D" parent="Cam limiter"]
-visible = false
 position = Vector2(985, 2)
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("44_bbdl7")
 target_y = 1
+zoom = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cam limiter/3"]
 position = Vector2(0, 25.5)
 shape = SubResource("RectangleShape2D_whiyv")
+
+[node name="2" type="Area2D" parent="Cam limiter"]
+position = Vector2(985, 2)
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("44_bbdl7")
+zoom = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cam limiter/2"]
+position = Vector2(-355, -454)
+shape = SubResource("RectangleShape2D_whiyv")
+
+[node name="4" type="Area2D" parent="Cam limiter"]
+position = Vector2(985, 2)
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("44_bbdl7")
+zoom = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cam limiter/4"]
+position = Vector2(-355, -428.5)
+shape = SubResource("RectangleShape2D_1skj8")
 
 [node name="5" type="Area2D" parent="Cam limiter"]
 visible = false
@@ -2607,6 +2654,7 @@ position = Vector2(719, 276)
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("44_bbdl7")
+zoom = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cam limiter/5"]
 shape = SubResource("RectangleShape2D_thji4")
@@ -2617,6 +2665,7 @@ position = Vector2(719, 276)
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("44_bbdl7")
+zoom = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cam limiter/6"]
 shape = SubResource("RectangleShape2D_o5i7y")
@@ -2665,6 +2714,20 @@ position = Vector2(171, -426)
 rotation = -2.9492
 shape = SubResource("RectangleShape2D_cb3n3")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("46_26sb1")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0)
+motion_mirroring = Vector2(758, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, 92.5)
+texture = ExtResource("46_1u8yh")
+
+[connection signal="body_entered" from="village/GrotteDuDragon/Area2D" to="village/GrotteDuDragon" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="village/GrotteDuDragon/Area2D" to="village/GrotteDuDragon" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="village/intérieur/int_detect" to="village/intérieur/int_detect" method="_on_body_entered"]
+[connection signal="body_exited" from="village/intérieur/int_detect" to="village/intérieur/int_detect" method="_on_body_exited"]
 [connection signal="area_entered" from="Cam Controller/cam limiter" to="Cam Controller" method="_on_cam_limiter_area_entered"]
 [connection signal="area_exited" from="Cam Controller/cam limiter" to="Cam Controller" method="_on_cam_limiter_area_exited"]
