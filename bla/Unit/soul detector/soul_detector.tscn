@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbupulttciuby"]
+[gd_scene load_steps=9 format=3 uid="uid://bbupulttciuby"]
 
 [ext_resource type="Script" path="res://Unit/soul detector/soul_detector.gd" id="1_tq5rd"]
+[ext_resource type="Shader" path="res://Level/grey.gdshader" id="2_vwooc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ufxb1"]
 radius = 164.003
@@ -67,6 +68,10 @@ _data = {
 
 [sub_resource type="SphereMesh" id="SphereMesh_qkayj"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nqs3v"]
+shader = ExtResource("2_vwooc")
+shader_parameter/grayscale_amount = 0.5
+
 [node name="soul detector" type="Node2D"]
 script = ExtResource("1_tq5rd")
 
@@ -91,4 +96,23 @@ position = Vector2(0, -8.94069e-08)
 scale = Vector2(1e-05, 1e-05)
 mesh = SubResource("SphereMesh_qkayj")
 
+[node name="freeze duration" type="Timer" parent="."]
+one_shot = true
+
+[node name="freeze cd" type="Timer" parent="."]
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="grey" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_nqs3v")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="freeze duration" to="." method="_on_freeze_duration_timeout"]
+[connection signal="timeout" from="freeze cd" to="." method="_on_freeze_cd_timeout"]
