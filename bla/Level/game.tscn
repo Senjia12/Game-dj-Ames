@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=101 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="Texture2D" uid="uid://2q8lx3x5n3dl" path="res://Level/Décor/Prairie/Tile_dherbe.png" id="1_om7bl"]
@@ -45,6 +45,10 @@
 [ext_resource type="PackedScene" uid="uid://dm4p41d4srv03" path="res://UI/cam_controller.tscn" id="45_v5qgh"]
 [ext_resource type="Texture2D" uid="uid://boiiujdyrwdum" path="res://Level/Décor/motagne + point de vue/Ciel_vue_badasse.png" id="46_1u8yh"]
 [ext_resource type="Script" path="res://Level/parallax_background.gd" id="46_26sb1"]
+[ext_resource type="Script" path="res://Level/Grotte/player_light.gd" id="46_qb0gt"]
+[ext_resource type="Texture2D" uid="uid://ql1gumaiscj4" path="res://UI/light tempo.png" id="47_de1yy"]
+[ext_resource type="Texture2D" uid="uid://b7j4okqjoy6gn" path="res://Level/Grotte/glace/Tile_glace_creee.png" id="48_akw75"]
+[ext_resource type="Script" path="res://Level/Grotte/zone_gelable.gd" id="49_rkrto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uur4i"]
 size = Vector2(48, 84.986)
@@ -710,6 +714,27 @@ size = Vector2(92, 412.802)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb3n3"]
 size = Vector2(63.7444, 116.205)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wedhr"]
+texture = ExtResource("48_akw75")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rml6e"]
+texture = ExtResource("48_akw75")
+0:0/0 = 0
+0:0/0/modulate = Color(1, 1, 1, 0)
+0:0/0/probability = 0.9
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/modulate = Color(1, 1, 1, 0)
+1:0/0/probability = 0.9
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_4u7dj"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_wedhr")
+sources/2 = SubResource("TileSetAtlasSource_rml6e")
+
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
@@ -795,8 +820,8 @@ shape = SubResource("RectangleShape2D_qelq7")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="village/intérieur"]
 modulate = Color(0.0737439, 0.0641776, 0.0385264, 1)
 z_index = -5
-position = Vector2(-383, 97)
-scale = Vector2(344, 612)
+position = Vector2(-378.5, 98)
+scale = Vector2(353, 614)
 mesh = SubResource("BoxMesh_jxqdx")
 
 [node name="particule feu6" parent="village" instance=ExtResource("12_l0c8p")]
@@ -2944,6 +2969,22 @@ texture = ExtResource("46_1u8yh")
 [node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(758, 92.5)
 texture = ExtResource("46_1u8yh")
+
+[node name="player light" type="Node2D" parent="."]
+process_mode = 3
+script = ExtResource("46_qb0gt")
+
+[node name="omni light" type="PointLight2D" parent="player light"]
+position = Vector2(0, -19)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
+
+[node name="zone gelable" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAxAOj/AgAAAAAAAAAxAOf/AgAAAAAAAAAxAOb/AgAAAAAAAAAyAOb/AgAAAAAAAAAyAOf/AgAAAAAAAAAyAOj/AgAAAAAAAAAzAOj/AgAAAAAAAAAzAOf/AgAAAAAAAAAzAOb/AgAAAAAAAAA0AOb/AgAAAAAAAAA0AOf/AgAAAAAAAAA0AOj/AgAAAAAAAAA0AO3/AgAAAAAAAAAzAO3/AgAAAAAAAAAyAO3/AgAAAAAAAAAxAO3/AgAAAAAAAAAxAO7/AgAAAAAAAAAyAO7/AgAAAAAAAAAzAO7/AgAAAAAAAAA0AO7/AgAAAAAAAAAxAOz/AgAAAAAAAAAyAOz/AgAAAAAAAAAzAOz/AgAAAAAAAAA0AOz/AgAAAAAAAAAhABoAAgAAAAAAAAAiABoAAgAAAAAAAAAjABoAAgAAAAAAAAAkABoAAgAAAAAAAAAiABkAAgAAAAAAAAAjABkAAgAAAAAAAAAkABkAAgAAAAAAAAAlABkAAgAAAAAAAAAjABgAAgAAAAAAAAAkABgAAgAAAAAAAAAlABgAAgAAAAAAAAAmABgAAgAAAAAAAAAkABcAAgAAAAAAAAAlABcAAgAAAAAAAAAmABcAAgAAAAAAAAAnABcAAgAAAAAAAAAoABcAAgAAAAAAAAApABcAAgAAAAAAAAAqABcAAgAAAAAAAAAlABYAAgAAAAAAAAAmABYAAgAAAAAAAAAnABYAAgAAAAAAAAAoABYAAgAAAAAAAAApABYAAgAAAAAAAAAqABYAAgAAAAAAAAArABYAAgAAAAAAAAAsABYAAgAAAAAAAAAtABYAAgAAAAAAAAAuABYAAgAAAAAAAAAvABYAAgAAAAAAAAAoABUAAgAAAAAAAAApABUAAgAAAAAAAAAqABUAAgAAAAAAAAArABUAAgAAAAAAAAAsABUAAgAAAAAAAAAtABUAAgAAAAAAAAAuABUAAgAAAAAAAAAvABUAAgAAAAAAAAAwABUAAgAAAAAAAAAvABQAAgAAAAAAAAAwABQAAgAAAAAAAAAxABQAAgAAAAAAAAAwABMAAgAAAAAAAAAxABMAAgAAAAAAAAAyABMAAgAAAAAAAAAxABIAAgAAAAAAAAAyABIAAgAAAAAAAAAzABIAAgAAAAAAAAA0ABIAAgAAAAAAAAA1ABIAAgAAAAAAAAA2ABIAAgAAAAAAAAA3ABIAAgAAAAAAAAA4ABIAAgAAAAAAAAA5ABIAAgAAAAAAAAA3ABEAAgAAAAAAAAA2ABEAAgAAAAAAAAA1ABEAAgAAAAAAAAA0ABEAAgAAAAAAAAAzABEAAgAAAAAAAAAyABEAAgAAAAAAAAA3ABMAAgAAAAAAAAA4ABMAAgAAAAAAAAA5ABMAAgAAAAAAAAA6ABMAAgAAAAAAAAA5ABQAAgAAAAAAAAA6ABQAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_4u7dj")
+script = ExtResource("49_rkrto")
 
 [connection signal="body_entered" from="village/GrotteDuDragon/Area2D" to="village/GrotteDuDragon" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="village/GrotteDuDragon/Area2D" to="village/GrotteDuDragon" method="_on_area_2d_body_exited"]

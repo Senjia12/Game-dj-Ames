@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dbfgxaqud11xy"]
+[gd_scene load_steps=61 format=4 uid="uid://dbfgxaqud11xy"]
 
 [ext_resource type="PackedScene" uid="uid://cwswub0u8qanb" path="res://Unit/Joueur/player.tscn" id="1_rfuds"]
 [ext_resource type="PackedScene" uid="uid://dm4p41d4srv03" path="res://UI/cam_controller.tscn" id="2_eyawh"]
@@ -13,7 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://c1yamxoqd2dxp" path="res://Level/Grotte/glace/Tile_glace_eau.png" id="8_oekmf"]
 [ext_resource type="Texture2D" uid="uid://c16ci7cmi16nm" path="res://Level/Grotte/glace/Tile_mur_de_glace_2_de_haut.png" id="8_w3arj"]
 [ext_resource type="Script" path="res://Level/Grotte/out.gd" id="9_ja1tn"]
+[ext_resource type="Texture2D" uid="uid://b7j4okqjoy6gn" path="res://Level/Grotte/glace/Tile_glace_creee.png" id="11_v6f63"]
+[ext_resource type="Script" path="res://Level/Grotte/zone_gelable.gd" id="12_ye38l"]
 [ext_resource type="PackedScene" uid="uid://bbupulttciuby" path="res://Unit/soul detector/soul_detector.tscn" id="13_7lomi"]
+[ext_resource type="PackedScene" uid="uid://bl86f3tajgy2" path="res://Level/Grotte/glace/glace_qui_fond.tscn" id="15_p2l3o"]
+[ext_resource type="Texture2D" uid="uid://cded12f8ujfv2" path="res://Level/Grotte/champi/Particule_brouillard.png" id="18_rnyvv"]
+[ext_resource type="Script" path="res://Level/Grotte/gaz.gd" id="19_3i2od"]
+[ext_resource type="Texture2D" uid="uid://c4lywndryn6p" path="res://Level/Grotte/champi/Chamignons.png" id="20_y6u74"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6h3gm"]
 polygon = PackedVector2Array(-8, -7.5, 8, -7.5, 8, 7.5, -8, 7.5)
@@ -575,6 +581,27 @@ terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_5r7n3")
 sources/2 = SubResource("TileSetAtlasSource_yobwe")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nf2v2"]
+texture = ExtResource("11_v6f63")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hepex"]
+texture = ExtResource("11_v6f63")
+0:0/0 = 0
+0:0/0/modulate = Color(1, 1, 1, 0)
+0:0/0/probability = 0.9
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/modulate = Color(1, 1, 1, 0)
+1:0/0/probability = 0.9
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_esg7i"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_nf2v2")
+sources/2 = SubResource("TileSetAtlasSource_hepex")
+
 [sub_resource type="Animation" id="Animation_0wyt6"]
 length = 0.001
 tracks/0/type = "value"
@@ -617,6 +644,68 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wufqt"]
 size = Vector2(57, 97)
 
+[sub_resource type="Curve" id="Curve_rx8uu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.609053, 0.736264), -1.48922, -1.48922, 0, 0, Vector2(1, 0.340659), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_btnn0"]
+curve = SubResource("Curve_rx8uu")
+
+[sub_resource type="Gradient" id="Gradient_371vw"]
+colors = PackedColorArray(0.0661886, 0.777353, 0, 1, 0.528988, 0.711384, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y2q5s"]
+gradient = SubResource("Gradient_371vw")
+
+[sub_resource type="Curve" id="Curve_k4bfs"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.111111, 100), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3xigv"]
+curve = SubResource("Curve_k4bfs")
+
+[sub_resource type="Curve" id="Curve_2fj27"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.160494, 1), 0.0, 0.0, 0, 0, Vector2(0.794239, 0.901099), -0.519231, -0.519231, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_iv7te"]
+curve = SubResource("Curve_2fj27")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_425kx"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(70, 45, 1)
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+damping_curve = SubResource("CurveTexture_3xigv")
+scale_min = 0.7
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_iv7te")
+color_initial_ramp = SubResource("GradientTexture1D_y2q5s")
+alpha_curve = SubResource("CurveTexture_btnn0")
+turbulence_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_fsnxc"]
+
+[sub_resource type="Gradient" id="Gradient_ncy3j"]
+colors = PackedColorArray(0.34555, 0.47191, 0.153488, 0, 0.427451, 0.65098, 0.239216, 0.470588)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sqqqh"]
+seed = 2
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bq25m"]
+seamless = true
+color_ramp = SubResource("Gradient_ncy3j")
+noise = SubResource("FastNoiseLite_sqqqh")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_as0om"]
+size = Vector2(144, 105)
+
 [node name="Grotte" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_rfuds")]
@@ -650,6 +739,12 @@ tile_set = SubResource("TileSet_rnws1")
 visible = false
 position = Vector2(0, -20)
 color = Color(0, 0, 0, 1)
+
+[node name="zone gelable" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAxAOj/AgAAAAAAAAAxAOf/AgAAAAAAAAAxAOb/AgAAAAAAAAAyAOb/AgAAAAAAAAAyAOf/AgAAAAAAAAAyAOj/AgAAAAAAAAAzAOj/AgAAAAAAAAAzAOf/AgAAAAAAAAAzAOb/AgAAAAAAAAA0AOb/AgAAAAAAAAA0AOf/AgAAAAAAAAA0AOj/AgAAAAAAAAA0AO3/AgAAAAAAAAAzAO3/AgAAAAAAAAAyAO3/AgAAAAAAAAAxAO3/AgAAAAAAAAAxAO7/AgAAAAAAAAAyAO7/AgAAAAAAAAAzAO7/AgAAAAAAAAA0AO7/AgAAAAAAAAAxAOz/AgAAAAAAAAAyAOz/AgAAAAAAAAAzAOz/AgAAAAAAAAA0AOz/AgAAAAAAAAA3APP/AgAAAAAAAAA3APT/AgAAAAAAAAA3APX/AgAAAAAAAAA3APb/AgAAAAAAAAA3APf/AgAAAAAAAAA3APj/AgAAAAAAAAA4APj/AgAAAAAAAAA5APj/AgAAAAAAAAA6APj/AgAAAAAAAAA6APf/AgAAAAAAAAA5APf/AgAAAAAAAAA4APf/AgAAAAAAAAA4APb/AgAAAAAAAAA5APb/AgAAAAAAAAA6APb/AgAAAAAAAAA6APX/AgAAAAAAAAA4APX/AgAAAAAAAAA5APX/AgAAAAAAAAA5APT/AgAAAAAAAAA6APT/AgAAAAAAAAA4APT/AgAAAAAAAAA4APP/AgAAAAAAAAA5APP/AgAAAAAAAAA6APP/AgAAAAAAAAA=")
+tile_set = SubResource("TileSet_esg7i")
+script = ExtResource("12_ye38l")
 
 [node name="entrance ligh" type="Node2D" parent="."]
 
@@ -702,4 +797,61 @@ script = ExtResource("9_ja1tn")
 position = Vector2(-28.5, -9.5)
 shape = SubResource("RectangleShape2D_wufqt")
 
+[node name="glace qui fond" parent="." instance=ExtResource("15_p2l3o")]
+position = Vector2(816, -342)
+
+[node name="toxic" type="GPUParticles2D" parent="."]
+position = Vector2(1160, -170)
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_425kx")
+texture = ExtResource("18_rnyvv")
+lifetime = 10.0
+
+[node name="gaz" type="MeshInstance2D" parent="toxic"]
+position = Vector2(0, -2.49999)
+scale = Vector2(144, 105)
+mesh = SubResource("BoxMesh_fsnxc")
+texture = SubResource("NoiseTexture2D_bq25m")
+script = ExtResource("19_3i2od")
+
+[node name="Sprite2D" type="Sprite2D" parent="toxic"]
+z_index = -1
+position = Vector2(-80, -17)
+texture = ExtResource("20_y6u74")
+
+[node name="Sprite2D2" type="Sprite2D" parent="toxic"]
+z_index = -1
+position = Vector2(-40, -49)
+texture = ExtResource("20_y6u74")
+
+[node name="Sprite2D3" type="Sprite2D" parent="toxic"]
+z_index = -1
+position = Vector2(29, -46)
+texture = ExtResource("20_y6u74")
+
+[node name="Sprite2D4" type="Sprite2D" parent="toxic"]
+z_index = -1
+position = Vector2(6, -19)
+texture = ExtResource("20_y6u74")
+
+[node name="Sprite2D5" type="Sprite2D" parent="toxic"]
+z_index = -1
+position = Vector2(-48, 35)
+texture = ExtResource("20_y6u74")
+
+[node name="Sprite2D6" type="Sprite2D" parent="toxic"]
+z_index = -1
+position = Vector2(41, 29)
+texture = ExtResource("20_y6u74")
+
+[node name="player_in" type="Area2D" parent="toxic"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toxic/player_in"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_as0om")
+
+[node name="Timer" type="Timer" parent="toxic"]
+
 [connection signal="body_entered" from="out" to="out" method="_on_body_entered"]
+[connection signal="body_entered" from="toxic/player_in" to="toxic/gaz" method="_on_player_in_body_entered"]
+[connection signal="timeout" from="toxic/Timer" to="toxic/gaz" method="_on_timer_timeout"]

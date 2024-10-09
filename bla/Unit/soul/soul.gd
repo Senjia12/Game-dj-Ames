@@ -1,14 +1,25 @@
 extends StaticBody2D
 
 
-@export var talk := "coincoin"
+@export var talk := ["coincoin ?", "oui coinconi", "..."]
+var current_text := 0
 @onready var blabla: RichTextLabel = $MarginContainer/blabla
+
+var player_in := false
 
 
 func _ready() -> void:
 	hide()
-	blabla.text = "[wave amp=20][center][i]" + talk + "[/i][/center][/wave]"
+	blabla.text = "[wave amp=20][center][i]" + talk[current_text] + "[/i][/center][/wave]"
 	$AnimatedSprite2D.play("default")
+
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("interact") && player_in:
+		current_text += 1
+		blabla.text = "[wave amp=20][center][i]" + talk[current_text] + "[/i][/center][/wave]"
+		$"text display 2".start()
+		
 
 
 func activate():
@@ -26,12 +37,15 @@ func desactivate():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") && is_visible_in_tree():
-		$"text display 2".start()
+		player_in = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		player_in = false
 		$"text display 2".stop()
+		current_text = 0
+		blabla.text = "[wave amp=20][center][i]" + talk[current_text] + "[/i][/center][/wave]"
 
 
 func _on_text_display_2_timeout() -> void:

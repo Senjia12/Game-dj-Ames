@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 			if i.is_in_group("soul"):
 				i.activate()
 	
-	if Input.is_action_just_pressed("time stop") && can_freeze:
+	if Input.is_action_just_pressed("time stop") && can_freeze && Globals.time_stop:
 		get_tree().paused = true
 		$"freeze duration".start()
 		$"freeze cd".start()
