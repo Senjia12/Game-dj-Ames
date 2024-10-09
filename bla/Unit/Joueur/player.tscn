@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwswub0u8qanb"]
+[gd_scene load_steps=20 format=3 uid="uid://cwswub0u8qanb"]
 
 [ext_resource type="Script" path="res://Unit/Joueur/player.gd" id="1_1bhd3"]
 [ext_resource type="Texture2D" uid="uid://wmypuowe8xvb" path="res://Unit/Joueur/joueur_idle.png" id="2_6qa3j"]
@@ -16,30 +16,6 @@ region = Rect2(0, 0, 10, 15)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1uv58"]
 atlas = ExtResource("2_6qa3j")
 region = Rect2(10, 0, 10, 15)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gkshr"]
-atlas = ExtResource("3_rxnk6")
-region = Rect2(0, 0, 8, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_noqpt"]
-atlas = ExtResource("3_rxnk6")
-region = Rect2(8, 0, 8, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h3jnf"]
-atlas = ExtResource("3_rxnk6")
-region = Rect2(32, 0, 8, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5lx63"]
-atlas = ExtResource("3_rxnk6")
-region = Rect2(40, 0, 8, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0hck"]
-atlas = ExtResource("3_rxnk6")
-region = Rect2(16, 0, 8, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_utgyy"]
-atlas = ExtResource("3_rxnk6")
-region = Rect2(24, 0, 8, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4qcm"]
 atlas = ExtResource("3_17vfp")
@@ -72,29 +48,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gkshr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_noqpt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h3jnf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5lx63")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k0hck")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_utgyy")
-}],
-"loop": true,
-"name": &"sword_attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_s4qcm")
 }, {
 "duration": 1.0,
@@ -111,6 +64,61 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0j4l"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(0, 0, 10, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hv0y"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(10, 0, 10, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqcnl"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(20, 0, 10, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8v51"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(30, 0, 10, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qev6o"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(40, 0, 10, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlb33"]
+atlas = ExtResource("3_rxnk6")
+region = Rect2(50, 0, 10, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u0ofu"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0j4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hv0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqcnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8v51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qev6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlb33")
+}],
+"loop": false,
+"name": &"sword_attack",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_1bhd3")
 
@@ -120,7 +128,12 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_s1b7y")
 
 [node name="idle player" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 3)
 sprite_frames = SubResource("SpriteFrames_8c61l")
-animation = &"walking player"
 speed_scale = 0.3
 offset = Vector2(0, -7)
+
+[node name="sword" type="AnimatedSprite2D" parent="."]
+position = Vector2(-19, -3)
+sprite_frames = SubResource("SpriteFrames_u0ofu")
+animation = &"sword_attack"

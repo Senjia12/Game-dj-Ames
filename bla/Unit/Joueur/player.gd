@@ -6,6 +6,15 @@ func _enter_tree() -> void:
 
 func _physics_process(delta):
 	var idle_player = $"idle player"
+	#norme du vecteur sword_direction qui montre la direction où attaquer (vers la souris)
+	var mouse_position = get_global_mouse_position()
+	var player_position = get_global_position()
+	var sword_direction = Vector2(mouse_position - player_position)
+	sword_direction = sword_direction.normalized()
+	
+	$sword.look_at(mouse_position)
+	$sword.show()
+	
 	velocity.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	velocity.y = Input.get_action_strength("bottom") - Input.get_action_strength("top")
 	velocity = velocity.normalized()
@@ -21,5 +30,9 @@ func _physics_process(delta):
 		idle_player.play("default")
 		idle_player.speed_scale = 0.3
 	move_and_slide()
-
-	if Input.is_action_pressed("espace")
+	
+	if $sword.position.distance_to(player_position) > 20:
+		$sword.position = (global_position - $sword.global_position).normalized() * 20
+				
+	if Input.is_action_just_pressed("espace") == true:
+		$sword.play("sword_attack")
