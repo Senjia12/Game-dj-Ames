@@ -17,7 +17,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		breaked = true
 		for i in get_overlapping_bodies():
 			if i.is_in_group("player"):
-				i.queue_free()
+				i.take_damage(30)
 		$AnimatedSprite2D.play("rebuild")
 	else:
 		breaked = false

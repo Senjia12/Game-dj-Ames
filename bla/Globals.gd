@@ -4,6 +4,8 @@ extends Node
 var player
 var UI
 
+@onready var reload = preload("res://Level/game.tscn")
+
 var player_transi_pos := Vector2.ZERO
 var cam_controller
 

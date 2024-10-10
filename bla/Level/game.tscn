@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=128 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="Texture2D" uid="uid://2q8lx3x5n3dl" path="res://Level/Décor/Prairie/Tile_dherbe.png" id="1_om7bl"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://752s8ty1aox6" path="res://Level/Livre de compétence/livre_de_Gravitation_2.png" id="12_0r8qo"]
 [ext_resource type="PackedScene" uid="uid://dbcwg8duvifad" path="res://Level/Décor/Village/arbre brulé/arebre_feu_2.tscn" id="12_e8imc"]
 [ext_resource type="PackedScene" uid="uid://bx7r43ank7bc3" path="res://Level/Décor/Effet/Feu/particule_feu.tscn" id="12_l0c8p"]
-[ext_resource type="PackedScene" uid="uid://cwswub0u8qanb" path="res://Unit/Joueur/player.tscn" id="12_l25pa"]
 [ext_resource type="Texture2D" uid="uid://dtehjbnbdc6c3" path="res://Level/maison/interieur_maison.png" id="13_e0w6x"]
 [ext_resource type="PackedScene" uid="uid://dm7kvvmp8djqc" path="res://Level/Décor/Village/arbre brulé/arbre_feu_3.tscn" id="13_wb7f7"]
 [ext_resource type="Texture2D" uid="uid://4rmygrlr653i" path="res://Level/maison/Armoire_en_feu.png" id="13_ynxbi"]
@@ -42,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://mm80jwb8dmoi" path="res://Level/Décor/motagne + point de vue/Montagne_droite.png" id="20_liio1"]
 [ext_resource type="Texture2D" uid="uid://bfjgbyeabau5x" path="res://Level/Décor/Prairie/Cabane_de_la_sorciere.png" id="21_7gulb"]
 [ext_resource type="Texture2D" uid="uid://b2luy0wo3hrnu" path="res://Level/Décor/motagne + point de vue/Montagne_gauche.png" id="21_ludi1"]
+[ext_resource type="Texture2D" uid="uid://drjyv638bbaw0" path="res://Level/Décor/Village/route_herbe.png" id="22_bw7rl"]
 [ext_resource type="PackedScene" uid="uid://bbupulttciuby" path="res://Unit/soul detector/soul_detector.tscn" id="22_chmqr"]
 [ext_resource type="Texture2D" uid="uid://dmdutewhk2tgt" path="res://Level/Décor/motagne + point de vue/Grotte_du_Dragon.png" id="22_ybsam"]
 [ext_resource type="Script" path="res://Level/day_night.gd" id="23_4xs1l"]
@@ -59,9 +59,10 @@
 [ext_resource type="Texture2D" uid="uid://ql1gumaiscj4" path="res://UI/light tempo.png" id="47_de1yy"]
 [ext_resource type="Texture2D" uid="uid://b7j4okqjoy6gn" path="res://Level/Grotte/glace/Tile_glace_creee.png" id="48_akw75"]
 [ext_resource type="Script" path="res://Level/Grotte/zone_gelable.gd" id="49_rkrto"]
-[ext_resource type="PackedScene" path="res://Level/Livre de compétence/book.tscn" id="50_d7jw6"]
+[ext_resource type="PackedScene" uid="uid://c0stg7wvum1ci" path="res://Level/Livre de compétence/book.tscn" id="50_d7jw6"]
 [ext_resource type="Texture2D" uid="uid://cugncyam6k1hd" path="res://Level/Livre de compétence/livre_de_Lumiere_1.png" id="51_dh048"]
 [ext_resource type="Texture2D" uid="uid://c8dikbwilt8q0" path="res://Level/Livre de compétence/livre_de_lImunite_1.png" id="51_jlbr6"]
+[ext_resource type="PackedScene" uid="uid://deghtjttpn12g" path="res://Unit/player v2/player.tscn" id="62_fs707"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uur4i"]
 size = Vector2(48, 84.986)
@@ -201,7 +202,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ar8fo"]
-size = Vector2(80, 92)
+size = Vector2(80, 126)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klef5"]
 texture = ExtResource("1_8iq6g")
@@ -210,6 +211,21 @@ texture_region_size = Vector2i(16, 64)
 
 [sub_resource type="TileSet" id="TileSet_8wvo0"]
 sources/0 = SubResource("TileSetAtlasSource_klef5")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m1r7"]
+atlas = ExtResource("22_bw7rl")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njcbg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m1r7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3m0qn"]
 atlas = ExtResource("21_7gulb")
@@ -850,7 +866,7 @@ texture = ExtResource("17_5mstd")
 book_type = "time stop"
 
 [node name="Soul" parent="village/intérieur/tour du mage/sans mur" instance=ExtResource("30_a8ny5")]
-position = Vector2(-6, -26)
+position = Vector2(-7, -9)
 talk = ["Just before the dragon attack, I have writen a lot of books.", "Unfortunately, I lost some of them, but I'm sure there is the yellow one in the tower.", "Read it to learn how the time works in this world, and try to find the other ones to be more powerful.", "Good luck !"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="village/intérieur/tour du mage"]
@@ -904,12 +920,12 @@ visible = false
 polygon = PackedVector2Array(-380, 676, -350, 676, -350, 715, -382, 715, -382, 736, -331, 737, -308, 621, -346, 591, -443, 590, -491, 653, -483, 721, -451, 760, -399, 737, -399, 715, -430, 715, -430, 624, -350, 624, -350, 645, -416, 645, -416, 666, -380, 666)
 
 [node name="int_detect" type="Area2D" parent="village/intérieur/tour du mage"]
-position = Vector2(-390, 691)
+position = Vector2(-390, 657)
 script = ExtResource("7_rf7b1")
 out_pos = Vector2(169, -28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="village/intérieur/tour du mage/int_detect"]
-position = Vector2(0, -22)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_ar8fo")
 
 [node name="Soul2" parent="village/intérieur/tour du mage" instance=ExtResource("30_a8ny5")]
@@ -922,6 +938,11 @@ y_sort_enabled = true
 position = Vector2(0, 8)
 tile_map_data = PackedByteArray("AAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAFAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_8wvo0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="village/route"]
+position = Vector2(240, -8)
+sprite_frames = SubResource("SpriteFrames_njcbg")
+speed_scale = 0.0
 
 [node name="Maison2" parent="village" instance=ExtResource("2_w68xo")]
 y_sort_enabled = true
@@ -2989,6 +3010,23 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2ynj0")
 text = "Press E to interact"
 
+[node name="closed" type="Label" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 62.475
+offset_right = 73.0
+offset_bottom = 85.475
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_2ynj0")
+text = "The door seems closed"
+
 [node name="ther surely" type="Label" parent="CanvasLayer/UI"]
 visible = false
 layout_mode = 1
@@ -3086,10 +3124,6 @@ script = ExtResource("23_4xs1l")
 position = Vector2(2, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="day night/CanvasModulate"]
-
-[node name="Player" parent="." instance=ExtResource("12_l25pa")]
-process_mode = 3
-position = Vector2(209, -1)
 
 [node name="Cam Controller" parent="." instance=ExtResource("45_v5qgh")]
 process_mode = 3
@@ -3259,6 +3293,9 @@ book_type = "immune"
 [node name="book2" parent="." instance=ExtResource("50_d7jw6")]
 position = Vector2(640, -469)
 texture = ExtResource("51_dh048")
+
+[node name="player" parent="." instance=ExtResource("62_fs707")]
+position = Vector2(-23, -24)
 
 [connection signal="body_entered" from="village/GrotteDuDragon/Area2D" to="village/GrotteDuDragon" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="village/GrotteDuDragon/Area2D" to="village/GrotteDuDragon" method="_on_area_2d_body_exited"]

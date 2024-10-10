@@ -1,0 +1,133 @@
+[gd_scene load_steps=17 format=3 uid="uid://deghtjttpn12g"]
+
+[ext_resource type="Script" path="res://Unit/player v2/player.gd" id="1_regvx"]
+[ext_resource type="Texture2D" uid="uid://ck0vcn8uxikr7" path="res://Unit/Joueur/joueur_mort.png" id="2_irkd5"]
+[ext_resource type="Texture2D" uid="uid://wmypuowe8xvb" path="res://Unit/Joueur/joueur_idle.png" id="2_k5cr4"]
+[ext_resource type="Texture2D" uid="uid://c6d34i7av3uaj" path="res://Unit/Joueur/joueur_run.png" id="3_u5roh"]
+[ext_resource type="Texture2D" uid="uid://dv87qbh5cammy" path="res://UI/ceur bc.png" id="4_gp2d5"]
+[ext_resource type="Texture2D" uid="uid://doeq8uv5t67dv" path="res://UI/ceur plein.png" id="5_sdo1t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi4ax"]
+atlas = ExtResource("2_irkd5")
+region = Rect2(0, 0, 20, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfocw"]
+atlas = ExtResource("2_irkd5")
+region = Rect2(20, 0, 20, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aexnt"]
+atlas = ExtResource("2_k5cr4")
+region = Rect2(10, 0, 10, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvf24"]
+atlas = ExtResource("2_k5cr4")
+region = Rect2(0, 0, 10, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l700s"]
+atlas = ExtResource("3_u5roh")
+region = Rect2(0, 0, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cthq"]
+atlas = ExtResource("3_u5roh")
+region = Rect2(12, 0, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grv3x"]
+atlas = ExtResource("3_u5roh")
+region = Rect2(24, 0, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqtsp"]
+atlas = ExtResource("3_u5roh")
+region = Rect2(36, 0, 12, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pag3y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi4ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfocw")
+}],
+"loop": false,
+"name": &"couik",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aexnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvf24")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l700s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cthq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grv3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqtsp")
+}],
+"loop": true,
+"name": &"run",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50nd3"]
+radius = 2.0
+height = 9.0
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
+process_mode = 3
+script = ExtResource("1_regvx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pag3y")
+animation = &"couik"
+autoplay = "default"
+offset = Vector2(0, -7.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_50nd3")
+
+[node name="dash_duration" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="dash_cd" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="health_regen" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="health bc" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_gp2d5")
+
+[node name="health" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 396.0
+offset_bottom = 129.0
+max_value = 30.0
+value = 26.0
+texture_progress = ExtResource("5_sdo1t")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="dash_duration" to="." method="_on_dash_duration_timeout"]
+[connection signal="timeout" from="dash_cd" to="." method="_on_dash_cd_timeout"]
+[connection signal="timeout" from="health_regen" to="." method="_on_health_regen_timeout"]

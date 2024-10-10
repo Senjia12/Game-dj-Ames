@@ -58,7 +58,7 @@ func _physics_process(delta):
 		velocity = velocity_dash
 	
 	if Input.is_action_just_pressed("espace") and dash_cooldown == true and dash_end == true and velocity != Vector2.ZERO:
-		velocity_dash = velocity * 5
+		velocity_dash = velocity * 3
 		dash_cooldown = false
 		dash_end = false
 		dash_cd.start()

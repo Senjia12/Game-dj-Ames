@@ -1,6 +1,5 @@
 [gd_scene load_steps=71 format=4 uid="uid://dbfgxaqud11xy"]
 
-[ext_resource type="PackedScene" uid="uid://cwswub0u8qanb" path="res://Unit/Joueur/player.tscn" id="1_rfuds"]
 [ext_resource type="PackedScene" uid="uid://dm4p41d4srv03" path="res://UI/cam_controller.tscn" id="2_eyawh"]
 [ext_resource type="Texture2D" uid="uid://dtrsyrdy86xbm" path="res://Level/Grotte/Cailloux/Tile_mur_de_pierre_2_de_haut.png" id="3_gm0v7"]
 [ext_resource type="Texture2D" uid="uid://d3k1thqwv444j" path="res://Level/Grotte/Cailloux/Tile_mur_de_pierre_1_de_haut.png" id="4_rjsi1"]
@@ -27,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://c07h0bpmw8hqs" path="res://Level/Livre de compétence/livre_des_Pieges_1.png" id="25_7pafw"]
 [ext_resource type="PackedScene" uid="uid://b6nmha44yincq" path="res://Level/Grotte/trap/trap.tscn" id="25_uxbes"]
 [ext_resource type="PackedScene" uid="uid://gyhcgpb5n5h0" path="res://Level/maison/truc_déplassable.tscn" id="27_53nuv"]
+[ext_resource type="PackedScene" uid="uid://deghtjttpn12g" path="res://Unit/player v2/player.tscn" id="27_eqpe6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6h3gm"]
 polygon = PackedVector2Array(-8, -7.5, 8, -7.5, 8, 7.5, -8, 7.5)
@@ -891,6 +891,7 @@ position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_as0om")
 
 [node name="Timer" type="Timer" parent="toxic"]
+wait_time = 0.2
 
 [node name="Soul" parent="." instance=ExtResource("21_gbo0n")]
 position = Vector2(503, 37)
@@ -1028,10 +1029,6 @@ position = Vector2(911, -344)
 texture = ExtResource("25_7pafw")
 book_type = "glace"
 
-[node name="Player" parent="." instance=ExtResource("1_rfuds")]
-process_mode = 3
-position = Vector2(471, 47)
-
 [node name="trap" type="Node2D" parent="."]
 
 [node name="trap1" parent="trap" instance=ExtResource("25_uxbes")]
@@ -1083,6 +1080,9 @@ position = Vector2(727, -172)
 position = Vector2(692, -167)
 
 [node name="truc déplassable" parent="." instance=ExtResource("27_53nuv")]
+
+[node name="player" parent="." instance=ExtResource("27_eqpe6")]
+position = Vector2(35, -13)
 
 [connection signal="body_entered" from="out" to="out" method="_on_body_entered"]
 [connection signal="body_entered" from="toxic/player_in" to="toxic/gaz" method="_on_player_in_body_entered"]
