@@ -19,6 +19,8 @@ func _input(event: InputEvent) -> void:
 			Globals.trap_detect = true
 		elif book_type == "time stop":
 			Globals.time_stop = true
+		elif book_type == "ame":
+			Globals.ame = true
 		queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

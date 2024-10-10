@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=108 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="Texture2D" uid="uid://2q8lx3x5n3dl" path="res://Level/Décor/Prairie/Tile_dherbe.png" id="1_om7bl"]
@@ -13,17 +13,23 @@
 [ext_resource type="Script" path="res://Level/int_detect.gd" id="7_rf7b1"]
 [ext_resource type="Texture2D" uid="uid://chp8jbgiberxj" path="res://Level/Décor/Prairie/arbre 3.png" id="8_20gs6"]
 [ext_resource type="Texture2D" uid="uid://hctrmkuvyifs" path="res://Level/Décor/Prairie/arbre 4.png" id="9_jscf0"]
-[ext_resource type="Texture2D" uid="uid://bnd5jk8e64ic6" path="res://Level/Décor/Village/intérieur/autotile_incomplete_sol_maison.png" id="10_58hhy"]
-[ext_resource type="Texture2D" uid="uid://cb3kv172nk0kh" path="res://Level/Décor/Village/intérieur/mur_maison.png" id="11_huc4e"]
+[ext_resource type="Texture2D" uid="uid://dmgycip8fexf3" path="res://Level/maison/interieur_maison_sorciere.png" id="10_uf3iq"]
+[ext_resource type="Texture2D" uid="uid://752s8ty1aox6" path="res://Level/Livre de compétence/livre_de_Gravitation_2.png" id="12_0r8qo"]
 [ext_resource type="PackedScene" uid="uid://dbcwg8duvifad" path="res://Level/Décor/Village/arbre brulé/arebre_feu_2.tscn" id="12_e8imc"]
 [ext_resource type="PackedScene" uid="uid://bx7r43ank7bc3" path="res://Level/Décor/Effet/Feu/particule_feu.tscn" id="12_l0c8p"]
 [ext_resource type="PackedScene" uid="uid://cwswub0u8qanb" path="res://Unit/Joueur/player.tscn" id="12_l25pa"]
+[ext_resource type="Texture2D" uid="uid://dtehjbnbdc6c3" path="res://Level/maison/interieur_maison.png" id="13_e0w6x"]
 [ext_resource type="PackedScene" uid="uid://dm7kvvmp8djqc" path="res://Level/Décor/Village/arbre brulé/arbre_feu_3.tscn" id="13_wb7f7"]
 [ext_resource type="PackedScene" uid="uid://bp7nj3jn3eudd" path="res://Level/Décor/Village/arbre brulé/arbre_feu_4.tscn" id="14_5tgih"]
+[ext_resource type="Texture2D" uid="uid://dcrjn6kelrpio" path="res://Level/maison/Vieux_sage.png" id="14_36e4m"]
+[ext_resource type="Texture2D" uid="uid://463yds73h1xs" path="res://Level/maison/Horloge.png" id="15_1h58m"]
 [ext_resource type="Texture2D" uid="uid://3335ha7b70ky" path="res://Level/Décor/Prairie/gadou.png" id="15_31yra"]
 [ext_resource type="Script" path="res://Level/grotte_du_dragon_entré.gd" id="15_phhvv"]
 [ext_resource type="PackedScene" uid="uid://cgpwhvfopas3p" path="res://Level/Décor/Village/arbre brulé/arbre_feu_5.tscn" id="15_wmllm"]
+[ext_resource type="Texture2D" uid="uid://b36h20lqm86eg" path="res://Level/maison/Armoire.png" id="16_8s202"]
 [ext_resource type="PackedScene" uid="uid://deb32hb4c86on" path="res://Level/Décor/Village/arbre brulé/arbre_feu_1.tscn" id="16_qhkgf"]
+[ext_resource type="Texture2D" uid="uid://cnhdxy0pasufv" path="res://Level/maison/Table.png" id="17_lua0c"]
+[ext_resource type="Script" path="res://Level/maison_sorcière.gd" id="18_8x72r"]
 [ext_resource type="Texture2D" uid="uid://cw3yj8dbbtmag" path="res://Level/Décor/motagne + point de vue/Montagne_vue_badasse.png" id="19_d0ioc"]
 [ext_resource type="Texture2D" uid="uid://mm80jwb8dmoi" path="res://Level/Décor/motagne + point de vue/Montagne_droite.png" id="20_liio1"]
 [ext_resource type="Texture2D" uid="uid://bfjgbyeabau5x" path="res://Level/Décor/Prairie/Cabane_de_la_sorciere.png" id="21_7gulb"]
@@ -49,7 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://ql1gumaiscj4" path="res://UI/light tempo.png" id="47_de1yy"]
 [ext_resource type="Texture2D" uid="uid://b7j4okqjoy6gn" path="res://Level/Grotte/glace/Tile_glace_creee.png" id="48_akw75"]
 [ext_resource type="Script" path="res://Level/Grotte/zone_gelable.gd" id="49_rkrto"]
-[ext_resource type="PackedScene" path="res://Level/Livre de compétence/book.tscn" id="50_d7jw6"]
+[ext_resource type="PackedScene" uid="uid://c0stg7wvum1ci" path="res://Level/Livre de compétence/book.tscn" id="50_d7jw6"]
 [ext_resource type="Texture2D" uid="uid://cugncyam6k1hd" path="res://Level/Livre de compétence/livre_de_Lumiere_1.png" id="51_dh048"]
 [ext_resource type="Texture2D" uid="uid://c8dikbwilt8q0" path="res://Level/Livre de compétence/livre_de_lImunite_1.png" id="51_jlbr6"]
 
@@ -95,6 +101,11 @@ _data = {
 
 [sub_resource type="BoxMesh" id="BoxMesh_isv8e"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_jxqdx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tc4id"]
+size = Vector2(80, 48)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klef5"]
 texture = ExtResource("1_8iq6g")
 texture_region_size = Vector2i(16, 64)
@@ -102,189 +113,6 @@ texture_region_size = Vector2i(16, 64)
 
 [sub_resource type="TileSet" id="TileSet_8wvo0"]
 sources/0 = SubResource("TileSetAtlasSource_klef5")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_npeqh"]
-texture = ExtResource("10_58hhy")
-0:0/0 = 0
-0:0/0/z_index = -1
-0:0/0/terrain_set = 0
-0:0/0/terrain = 0
-1:0/0 = 0
-1:0/0/z_index = -1
-1:0/0/terrain_set = 0
-1:0/0/terrain = 0
-1:0/0/terrains_peering_bit/right_side = 0
-2:0/0 = 0
-2:0/0/z_index = -1
-2:0/0/terrain_set = 0
-2:0/0/terrain = 0
-2:0/0/terrains_peering_bit/right_side = 0
-2:0/0/terrains_peering_bit/left_side = 0
-3:0/0 = 0
-3:0/0/z_index = -1
-3:0/0/terrain_set = 0
-3:0/0/terrain = 0
-3:0/0/terrains_peering_bit/left_side = 0
-4:0/0 = 0
-4:0/0/z_index = -1
-4:0/0/terrain_set = 0
-4:0/0/terrain = 0
-4:0/0/terrains_peering_bit/right_side = 0
-4:0/0/terrains_peering_bit/bottom_right_corner = 0
-4:0/0/terrains_peering_bit/bottom_side = 0
-4:0/0/terrains_peering_bit/bottom_left_corner = 0
-4:0/0/terrains_peering_bit/left_side = 0
-4:0/0/terrains_peering_bit/top_side = 0
-4:0/0/terrains_peering_bit/top_right_corner = 0
-5:0/0 = 0
-5:0/0/z_index = -1
-5:0/0/terrain_set = 0
-5:0/0/terrain = 0
-5:0/0/terrains_peering_bit/right_side = 0
-5:0/0/terrains_peering_bit/bottom_right_corner = 0
-5:0/0/terrains_peering_bit/bottom_side = 0
-5:0/0/terrains_peering_bit/bottom_left_corner = 0
-5:0/0/terrains_peering_bit/left_side = 0
-5:0/0/terrains_peering_bit/top_left_corner = 0
-5:0/0/terrains_peering_bit/top_side = 0
-0:1/0 = 0
-0:1/0/z_index = -1
-0:1/0/terrain_set = 0
-0:1/0/terrain = 0
-0:1/0/terrains_peering_bit/bottom_side = 0
-1:1/0 = 0
-1:1/0/z_index = -1
-1:1/0/terrain_set = 0
-1:1/0/terrain = 0
-1:1/0/terrains_peering_bit/right_side = 0
-1:1/0/terrains_peering_bit/bottom_right_corner = 0
-1:1/0/terrains_peering_bit/bottom_side = 0
-2:1/0 = 0
-2:1/0/z_index = -1
-2:1/0/terrain_set = 0
-2:1/0/terrain = 0
-2:1/0/terrains_peering_bit/right_side = 0
-2:1/0/terrains_peering_bit/bottom_right_corner = 0
-2:1/0/terrains_peering_bit/bottom_side = 0
-2:1/0/terrains_peering_bit/bottom_left_corner = 0
-2:1/0/terrains_peering_bit/left_side = 0
-3:1/0 = 0
-3:1/0/z_index = -1
-3:1/0/terrain_set = 0
-3:1/0/terrain = 0
-3:1/0/terrains_peering_bit/bottom_side = 0
-3:1/0/terrains_peering_bit/bottom_left_corner = 0
-3:1/0/terrains_peering_bit/left_side = 0
-4:1/0 = 0
-4:1/0/z_index = -1
-4:1/0/terrain_set = 0
-4:1/0/terrain = 0
-4:1/0/terrains_peering_bit/right_side = 0
-4:1/0/terrains_peering_bit/bottom_right_corner = 0
-4:1/0/terrains_peering_bit/bottom_side = 0
-4:1/0/terrains_peering_bit/left_side = 0
-4:1/0/terrains_peering_bit/top_left_corner = 0
-4:1/0/terrains_peering_bit/top_side = 0
-4:1/0/terrains_peering_bit/top_right_corner = 0
-5:1/0 = 0
-5:1/0/z_index = -1
-5:1/0/terrain_set = 0
-5:1/0/terrain = 0
-5:1/0/terrains_peering_bit/right_side = 0
-5:1/0/terrains_peering_bit/bottom_side = 0
-5:1/0/terrains_peering_bit/bottom_left_corner = 0
-5:1/0/terrains_peering_bit/left_side = 0
-5:1/0/terrains_peering_bit/top_left_corner = 0
-5:1/0/terrains_peering_bit/top_side = 0
-5:1/0/terrains_peering_bit/top_right_corner = 0
-0:2/0 = 0
-0:2/0/z_index = -1
-0:2/0/terrain_set = 0
-0:2/0/terrain = 0
-0:2/0/terrains_peering_bit/bottom_side = 0
-0:2/0/terrains_peering_bit/top_side = 0
-1:2/0 = 0
-1:2/0/z_index = -1
-1:2/0/terrain_set = 0
-1:2/0/terrain = 0
-1:2/0/terrains_peering_bit/right_side = 0
-1:2/0/terrains_peering_bit/bottom_right_corner = 0
-1:2/0/terrains_peering_bit/bottom_side = 0
-1:2/0/terrains_peering_bit/top_side = 0
-1:2/0/terrains_peering_bit/top_right_corner = 0
-2:2/0 = 0
-2:2/0/z_index = -1
-2:2/0/terrain_set = 0
-2:2/0/terrain = 0
-2:2/0/terrains_peering_bit/right_side = 0
-2:2/0/terrains_peering_bit/bottom_right_corner = 0
-2:2/0/terrains_peering_bit/bottom_side = 0
-2:2/0/terrains_peering_bit/bottom_left_corner = 0
-2:2/0/terrains_peering_bit/left_side = 0
-2:2/0/terrains_peering_bit/top_left_corner = 0
-2:2/0/terrains_peering_bit/top_side = 0
-2:2/0/terrains_peering_bit/top_right_corner = 0
-3:2/0 = 0
-3:2/0/z_index = -1
-3:2/0/terrain_set = 0
-3:2/0/terrain = 0
-3:2/0/terrains_peering_bit/bottom_side = 0
-3:2/0/terrains_peering_bit/bottom_left_corner = 0
-3:2/0/terrains_peering_bit/left_side = 0
-3:2/0/terrains_peering_bit/top_left_corner = 0
-3:2/0/terrains_peering_bit/top_side = 0
-0:3/0 = 0
-0:3/0/z_index = -1
-0:3/0/terrain_set = 0
-0:3/0/terrain = 0
-0:3/0/terrains_peering_bit/top_side = 0
-1:3/0 = 0
-1:3/0/z_index = -1
-1:3/0/terrain_set = 0
-1:3/0/terrain = 0
-1:3/0/terrains_peering_bit/right_side = 0
-1:3/0/terrains_peering_bit/top_side = 0
-1:3/0/terrains_peering_bit/top_right_corner = 0
-2:3/0 = 0
-2:3/0/z_index = -1
-2:3/0/terrain_set = 0
-2:3/0/terrain = 0
-2:3/0/terrains_peering_bit/right_side = 0
-2:3/0/terrains_peering_bit/left_side = 0
-2:3/0/terrains_peering_bit/top_left_corner = 0
-2:3/0/terrains_peering_bit/top_side = 0
-2:3/0/terrains_peering_bit/top_right_corner = 0
-3:3/0 = 0
-3:3/0/z_index = -1
-3:3/0/terrain_set = 0
-3:3/0/terrain = 0
-3:3/0/terrains_peering_bit/left_side = 0
-3:3/0/terrains_peering_bit/top_left_corner = 0
-3:3/0/terrains_peering_bit/top_side = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04jyh"]
-texture = ExtResource("11_huc4e")
-0:0/size_in_atlas = Vector2i(1, 3)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -24, 8, -24, 8, 24, -8, 24)
-1:0/size_in_atlas = Vector2i(1, 3)
-1:0/0 = 0
-1:0/0/terrain_set = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -24, 8, -24, 8, 24, -8, 24)
-
-[sub_resource type="TileSet" id="TileSet_5otyf"]
-physics_layer_0/collision_layer = 1
-terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "planché"
-terrain_set_0/terrain_0/color = Color(0.441158, 0.29988, 0.214992, 1)
-sources/0 = SubResource("TileSetAtlasSource_npeqh")
-sources/1 = SubResource("TileSetAtlasSource_04jyh")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qelq7"]
-size = Vector2(112, 92)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jxqdx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3m0qn"]
 atlas = ExtResource("21_7gulb")
@@ -309,7 +137,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prbs5"]
-size = Vector2(33, 20)
+size = Vector2(33.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmlmq"]
+size = Vector2(10.5, 5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lirl0"]
 radius = 6.0
@@ -769,6 +600,102 @@ position = Vector2(795.5, -6.00004)
 scale = Vector2(2991, 1634)
 mesh = SubResource("BoxMesh_isv8e")
 
+[node name="intérieur" type="Node2D" parent="village"]
+y_sort_enabled = true
+use_parent_material = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="village/intérieur"]
+modulate = Color(0.0737439, 0.0641776, 0.0385264, 1)
+z_index = -5
+position = Vector2(-378.5, 210.5)
+scale = Vector2(353, 1875)
+mesh = SubResource("BoxMesh_jxqdx")
+
+[node name="maison sorcière" type="Node2D" parent="village/intérieur"]
+
+[node name="Sprite2D" type="Sprite2D" parent="village/intérieur/maison sorcière"]
+position = Vector2(-366, 200)
+texture = ExtResource("10_uf3iq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="village/intérieur/maison sorcière"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="village/intérieur/maison sorcière/StaticBody2D"]
+visible = false
+polygon = PackedVector2Array(-406, 197, -380, 197, -380, 211, -356, 211, -356, 231, -326, 231, -326, 240, -358, 240, -358, 251, -313, 251, -323, 188, -371, 162, -434, 173, -433, 250, -375, 251, -375, 240, -406, 240)
+
+[node name="int_detect" type="Area2D" parent="village/intérieur/maison sorcière"]
+position = Vector2(-371, 218)
+script = ExtResource("7_rf7b1")
+out_pos = Vector2(719, 305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="village/intérieur/maison sorcière/int_detect"]
+visible = false
+position = Vector2(5, -2)
+shape = SubResource("RectangleShape2D_tc4id")
+
+[node name="book" parent="village/intérieur/maison sorcière" instance=ExtResource("50_d7jw6")]
+position = Vector2(-397, 208)
+texture = ExtResource("12_0r8qo")
+book_type = "gravity"
+
+[node name="maison vieux sage" type="Node2D" parent="village/intérieur"]
+position = Vector2(5, 159)
+
+[node name="Sprite2D" type="Sprite2D" parent="village/intérieur/maison vieux sage"]
+position = Vector2(-366, 200)
+texture = ExtResource("13_e0w6x")
+
+[node name="Sprite2D2" type="Sprite2D" parent="village/intérieur/maison vieux sage"]
+y_sort_enabled = true
+position = Vector2(-387, 217)
+texture = ExtResource("14_36e4m")
+offset = Vector2(0, -5.5)
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="village/intérieur/maison vieux sage"]
+position = Vector2(-377, 177)
+texture = ExtResource("15_1h58m")
+offset = Vector2(0, -5.5)
+flip_h = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="village/intérieur/maison vieux sage"]
+y_sort_enabled = true
+position = Vector2(-336, 185)
+texture = ExtResource("16_8s202")
+flip_h = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="village/intérieur/maison vieux sage"]
+y_sort_enabled = true
+position = Vector2(-352, 185)
+texture = ExtResource("16_8s202")
+flip_h = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="village/intérieur/maison vieux sage"]
+y_sort_enabled = true
+position = Vector2(-342, 219)
+texture = ExtResource("17_lua0c")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="village/intérieur/maison vieux sage"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="village/intérieur/maison vieux sage/StaticBody2D"]
+visible = false
+polygon = PackedVector2Array(-375, 240, -406, 240, -406, 192, -360, 192, -360, 199, -326, 199, -326, 211, -353, 211, -353, 227, -326, 227, -326, 240, -358, 240, -358, 248, -316, 248, -320, 181, -414, 178, -433, 237, -404, 261, -375, 249)
+
+[node name="int_detect" type="Area2D" parent="village/intérieur/maison vieux sage"]
+position = Vector2(-371, 218)
+script = ExtResource("7_rf7b1")
+out_pos = Vector2(719, 305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="village/intérieur/maison vieux sage/int_detect"]
+visible = false
+position = Vector2(5, -2)
+shape = SubResource("RectangleShape2D_tc4id")
+
+[node name="book" parent="village/intérieur/maison vieux sage" instance=ExtResource("50_d7jw6")]
+position = Vector2(-337, 205)
+book_type = "ame"
+
 [node name="route" type="TileMapLayer" parent="village"]
 z_index = -1
 y_sort_enabled = true
@@ -804,28 +731,6 @@ y_sort_enabled = true
 visible = false
 z_index = 50
 polygon = PackedVector2Array(215, -33, -46, -32, -44, 0, 5, 5, 87, 10, 219, 15, 228, 127, 254, 172, 274, 283, 315, 352, 373, 391, 415, 433, 479, 448, 801, 441, 891, 398, 960, 325, 1003, 240, 1034, 146, 1041, 88, 1025, 75, 1026, 37, 1017, 13, 997, -5, 975, -11, 922, -24, 908, -79, 927, -174, 979, -219, 1012, -312, 1017, -374, 988, -465, 934, -462, 906, -458, 873, -469, 843, -453, 798, -453, 767, -462, 718, -460, 678, -466, 648, -481, 607, -481, 582, -464, 508, -453, 405, -454, 386, -455, 357, -462, 331, -456, 295, -454, 289, -377, 268, -322, 256, -256, 256, -175, 241, -85, 215, -33, 150, -270, 252, -615, 1033, -601, 1241, 117, 813, 723, 203, 636, -107, 209, -205, -122, 150, -270)
-
-[node name="intérieur" type="TileMapLayer" parent="village"]
-y_sort_enabled = true
-use_parent_material = true
-tile_map_data = PackedByteArray("AADr//3/AAACAAIAAADr//7/AAACAAIAAADq//7/AAACAAIAAADq////AAACAAMAAADr////AAACAAMAAADq//3/AAACAAIAAADp//3/AAACAAIAAADo//7/AAACAAIAAADp//7/AAACAAIAAADp////AAACAAMAAADo////AAACAAMAAADo//3/AAACAAIAAADn//3/AAACAAIAAADn//7/AAACAAIAAADn////AAACAAMAAADm////AAABAAMAAADm//7/AAABAAIAAADm//3/AAABAAIAAADs//3/AAADAAIAAADs//7/AAADAAIAAADs////AAADAAMAAADs//z/AAADAAEAAADr//z/AAACAAEAAADq//z/AAACAAEAAADp//z/AAACAAEAAADo//z/AAACAAEAAADn//z/AAACAAEAAADm//z/AAABAAEAAADn//r/AQAAAAAAAADr//r/AQAAAAAAAADs//r/AQABAAAAAADq//r/AQABAAAAAADp//r/AQABAAAAAADo//r/AQABAAAAAADm//r/AQABAAAAAAA=")
-tile_set = SubResource("TileSet_5otyf")
-
-[node name="int_detect" type="Area2D" parent="village/intérieur"]
-position = Vector2(-360, -51)
-script = ExtResource("7_rf7b1")
-out_pos = Vector2(80, -40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="village/intérieur/int_detect"]
-position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_qelq7")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="village/intérieur"]
-modulate = Color(0.0737439, 0.0641776, 0.0385264, 1)
-z_index = -5
-position = Vector2(-378.5, 98)
-scale = Vector2(353, 614)
-mesh = SubResource("BoxMesh_jxqdx")
 
 [node name="particule feu6" parent="village" instance=ExtResource("12_l0c8p")]
 y_sort_enabled = true
@@ -1906,16 +1811,25 @@ texture = ExtResource("5_i0rva")
 
 [node name="maison sorcière" type="AnimatedSprite2D" parent="village"]
 y_sort_enabled = true
-position = Vector2(719, 269)
+position = Vector2(719, 297)
 sprite_frames = SubResource("SpriteFrames_t2nit")
 speed_scale = 0.0
+offset = Vector2(0, -26)
+script = ExtResource("18_8x72r")
+position_int = Vector2(-367, 238)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="village/maison sorcière"]
-visible = false
+position = Vector2(-10, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="village/maison sorcière/StaticBody2D"]
-position = Vector2(-0.5, 16)
+position = Vector2(9.5, -22)
 shape = SubResource("RectangleShape2D_prbs5")
+
+[node name="Area2D" type="Area2D" parent="village/maison sorcière"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="village/maison sorcière/Area2D"]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_xmlmq")
 
 [node name="Arbre5" type="Sprite2D" parent="village"]
 y_sort_enabled = true
@@ -2844,7 +2758,7 @@ position = Vector2(2, 0)
 
 [node name="Player" parent="." instance=ExtResource("12_l25pa")]
 process_mode = 3
-position = Vector2(253, -14)
+position = Vector2(573, 296)
 
 [node name="Cam Controller" parent="." instance=ExtResource("45_v5qgh")]
 process_mode = 3
@@ -3018,5 +2932,9 @@ texture = ExtResource("51_dh048")
 [connection signal="body_entered" from="village/GrotteDuDragon/Area2D" to="village/GrotteDuDragon" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="village/GrotteDuDragon/Area2D" to="village/GrotteDuDragon" method="_on_area_2d_body_exited"]
 [connection signal="animation_finished" from="village/GrotteDuDragon/transi" to="village/GrotteDuDragon" method="_on_transi_animation_finished"]
-[connection signal="body_entered" from="village/intérieur/int_detect" to="village/intérieur/int_detect" method="_on_body_entered"]
-[connection signal="body_exited" from="village/intérieur/int_detect" to="village/intérieur/int_detect" method="_on_body_exited"]
+[connection signal="body_entered" from="village/intérieur/maison sorcière/int_detect" to="village/intérieur/maison sorcière/int_detect" method="_on_body_entered"]
+[connection signal="body_exited" from="village/intérieur/maison sorcière/int_detect" to="village/intérieur/maison sorcière/int_detect" method="_on_body_exited"]
+[connection signal="body_entered" from="village/intérieur/maison vieux sage/int_detect" to="village/intérieur/maison vieux sage/int_detect" method="_on_body_entered"]
+[connection signal="body_exited" from="village/intérieur/maison vieux sage/int_detect" to="village/intérieur/maison vieux sage/int_detect" method="_on_body_exited"]
+[connection signal="body_entered" from="village/maison sorcière/Area2D" to="village/maison sorcière" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="village/maison sorcière/Area2D" to="village/maison sorcière" method="_on_area_2d_body_exited"]

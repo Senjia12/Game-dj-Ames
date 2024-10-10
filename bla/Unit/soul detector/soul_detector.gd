@@ -6,7 +6,7 @@ extends Node2D
 var can_freeze := true
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("scan"):
+	if Input.is_action_just_pressed("scan") && Globals.ame:
 		global_position = Globals.player.global_position
 		animation_player.play("scan")
 		
