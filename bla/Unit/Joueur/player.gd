@@ -9,6 +9,8 @@ var atk_cd = true
 var dash_end = true
 var dash_cooldown := true
 
+var velocity_dash := Vector2.ZERO
+
 func _enter_tree() -> void:
 	Globals.player = self
 
@@ -38,7 +40,6 @@ func _physics_process(delta):
 	else: 
 		idle_player.play("default")
 		idle_player.speed_scale = 0.3
-	move_and_slide()
 	
 	if $sword.global_position.distance_to(global_position) > 20:
 		$sword.position = (global_position - $sword.global_position).normalized() * 10
@@ -47,18 +48,22 @@ func _physics_process(delta):
 		$sword.play("sword_attack")
 		atk_cd = false
 		attack_cd.start()
+		
+	if dash_end == false:
+		velocity = velocity_dash
+			
 	
 	if Input.is_action_just_pressed("espace") and dash_cooldown == true and dash_end == true:
-		var velocity_dash = velocity * 5
-		
-		if dash_end == false:
-			velocity = velocity_dash
-			
+		velocity_dash = velocity * 5
 		dash_cooldown = false
 		dash_end = false
 		dash_cd.start()
 		dash_duration.start()
-		
+	
+	move_and_slide()
+
+
+
 func _on_attack_cd_timeout() -> void:
 	atk_cd = true
 
