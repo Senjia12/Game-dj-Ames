@@ -5,7 +5,9 @@ extends CharacterBody2D
 @onready var dash_cd: Timer = $"dash cd"
 @onready var dash_duration: Timer = $"dash duration"
 @onready var attack_cd: Timer = $"attack cd"
-
+var atk_cd = true
+var dash_end = false
+var velocity_dash = velocity * 5
 
 func _enter_tree() -> void:
 	Globals.player = self
@@ -41,21 +43,26 @@ func _physics_process(delta):
 	if $sword.global_position.distance_to(global_position) > 20:
 		$sword.position = (global_position - $sword.global_position).normalized() * 10
 				
-	if Input.is_action_just_pressed("espace") == true:
+	if Input.is_action_just_pressed("espace") == true && atk_cd == true:
 		$sword.play("sword_attack")
-
-
+		atk_cd = false
+	
+	if Input.is_action_just_pressed("espace") and dash_cooldown == true:
+		velocity = velocity_dash
+		dash_cooldown = false
+		dash_end = true
+		
 func _on_attack_cd_timeout() -> void:
-	pass # Replace with function body.
-
+	pass # Replace with function body
+	atk_cd = true
 
 func _on_dash_duration_timeout() -> void:
 	pass # Replace with function body.
-
+	dash_cooldown = true
 
 func _on_dash_cd_timeout() -> void:
 	pass # Replace with function body.
-
+	dash_cooldown = true
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
