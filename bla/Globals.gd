@@ -15,4 +15,4 @@ var light := true
 var trap_detect := false
 var glace := true
 var immune := false
-var ame := false
+var ame := true

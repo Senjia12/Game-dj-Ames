@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=111 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="Texture2D" uid="uid://2q8lx3x5n3dl" path="res://Level/Décor/Prairie/Tile_dherbe.png" id="1_om7bl"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Level/int_detect.gd" id="7_rf7b1"]
 [ext_resource type="Texture2D" uid="uid://chp8jbgiberxj" path="res://Level/Décor/Prairie/arbre 3.png" id="8_20gs6"]
 [ext_resource type="Texture2D" uid="uid://hctrmkuvyifs" path="res://Level/Décor/Prairie/arbre 4.png" id="9_jscf0"]
+[ext_resource type="Script" path="res://Level/vieux.gd" id="9_t3gc5"]
 [ext_resource type="Texture2D" uid="uid://dmgycip8fexf3" path="res://Level/maison/interieur_maison_sorciere.png" id="10_uf3iq"]
 [ext_resource type="Texture2D" uid="uid://752s8ty1aox6" path="res://Level/Livre de compétence/livre_de_Gravitation_2.png" id="12_0r8qo"]
 [ext_resource type="PackedScene" uid="uid://dbcwg8duvifad" path="res://Level/Décor/Village/arbre brulé/arebre_feu_2.tscn" id="12_e8imc"]
@@ -42,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://v6o8rsxhwhmo" path="res://Level/Décor/Prairie/Pave_2.png" id="24_ac0kq"]
 [ext_resource type="Texture2D" uid="uid://cbdldis862pg" path="res://Level/Décor/Prairie/Pave_3.png" id="25_w4p3i"]
 [ext_resource type="Texture2D" uid="uid://co6s0lffpigr8" path="res://Level/Décor/Prairie/Pave_4.png" id="26_bw248"]
+[ext_resource type="PackedScene" uid="uid://d2mamrqjwbeff" path="res://Unit/soul/soul.tscn" id="30_a8ny5"]
 [ext_resource type="Texture2D" uid="uid://caylyeqt0pyl" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_1.png" id="33_jrqys"]
 [ext_resource type="Texture2D" uid="uid://bigdqfa8wwmar" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_2.png" id="34_5f6qb"]
 [ext_resource type="Texture2D" uid="uid://8r0yo4xdsp4h" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_3.png" id="35_od2ys"]
@@ -105,6 +107,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tc4id"]
 size = Vector2(80, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d438x"]
+radius = 30.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klef5"]
 texture = ExtResource("1_8iq6g")
@@ -519,7 +524,7 @@ size = Vector2(51.5, 76.5)
 size = Vector2(199, 92.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whiyv"]
-size = Vector2(182, 48)
+size = Vector2(182, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1skj8"]
 size = Vector2(294, 75)
@@ -645,12 +650,53 @@ position = Vector2(5, 159)
 position = Vector2(-366, 200)
 texture = ExtResource("13_e0w6x")
 
-[node name="Sprite2D2" type="Sprite2D" parent="village/intérieur/maison vieux sage"]
+[node name="vieux" type="Sprite2D" parent="village/intérieur/maison vieux sage"]
 y_sort_enabled = true
-position = Vector2(-387, 217)
+position = Vector2(-361, 224)
 texture = ExtResource("14_36e4m")
 offset = Vector2(0, -5.5)
 flip_h = true
+script = ExtResource("9_t3gc5")
+
+[node name="text display 2" type="Timer" parent="village/intérieur/maison vieux sage/vieux"]
+wait_time = 0.001
+
+[node name="Area2D" type="Area2D" parent="village/intérieur/maison vieux sage/vieux"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="village/intérieur/maison vieux sage/vieux/Area2D"]
+position = Vector2(-16, -7)
+shape = SubResource("CircleShape2D_d438x")
+
+[node name="Node2D" type="Node2D" parent="village/intérieur/maison vieux sage/vieux"]
+z_index = 500
+
+[node name="MarginContainer" type="VBoxContainer" parent="village/intérieur/maison vieux sage/vieux/Node2D"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = -173.0
+offset_right = 178.0
+offset_bottom = 364.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+alignment = 2
+
+[node name="blabla" type="RichTextLabel" parent="village/intérieur/maison vieux sage/vieux/Node2D/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_outline_size = 3
+bbcode_enabled = true
+text = "[wave amp=20][center][i]coincoin[/i][/center][/wave]"
+fit_content = true
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
 
 [node name="Sprite2D3" type="Sprite2D" parent="village/intérieur/maison vieux sage"]
 position = Vector2(-377, 177)
@@ -680,12 +726,12 @@ flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="village/intérieur/maison vieux sage/StaticBody2D"]
 visible = false
-polygon = PackedVector2Array(-375, 240, -406, 240, -406, 192, -360, 192, -360, 199, -326, 199, -326, 211, -353, 211, -353, 227, -326, 227, -326, 240, -358, 240, -358, 248, -316, 248, -320, 181, -414, 178, -433, 237, -404, 261, -375, 249)
+polygon = PackedVector2Array(-375, 240, -406, 240, -406, 192, -360, 192, -360, 199, -326, 199, -326, 211, -353, 211, -353, 213, -366, 213, -366, 224, -353, 224, -353, 227, -326, 227, -326, 240, -358, 240, -358, 248, -316, 248, -320, 181, -414, 178, -433, 237, -404, 261, -375, 249)
 
 [node name="int_detect" type="Area2D" parent="village/intérieur/maison vieux sage"]
 position = Vector2(-371, 218)
 script = ExtResource("7_rf7b1")
-out_pos = Vector2(719, 305)
+out_pos = Vector2(36, -28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="village/intérieur/maison vieux sage/int_detect"]
 visible = false
@@ -715,6 +761,7 @@ position = Vector2(124, -32)
 [node name="maison 2" parent="village" instance=ExtResource("3_efe0o")]
 y_sort_enabled = true
 position = Vector2(36, -32)
+position_int = Vector2(-361, 397)
 
 [node name="tour du mage" parent="village" instance=ExtResource("4_bb3nm")]
 y_sort_enabled = true
@@ -2361,6 +2408,16 @@ position = Vector2(155, 203)
 texture = ExtResource("8_20gs6")
 offset = Vector2(0, -31)
 
+[node name="Soul" parent="village" instance=ExtResource("30_a8ny5")]
+position = Vector2(608, -469)
+talk = ["You see this beautiful view ?", "I was reading a book close to this view, and I fall...", "Bruh, as we say."]
+important = true
+
+[node name="Soul2" parent="village" instance=ExtResource("30_a8ny5")]
+position = Vector2(618, 67)
+talk = ["Oh it's you ?", "I know you want to kill the dragon, and I can help you...", "Go to the south, and close to my house, there is a purple book", "Read it to be stronger"]
+important = true
+
 [node name="prarie" type="Node2D" parent="."]
 z_index = 5
 
@@ -2685,9 +2742,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -74.0
-offset_top = 16.0
+offset_top = 62.475
 offset_right = 73.0
-offset_bottom = 39.0
+offset_bottom = 85.475
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2ynj0")
@@ -2702,9 +2759,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -74.0
-offset_top = 16.0
+offset_top = 62.475
 offset_right = 73.0
-offset_bottom = 39.0
+offset_bottom = 85.475
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2ynj0")
@@ -2719,13 +2776,31 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -74.0
-offset_top = 16.0
+offset_top = 46.26
 offset_right = 73.0
-offset_bottom = 39.0
+offset_bottom = 69.26
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2ynj0")
 text = "Press E to read"
+
+[node name="press e talk" type="Label" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 62.475
+offset_right = 73.0
+offset_bottom = 85.475
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_2ynj0")
+text = "Press E to talk
+"
 
 [node name="dmg" type="ColorRect" parent="CanvasLayer/UI"]
 layout_mode = 1
@@ -2758,7 +2833,7 @@ position = Vector2(2, 0)
 
 [node name="Player" parent="." instance=ExtResource("12_l25pa")]
 process_mode = 3
-position = Vector2(573, 296)
+position = Vector2(576, 6)
 
 [node name="Cam Controller" parent="." instance=ExtResource("45_v5qgh")]
 process_mode = 3
@@ -2807,7 +2882,7 @@ script = ExtResource("44_bbdl7")
 zoom = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Cam limiter/2"]
-position = Vector2(-355, -454)
+position = Vector2(-355, -472)
 shape = SubResource("RectangleShape2D_whiyv")
 
 [node name="4" type="Area2D" parent="Cam limiter"]
@@ -2934,6 +3009,9 @@ texture = ExtResource("51_dh048")
 [connection signal="animation_finished" from="village/GrotteDuDragon/transi" to="village/GrotteDuDragon" method="_on_transi_animation_finished"]
 [connection signal="body_entered" from="village/intérieur/maison sorcière/int_detect" to="village/intérieur/maison sorcière/int_detect" method="_on_body_entered"]
 [connection signal="body_exited" from="village/intérieur/maison sorcière/int_detect" to="village/intérieur/maison sorcière/int_detect" method="_on_body_exited"]
+[connection signal="timeout" from="village/intérieur/maison vieux sage/vieux/text display 2" to="village/intérieur/maison vieux sage/vieux" method="_on_text_display_2_timeout"]
+[connection signal="body_entered" from="village/intérieur/maison vieux sage/vieux/Area2D" to="village/intérieur/maison vieux sage/vieux" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="village/intérieur/maison vieux sage/vieux/Area2D" to="village/intérieur/maison vieux sage/vieux" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="village/intérieur/maison vieux sage/int_detect" to="village/intérieur/maison vieux sage/int_detect" method="_on_body_entered"]
 [connection signal="body_exited" from="village/intérieur/maison vieux sage/int_detect" to="village/intérieur/maison vieux sage/int_detect" method="_on_body_exited"]
 [connection signal="body_entered" from="village/maison sorcière/Area2D" to="village/maison sorcière" method="_on_area_2d_body_entered"]

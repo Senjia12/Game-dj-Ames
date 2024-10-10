@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2mamrqjwbeff"]
+[gd_scene load_steps=12 format=3 uid="uid://d2mamrqjwbeff"]
 
 [ext_resource type="Texture2D" uid="uid://cim4x1wkgiq4b" path="res://Unit/soul/Âme idle.png" id="1_6gcdh"]
 [ext_resource type="Script" path="res://Unit/soul/soul.gd" id="1_dqplt"]
+[ext_resource type="Texture2D" uid="uid://ql1gumaiscj4" path="res://UI/light tempo.png" id="3_p7ml5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b2be2"]
 radius = 8.0
@@ -125,6 +126,13 @@ visible_ratio = 0.0
 
 [node name="text display 2" type="Timer" parent="."]
 wait_time = 0.001
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0, 0.882385, 0.823047, 1)
+energy = 0.5
+texture = ExtResource("3_p7ml5")
+offset = Vector2(0, 4)
+texture_scale = 0.1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

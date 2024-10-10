@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://dbfgxaqud11xy"]
+[gd_scene load_steps=62 format=4 uid="uid://dbfgxaqud11xy"]
 
 [ext_resource type="PackedScene" uid="uid://cwswub0u8qanb" path="res://Unit/Joueur/player.tscn" id="1_rfuds"]
 [ext_resource type="PackedScene" uid="uid://dm4p41d4srv03" path="res://UI/cam_controller.tscn" id="2_eyawh"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cded12f8ujfv2" path="res://Level/Grotte/champi/Particule_brouillard.png" id="18_rnyvv"]
 [ext_resource type="Script" path="res://Level/Grotte/gaz.gd" id="19_3i2od"]
 [ext_resource type="Texture2D" uid="uid://c4lywndryn6p" path="res://Level/Grotte/champi/Chamignons.png" id="20_y6u74"]
+[ext_resource type="PackedScene" uid="uid://d2mamrqjwbeff" path="res://Unit/soul/soul.tscn" id="21_gbo0n"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6h3gm"]
 polygon = PackedVector2Array(-8, -7.5, 8, -7.5, 8, 7.5, -8, 7.5)
@@ -851,6 +852,11 @@ position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_as0om")
 
 [node name="Timer" type="Timer" parent="toxic"]
+
+[node name="Soul" parent="." instance=ExtResource("21_gbo0n")]
+position = Vector2(532, 42)
+talk = ["Since he went down into the cave, I have never seen my friend again...", "don't do the same mistake."]
+important = true
 
 [connection signal="body_entered" from="out" to="out" method="_on_body_entered"]
 [connection signal="body_entered" from="toxic/player_in" to="toxic/gaz" method="_on_player_in_body_entered"]

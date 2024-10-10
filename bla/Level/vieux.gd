@@ -1,19 +1,15 @@
-extends StaticBody2D
-
+extends Sprite2D
 
 @export var talk := ["coincoin ?", "oui coinconi", "..."]
 var current_text := 0
-@onready var blabla: RichTextLabel = $MarginContainer/blabla
-
-@export var important := false
+@onready var blabla: RichTextLabel = $Node2D/MarginContainer/blabla
 
 var player_in := false
 
 
 func _ready() -> void:
-	$AnimatedSprite2D.hide()
 	blabla.text = "[wave amp=20][center][i]" + talk[current_text] + "[/i][/center][/wave]"
-	$AnimatedSprite2D.play("default")
+
 
 
 func _input(event: InputEvent) -> void:
@@ -26,22 +22,8 @@ func _input(event: InputEvent) -> void:
 		$"text display 2".start()
 
 
-func activate():
-	if !$AnimatedSprite2D.is_visible_in_tree():
-		$AnimatedSprite2D.show()
-		$AnimationPlayer.play("spawn")
-		for i in $Area2D.get_overlapping_bodies():
-			if i.is_in_group("player"):
-				player_in = true
-				Globals.UI.get_node("press e talk").show()
-
-
-func desactivate():
-	$AnimatedSprite2D.hide()
-	$AnimationPlayer.play("RESET")
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") && $AnimatedSprite2D.is_visible_in_tree():
+	if body.is_in_group("player") && is_visible_in_tree():
 		player_in = true
 		Globals.UI.get_node("press e talk").show()
 
