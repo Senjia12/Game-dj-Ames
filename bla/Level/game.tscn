@@ -57,7 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://ql1gumaiscj4" path="res://UI/light tempo.png" id="47_de1yy"]
 [ext_resource type="Texture2D" uid="uid://b7j4okqjoy6gn" path="res://Level/Grotte/glace/Tile_glace_creee.png" id="48_akw75"]
 [ext_resource type="Script" path="res://Level/Grotte/zone_gelable.gd" id="49_rkrto"]
-[ext_resource type="PackedScene" uid="uid://c0stg7wvum1ci" path="res://Level/Livre de compétence/book.tscn" id="50_d7jw6"]
+[ext_resource type="PackedScene" path="res://Level/Livre de compétence/book.tscn" id="50_d7jw6"]
 [ext_resource type="Texture2D" uid="uid://cugncyam6k1hd" path="res://Level/Livre de compétence/livre_de_Lumiere_1.png" id="51_dh048"]
 [ext_resource type="Texture2D" uid="uid://c8dikbwilt8q0" path="res://Level/Livre de compétence/livre_de_lImunite_1.png" id="51_jlbr6"]
 
