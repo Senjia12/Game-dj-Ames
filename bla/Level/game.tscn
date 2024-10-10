@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=4 uid="uid://dl2ttax3i72yh"]
+[gd_scene load_steps=125 format=4 uid="uid://dl2ttax3i72yh"]
 
 [ext_resource type="Texture2D" uid="uid://coiavl0j028b2" path="res://Level/Décor/Village/route.png" id="1_8iq6g"]
 [ext_resource type="Texture2D" uid="uid://2q8lx3x5n3dl" path="res://Level/Décor/Prairie/Tile_dherbe.png" id="1_om7bl"]
@@ -21,16 +21,23 @@
 [ext_resource type="PackedScene" uid="uid://cwswub0u8qanb" path="res://Unit/Joueur/player.tscn" id="12_l25pa"]
 [ext_resource type="Texture2D" uid="uid://dtehjbnbdc6c3" path="res://Level/maison/interieur_maison.png" id="13_e0w6x"]
 [ext_resource type="PackedScene" uid="uid://dm7kvvmp8djqc" path="res://Level/Décor/Village/arbre brulé/arbre_feu_3.tscn" id="13_wb7f7"]
+[ext_resource type="Texture2D" uid="uid://4rmygrlr653i" path="res://Level/maison/Armoire_en_feu.png" id="13_ynxbi"]
 [ext_resource type="PackedScene" uid="uid://bp7nj3jn3eudd" path="res://Level/Décor/Village/arbre brulé/arbre_feu_4.tscn" id="14_5tgih"]
 [ext_resource type="Texture2D" uid="uid://dcrjn6kelrpio" path="res://Level/maison/Vieux_sage.png" id="14_36e4m"]
+[ext_resource type="PackedScene" uid="uid://dovjaq5ndtxrh" path="res://Level/Décor/Effet/Feu/particule feu point.tscn" id="14_ek1fs"]
 [ext_resource type="Texture2D" uid="uid://463yds73h1xs" path="res://Level/maison/Horloge.png" id="15_1h58m"]
 [ext_resource type="Texture2D" uid="uid://3335ha7b70ky" path="res://Level/Décor/Prairie/gadou.png" id="15_31yra"]
+[ext_resource type="Texture2D" uid="uid://b7qmp0eld2mrj" path="res://Level/maison/interieur_tour_de_mage_avec_mur.png" id="15_fnghy"]
 [ext_resource type="Script" path="res://Level/grotte_du_dragon_entré.gd" id="15_phhvv"]
 [ext_resource type="PackedScene" uid="uid://cgpwhvfopas3p" path="res://Level/Décor/Village/arbre brulé/arbre_feu_5.tscn" id="15_wmllm"]
+[ext_resource type="Texture2D" uid="uid://cifwt44ptsclh" path="res://Level/maison/interieur_tour_de_mage_sans_le_mur.png" id="16_7jjmp"]
 [ext_resource type="Texture2D" uid="uid://b36h20lqm86eg" path="res://Level/maison/Armoire.png" id="16_8s202"]
 [ext_resource type="PackedScene" uid="uid://deb32hb4c86on" path="res://Level/Décor/Village/arbre brulé/arbre_feu_1.tscn" id="16_qhkgf"]
+[ext_resource type="Texture2D" uid="uid://dbwfr5ryj8sud" path="res://Level/Livre de compétence/livre_du_Temps_1.png" id="17_5mstd"]
 [ext_resource type="Texture2D" uid="uid://cnhdxy0pasufv" path="res://Level/maison/Table.png" id="17_lua0c"]
+[ext_resource type="Texture2D" uid="uid://b8jq4jngs0bv1" path="res://Level/maison/Poutre_en_feu.png" id="17_y24xa"]
 [ext_resource type="Script" path="res://Level/maison_sorcière.gd" id="18_8x72r"]
+[ext_resource type="Script" path="res://Level/truc_déplassable.gd" id="18_nlpao"]
 [ext_resource type="Texture2D" uid="uid://cw3yj8dbbtmag" path="res://Level/Décor/motagne + point de vue/Montagne_vue_badasse.png" id="19_d0ioc"]
 [ext_resource type="Texture2D" uid="uid://mm80jwb8dmoi" path="res://Level/Décor/motagne + point de vue/Montagne_droite.png" id="20_liio1"]
 [ext_resource type="Texture2D" uid="uid://bfjgbyeabau5x" path="res://Level/Décor/Prairie/Cabane_de_la_sorciere.png" id="21_7gulb"]
@@ -44,11 +51,6 @@
 [ext_resource type="Texture2D" uid="uid://cbdldis862pg" path="res://Level/Décor/Prairie/Pave_3.png" id="25_w4p3i"]
 [ext_resource type="Texture2D" uid="uid://co6s0lffpigr8" path="res://Level/Décor/Prairie/Pave_4.png" id="26_bw248"]
 [ext_resource type="PackedScene" uid="uid://d2mamrqjwbeff" path="res://Unit/soul/soul.tscn" id="30_a8ny5"]
-[ext_resource type="Texture2D" uid="uid://caylyeqt0pyl" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_1.png" id="33_jrqys"]
-[ext_resource type="Texture2D" uid="uid://bigdqfa8wwmar" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_2.png" id="34_5f6qb"]
-[ext_resource type="Texture2D" uid="uid://8r0yo4xdsp4h" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_3.png" id="35_od2ys"]
-[ext_resource type="Texture2D" uid="uid://cxsnkmigs5bu5" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_4.png" id="36_637gu"]
-[ext_resource type="Texture2D" uid="uid://h354eet7pk0p" path="res://Level/Décor/motagne + point de vue/Zone_de_pierre_5.png" id="37_u5eci"]
 [ext_resource type="Script" path="res://Level/cam limiter.gd" id="44_bbdl7"]
 [ext_resource type="PackedScene" uid="uid://dm4p41d4srv03" path="res://UI/cam_controller.tscn" id="45_v5qgh"]
 [ext_resource type="Texture2D" uid="uid://boiiujdyrwdum" path="res://Level/Décor/motagne + point de vue/Ciel_vue_badasse.png" id="46_1u8yh"]
@@ -110,6 +112,96 @@ size = Vector2(80, 48)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d438x"]
 radius = 30.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly8j5"]
+atlas = ExtResource("13_ynxbi")
+region = Rect2(15, 0, 15, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny0y4"]
+atlas = ExtResource("13_ynxbi")
+region = Rect2(0, 0, 15, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c8ajl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ly8j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny0y4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahc7n"]
+atlas = ExtResource("17_y24xa")
+region = Rect2(11, 0, 11, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t105v"]
+atlas = ExtResource("17_y24xa")
+region = Rect2(0, 0, 11, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u2vr0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahc7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t105v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_quqky"]
+radius = 30.0666
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua71i"]
+size = Vector2(8, 46)
+
+[sub_resource type="Animation" id="Animation_lurft"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fts3w"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ha1bf"]
+_data = {
+"RESET": SubResource("Animation_lurft"),
+"fade": SubResource("Animation_fts3w")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ar8fo"]
+size = Vector2(80, 92)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klef5"]
 texture = ExtResource("1_8iq6g")
@@ -707,12 +799,6 @@ position = Vector2(-336, 185)
 texture = ExtResource("16_8s202")
 flip_h = true
 
-[node name="Sprite2D5" type="Sprite2D" parent="village/intérieur/maison vieux sage"]
-y_sort_enabled = true
-position = Vector2(-352, 185)
-texture = ExtResource("16_8s202")
-flip_h = true
-
 [node name="Sprite2D6" type="Sprite2D" parent="village/intérieur/maison vieux sage"]
 y_sort_enabled = true
 position = Vector2(-342, 219)
@@ -739,6 +825,97 @@ shape = SubResource("RectangleShape2D_tc4id")
 position = Vector2(-337, 205)
 book_type = "ame"
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="village/intérieur/maison vieux sage"]
+position = Vector2(-351, 185)
+sprite_frames = SubResource("SpriteFrames_c8ajl")
+autoplay = "default"
+
+[node name="feu point" parent="village/intérieur/maison vieux sage" instance=ExtResource("14_ek1fs")]
+z_index = 1
+position = Vector2(-355, 175)
+
+[node name="tour du mage" type="Node2D" parent="village/intérieur"]
+
+[node name="avec mur" type="Sprite2D" parent="village/intérieur/tour du mage"]
+position = Vector2(-390, 651)
+texture = ExtResource("15_fnghy")
+
+[node name="sans mur" type="Sprite2D" parent="village/intérieur/tour du mage"]
+position = Vector2(-390, 651)
+texture = ExtResource("16_7jjmp")
+
+[node name="book" parent="village/intérieur/tour du mage/sans mur" instance=ExtResource("50_d7jw6")]
+position = Vector2(31, -16)
+texture = ExtResource("17_5mstd")
+book_type = "time stop"
+
+[node name="Soul" parent="village/intérieur/tour du mage/sans mur" instance=ExtResource("30_a8ny5")]
+position = Vector2(-6, -26)
+talk = ["Just before the dragon attack, I have writen a lot of books.", "Unfortunately, I lost some of them, but I'm sure there is the yellow one in the tower.", "Read it to learn how the time works in this world, and try to find the other ones to be more powerful.", "Good luck !"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="village/intérieur/tour du mage"]
+position = Vector2(-357.5, 662)
+sprite_frames = SubResource("SpriteFrames_c8ajl")
+autoplay = "default"
+
+[node name="feu point" parent="village/intérieur/tour du mage" instance=ExtResource("14_ek1fs")]
+z_index = 1
+position = Vector2(-361.5, 652)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="village/intérieur/tour du mage"]
+position = Vector2(-372.5, 662)
+sprite_frames = SubResource("SpriteFrames_c8ajl")
+autoplay = "default"
+
+[node name="feu point2" parent="village/intérieur/tour du mage" instance=ExtResource("14_ek1fs")]
+z_index = 1
+position = Vector2(-376.5, 652)
+
+[node name="feu point3" parent="village/intérieur/tour du mage" instance=ExtResource("14_ek1fs")]
+z_index = 1
+position = Vector2(-424, 660)
+
+[node name="truc déplassable" type="AnimatedSprite2D" parent="village/intérieur/tour du mage"]
+position = Vector2(-421, 661)
+rotation = -0.319996
+sprite_frames = SubResource("SpriteFrames_u2vr0")
+autoplay = "default"
+script = ExtResource("18_nlpao")
+
+[node name="Area2D" type="Area2D" parent="village/intérieur/tour du mage/truc déplassable"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="village/intérieur/tour du mage/truc déplassable/Area2D"]
+shape = SubResource("CircleShape2D_quqky")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="village/intérieur/tour du mage/truc déplassable"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="village/intérieur/tour du mage/truc déplassable/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ua71i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="village/intérieur/tour du mage/truc déplassable"]
+libraries = {
+"": SubResource("AnimationLibrary_ha1bf")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="village/intérieur/tour du mage"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="village/intérieur/tour du mage/StaticBody2D"]
+visible = false
+polygon = PackedVector2Array(-380, 676, -350, 676, -350, 715, -382, 715, -382, 736, -331, 737, -308, 621, -346, 591, -443, 590, -491, 653, -483, 721, -451, 760, -399, 737, -399, 715, -430, 715, -430, 624, -350, 624, -350, 645, -416, 645, -416, 666, -380, 666)
+
+[node name="int_detect" type="Area2D" parent="village/intérieur/tour du mage"]
+position = Vector2(-390, 691)
+script = ExtResource("7_rf7b1")
+out_pos = Vector2(169, -28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="village/intérieur/tour du mage/int_detect"]
+position = Vector2(0, -22)
+shape = SubResource("RectangleShape2D_ar8fo")
+
+[node name="Soul2" parent="village/intérieur/tour du mage" instance=ExtResource("30_a8ny5")]
+position = Vector2(-362, 683)
+talk = ["Oh... I'm dead ?", "Is the mage dead ?", "I saw him behind the tower..."]
+
 [node name="route" type="TileMapLayer" parent="village"]
 z_index = -1
 y_sort_enabled = true
@@ -763,6 +940,7 @@ position_int = Vector2(-361, 397)
 [node name="tour du mage" parent="village" instance=ExtResource("4_bb3nm")]
 y_sort_enabled = true
 position = Vector2(169, -32)
+position_int = Vector2(-391, 714)
 
 [node name="Maison" parent="village" instance=ExtResource("2_w68xo")]
 y_sort_enabled = true
@@ -2687,37 +2865,101 @@ position = Vector2(2, 14)
 position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_6nhtq")
 
-[node name="ZoneDePierre1" type="Sprite2D" parent="Montagne"]
-position = Vector2(950, 7)
-texture = ExtResource("34_5f6qb")
+[node name="omni light2" type="PointLight2D" parent="Montagne"]
+position = Vector2(325, -92)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
 
-[node name="ZoneDePierre2" type="Sprite2D" parent="Montagne"]
-position = Vector2(965, 42)
-texture = ExtResource("35_od2ys")
+[node name="omni light3" type="PointLight2D" parent="Montagne"]
+position = Vector2(431, -113)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
 
-[node name="ZoneDePierre3" type="Sprite2D" parent="Montagne"]
-position = Vector2(1000, 74)
-texture = ExtResource("36_637gu")
+[node name="omni light4" type="PointLight2D" parent="Montagne"]
+position = Vector2(695, -106)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
 
-[node name="ZoneDePierre4" type="Sprite2D" parent="Montagne"]
-position = Vector2(953, -26)
-texture = ExtResource("33_jrqys")
+[node name="omni light5" type="PointLight2D" parent="Montagne"]
+position = Vector2(792, 18)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
 
-[node name="ZoneDePierre5" type="Sprite2D" parent="Montagne"]
-position = Vector2(911, 47)
-texture = ExtResource("34_5f6qb")
+[node name="omni light6" type="PointLight2D" parent="Montagne"]
+position = Vector2(949, 51)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
 
-[node name="ZoneDePierre6" type="Sprite2D" parent="Montagne"]
-position = Vector2(864, 25)
-texture = ExtResource("33_jrqys")
+[node name="omni light7" type="PointLight2D" parent="Montagne"]
+position = Vector2(543, -1)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
 
-[node name="ZoneDePierre7" type="Sprite2D" parent="Montagne"]
-position = Vector2(891, 74)
-texture = ExtResource("37_u5eci")
+[node name="omni light8" type="PointLight2D" parent="Montagne"]
+position = Vector2(395, 9)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
 
-[node name="ZoneDePierre8" type="Sprite2D" parent="Montagne"]
-position = Vector2(908, -23)
-texture = ExtResource("33_jrqys")
+[node name="omni light9" type="PointLight2D" parent="Montagne"]
+position = Vector2(170, 27)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
+
+[node name="omni light10" type="PointLight2D" parent="Montagne"]
+position = Vector2(88, 22)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
+
+[node name="omni light11" type="PointLight2D" parent="Montagne"]
+position = Vector2(-2, 12)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
+
+[node name="omni light12" type="PointLight2D" parent="Montagne"]
+position = Vector2(-98, -11)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
+
+[node name="omni light13" type="PointLight2D" parent="Montagne"]
+position = Vector2(-83, -84)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
+
+[node name="omni light14" type="PointLight2D" parent="Montagne"]
+position = Vector2(0, -112)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
+
+[node name="omni light15" type="PointLight2D" parent="Montagne"]
+position = Vector2(77, -117)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
+
+[node name="omni light16" type="PointLight2D" parent="Montagne"]
+position = Vector2(134, -127)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
+
+[node name="omni light17" type="PointLight2D" parent="Montagne"]
+position = Vector2(198, -80)
+energy = 0.15
+texture = ExtResource("47_de1yy")
+texture_scale = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -2746,6 +2988,23 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_2ynj0")
 text = "Press E to interact"
+
+[node name="ther surely" type="Label" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 62.475
+offset_right = 73.0
+offset_bottom = 85.475
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_2ynj0")
+text = "There surely is a way to move this"
 
 [node name="press e enter" type="Label" parent="CanvasLayer/UI"]
 visible = false
@@ -2830,7 +3089,7 @@ position = Vector2(2, 0)
 
 [node name="Player" parent="." instance=ExtResource("12_l25pa")]
 process_mode = 3
-position = Vector2(576, 6)
+position = Vector2(209, -1)
 
 [node name="Cam Controller" parent="." instance=ExtResource("45_v5qgh")]
 process_mode = 3
@@ -2988,7 +3247,7 @@ texture_scale = 0.5
 
 [node name="zone gelable" type="TileMapLayer" parent="."]
 z_index = -1
-tile_map_data = PackedByteArray("AAAxAOj/AgAAAAAAAAAxAOf/AgAAAAAAAAAxAOb/AgAAAAAAAAAyAOb/AgAAAAAAAAAyAOf/AgAAAAAAAAAyAOj/AgAAAAAAAAAzAOj/AgAAAAAAAAAzAOf/AgAAAAAAAAAzAOb/AgAAAAAAAAA0AOb/AgAAAAAAAAA0AOf/AgAAAAAAAAA0AOj/AgAAAAAAAAA0AO3/AgAAAAAAAAAzAO3/AgAAAAAAAAAyAO3/AgAAAAAAAAAxAO3/AgAAAAAAAAAxAO7/AgAAAAAAAAAyAO7/AgAAAAAAAAAzAO7/AgAAAAAAAAA0AO7/AgAAAAAAAAAxAOz/AgAAAAAAAAAyAOz/AgAAAAAAAAAzAOz/AgAAAAAAAAA0AOz/AgAAAAAAAAAhABoAAgAAAAAAAAAiABoAAgAAAAAAAAAjABoAAgAAAAAAAAAkABoAAgAAAAAAAAAiABkAAgAAAAAAAAAjABkAAgAAAAAAAAAkABkAAgAAAAAAAAAlABkAAgAAAAAAAAAjABgAAgAAAAAAAAAkABgAAgAAAAAAAAAlABgAAgAAAAAAAAAmABgAAgAAAAAAAAAkABcAAgAAAAAAAAAlABcAAgAAAAAAAAAmABcAAgAAAAAAAAAnABcAAgAAAAAAAAAoABcAAgAAAAAAAAApABcAAgAAAAAAAAAqABcAAgAAAAAAAAAlABYAAgAAAAAAAAAmABYAAgAAAAAAAAAnABYAAgAAAAAAAAAoABYAAgAAAAAAAAApABYAAgAAAAAAAAAqABYAAgAAAAAAAAArABYAAgAAAAAAAAAsABYAAgAAAAAAAAAtABYAAgAAAAAAAAAuABYAAgAAAAAAAAAvABYAAgAAAAAAAAAoABUAAgAAAAAAAAApABUAAgAAAAAAAAAqABUAAgAAAAAAAAArABUAAgAAAAAAAAAsABUAAgAAAAAAAAAtABUAAgAAAAAAAAAuABUAAgAAAAAAAAAvABUAAgAAAAAAAAAwABUAAgAAAAAAAAAvABQAAgAAAAAAAAAwABQAAgAAAAAAAAAxABQAAgAAAAAAAAAwABMAAgAAAAAAAAAxABMAAgAAAAAAAAAyABMAAgAAAAAAAAAxABIAAgAAAAAAAAAyABIAAgAAAAAAAAAzABIAAgAAAAAAAAA0ABIAAgAAAAAAAAA1ABIAAgAAAAAAAAA2ABIAAgAAAAAAAAA3ABIAAgAAAAAAAAA4ABIAAgAAAAAAAAA5ABIAAgAAAAAAAAA3ABEAAgAAAAAAAAA2ABEAAgAAAAAAAAA1ABEAAgAAAAAAAAA0ABEAAgAAAAAAAAAzABEAAgAAAAAAAAAyABEAAgAAAAAAAAA3ABMAAgAAAAAAAAA4ABMAAgAAAAAAAAA5ABMAAgAAAAAAAAA6ABMAAgAAAAAAAAA5ABQAAgAAAAAAAAA6ABQAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAxAOj/AgAAAAAAAAAxAOf/AgAAAAAAAAAxAOb/AgAAAAAAAAAyAOb/AgAAAAAAAAAyAOf/AgAAAAAAAAAyAOj/AgAAAAAAAAAzAOj/AgAAAAAAAAAzAOf/AgAAAAAAAAAzAOb/AgAAAAAAAAA0AOb/AgAAAAAAAAA0AOf/AgAAAAAAAAA0AOj/AgAAAAAAAAA0AO3/AgAAAAAAAAAzAO3/AgAAAAAAAAAyAO3/AgAAAAAAAAAxAO3/AgAAAAAAAAAxAO7/AgAAAAAAAAAyAO7/AgAAAAAAAAAzAO7/AgAAAAAAAAA0AO7/AgAAAAAAAAAxAOz/AgAAAAAAAAAyAOz/AgAAAAAAAAAzAOz/AgAAAAAAAAA0AOz/AgAAAAAAAAAhABoAAgAAAAAAAAAiABoAAgAAAAAAAAAjABoAAgAAAAAAAAAkABoAAgAAAAAAAAAiABkAAgAAAAAAAAAjABkAAgAAAAAAAAAkABkAAgAAAAAAAAAlABkAAgAAAAAAAAAjABgAAgAAAAAAAAAkABgAAgAAAAAAAAAlABgAAgAAAAAAAAAmABgAAgAAAAAAAAAkABcAAgAAAAAAAAAlABcAAgAAAAAAAAAmABcAAgAAAAAAAAAnABcAAgAAAAAAAAAoABcAAgAAAAAAAAApABcAAgAAAAAAAAAqABcAAgAAAAAAAAAlABYAAgAAAAAAAAAmABYAAgAAAAAAAAAnABYAAgAAAAAAAAAoABYAAgAAAAAAAAApABYAAgAAAAAAAAAqABYAAgAAAAAAAAArABYAAgAAAAAAAAAsABYAAgAAAAAAAAAtABYAAgAAAAAAAAAuABYAAgAAAAAAAAAvABYAAgAAAAAAAAAoABUAAgAAAAAAAAApABUAAgAAAAAAAAAqABUAAgAAAAAAAAArABUAAgAAAAAAAAAsABUAAgAAAAAAAAAtABUAAgAAAAAAAAAuABUAAgAAAAAAAAAvABUAAgAAAAAAAAAwABUAAgAAAAAAAAAvABQAAgAAAAAAAAAwABQAAgAAAAAAAAAxABQAAgAAAAAAAAAwABMAAgAAAAAAAAAxABMAAgAAAAAAAAAyABMAAgAAAAAAAAAxABIAAgAAAAAAAAAyABIAAgAAAAAAAAAzABIAAgAAAAAAAAA0ABIAAgAAAAAAAAA1ABIAAgAAAAAAAAA2ABIAAgAAAAAAAAA3ABIAAgAAAAAAAAA4ABIAAgAAAAAAAAA5ABIAAgAAAAAAAAA3ABEAAgAAAAAAAAA2ABEAAgAAAAAAAAA1ABEAAgAAAAAAAAA0ABEAAgAAAAAAAAAzABEAAgAAAAAAAAAyABEAAgAAAAAAAAA3ABMAAgAAAAAAAAA4ABMAAgAAAAAAAAA5ABMAAgAAAAAAAAA6ABMAAgAAAAAAAAA5ABQAAgAAAAAAAAA6ABQAAgAAAAAAAABdAPL/AgAAAAAAAABcAPL/AgAAAAAAAABcAPP/AgAAAAAAAABbAPT/AgAAAAAAAABbAPX/AgAAAAAAAABbAPb/AgAAAAAAAABaAPf/AgAAAAAAAABbAPj/AgAAAAAAAABbAPn/AgAAAAAAAABcAPn/AgAAAAAAAABcAPr/AgAAAAAAAABeAPr/AgAAAAAAAABfAPr/AgAAAAAAAABhAPr/AgAAAAAAAABiAPr/AgAAAAAAAABjAPr/AgAAAAAAAAA=")
 tile_set = SubResource("TileSet_4u7dj")
 script = ExtResource("49_rkrto")
 
@@ -3010,5 +3269,10 @@ texture = ExtResource("51_dh048")
 [connection signal="body_exited" from="village/intérieur/maison vieux sage/vieux/Area2D" to="village/intérieur/maison vieux sage/vieux" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="village/intérieur/maison vieux sage/int_detect" to="village/intérieur/maison vieux sage/int_detect" method="_on_body_entered"]
 [connection signal="body_exited" from="village/intérieur/maison vieux sage/int_detect" to="village/intérieur/maison vieux sage/int_detect" method="_on_body_exited"]
+[connection signal="body_entered" from="village/intérieur/tour du mage/truc déplassable/Area2D" to="village/intérieur/tour du mage/truc déplassable" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="village/intérieur/tour du mage/truc déplassable/Area2D" to="village/intérieur/tour du mage/truc déplassable" method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="village/intérieur/tour du mage/truc déplassable/AnimationPlayer" to="village/intérieur/tour du mage/truc déplassable" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="village/intérieur/tour du mage/int_detect" to="village/intérieur/tour du mage/int_detect" method="_on_body_entered"]
+[connection signal="body_exited" from="village/intérieur/tour du mage/int_detect" to="village/intérieur/tour du mage/int_detect" method="_on_body_exited"]
 [connection signal="body_entered" from="village/maison sorcière/Area2D" to="village/maison sorcière" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="village/maison sorcière/Area2D" to="village/maison sorcière" method="_on_area_2d_body_exited"]
