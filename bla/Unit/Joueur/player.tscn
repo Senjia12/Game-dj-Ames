@@ -162,8 +162,14 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="hp_regen" type="Timer" parent="."]
+
+[node name="hp_cd" type="Timer" parent="."]
+
 [connection signal="body_entered" from="sword/attack_area" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="sword/attack_area" to="." method="_on_attack_area_body_exited"]
 [connection signal="timeout" from="dash cd" to="." method="_on_dash_cd_timeout"]
 [connection signal="timeout" from="dash duration" to="." method="_on_dash_duration_timeout"]
 [connection signal="timeout" from="attack cd" to="." method="_on_attack_cd_timeout"]
+[connection signal="timeout" from="hp_regen" to="." method="_on_hp_regen_timeout"]
+[connection signal="timeout" from="hp_cd" to="." method="_on_hp_cd_timeout"]
