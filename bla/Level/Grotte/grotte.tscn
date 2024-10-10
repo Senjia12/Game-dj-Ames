@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://dbfgxaqud11xy"]
+[gd_scene load_steps=70 format=4 uid="uid://dbfgxaqud11xy"]
 
 [ext_resource type="PackedScene" uid="uid://cwswub0u8qanb" path="res://Unit/Joueur/player.tscn" id="1_rfuds"]
 [ext_resource type="PackedScene" uid="uid://dm4p41d4srv03" path="res://UI/cam_controller.tscn" id="2_eyawh"]
@@ -21,6 +21,11 @@
 [ext_resource type="Script" path="res://Level/Grotte/gaz.gd" id="19_3i2od"]
 [ext_resource type="Texture2D" uid="uid://c4lywndryn6p" path="res://Level/Grotte/champi/Chamignons.png" id="20_y6u74"]
 [ext_resource type="PackedScene" uid="uid://d2mamrqjwbeff" path="res://Unit/soul/soul.tscn" id="21_gbo0n"]
+[ext_resource type="Script" path="res://UI/ui.gd" id="22_wf12o"]
+[ext_resource type="FontFile" uid="uid://bon0hj0i22w3e" path="res://UI/font pxl.ttf" id="23_ebgwe"]
+[ext_resource type="PackedScene" uid="uid://c0stg7wvum1ci" path="res://Level/Livre de compétence/book.tscn" id="24_27i1u"]
+[ext_resource type="Texture2D" uid="uid://c07h0bpmw8hqs" path="res://Level/Livre de compétence/livre_des_Pieges_1.png" id="25_7pafw"]
+[ext_resource type="PackedScene" uid="uid://b6nmha44yincq" path="res://Level/Grotte/trap/trap.tscn" id="25_uxbes"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6h3gm"]
 polygon = PackedVector2Array(-8, -7.5, 8, -7.5, 8, 7.5, -8, 7.5)
@@ -707,11 +712,44 @@ noise = SubResource("FastNoiseLite_sqqqh")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as0om"]
 size = Vector2(144, 105)
 
-[node name="Grotte" type="Node2D"]
+[sub_resource type="Animation" id="Animation_j1rey"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dmg:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.231373, 0.164706, 0)]
+}
 
-[node name="Player" parent="." instance=ExtResource("1_rfuds")]
-process_mode = 3
-position = Vector2(35, -13)
+[sub_resource type="Animation" id="Animation_ck84q"]
+resource_name = "dmg"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dmg:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.231373, 0.164706, 0), Color(1, 0.231373, 0.164706, 0.372549), Color(1, 0.231373, 0.164706, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lq6uo"]
+_data = {
+"RESET": SubResource("Animation_j1rey"),
+"dmg": SubResource("Animation_ck84q")
+}
+
+[node name="Grotte" type="Node2D"]
 
 [node name="Cam Controller" parent="." instance=ExtResource("2_eyawh")]
 process_mode = 3
@@ -854,9 +892,183 @@ shape = SubResource("RectangleShape2D_as0om")
 [node name="Timer" type="Timer" parent="toxic"]
 
 [node name="Soul" parent="." instance=ExtResource("21_gbo0n")]
-position = Vector2(532, 42)
+position = Vector2(503, 37)
 talk = ["Since he went down into the cave, I have never seen my friend again...", "don't do the same mistake."]
 important = true
+
+[node name="Soul2" parent="." instance=ExtResource("21_gbo0n")]
+position = Vector2(447, 222)
+talk = ["Did you see all those traps here !?", "It's impossible to survive...", "...An advice : take this book and be careful"]
+
+[node name="Soul3" parent="." instance=ExtResource("21_gbo0n")]
+position = Vector2(757, -377)
+talk = ["Hello little knight...", "Your armor looks heavy !", "don't do the mistake I did, don't break the ice under your feet...", "You will die before saying bye !"]
+
+[node name="Soul4" parent="." instance=ExtResource("21_gbo0n")]
+position = Vector2(430, -118)
+talk = ["Oh, hello !", "You are looking for the ice cave ?", "I died in the ice cave... It's up, and It's tooooooo cold..."]
+
+[node name="Soul5" parent="." instance=ExtResource("21_gbo0n")]
+position = Vector2(609, -106)
+talk = ["Pay attention !", "There is a lot of traps in this cave...", "I died because of a sword in a wall"]
+
+[node name="Soul6" parent="." instance=ExtResource("21_gbo0n")]
+position = Vector2(650, 36)
+talk = ["Warning ! ", "Thetr is hidden traps can kill you if you are not careful"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_wf12o")
+
+[node name="press e" type="Label" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 62.475
+offset_right = 73.0
+offset_bottom = 85.475
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("23_ebgwe")
+text = "Press E to interact"
+
+[node name="press e enter" type="Label" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 62.475
+offset_right = 73.0
+offset_bottom = 85.475
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("23_ebgwe")
+text = "Press E to enter"
+
+[node name="press e read" type="Label" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 46.26
+offset_right = 73.0
+offset_bottom = 69.26
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("23_ebgwe")
+text = "Press E to read"
+
+[node name="press e talk" type="Label" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 62.475
+offset_right = 73.0
+offset_bottom = 85.475
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("23_ebgwe")
+text = "Press E to talk
+"
+
+[node name="dmg" type="ColorRect" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.231373, 0.164706, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI"]
+libraries = {
+"": SubResource("AnimationLibrary_lq6uo")
+}
+
+[node name="book" parent="." instance=ExtResource("24_27i1u")]
+z_index = -1
+position = Vector2(402, 225)
+texture = ExtResource("25_7pafw")
+book_type = "trap detect"
+
+[node name="Player" parent="." instance=ExtResource("1_rfuds")]
+process_mode = 3
+position = Vector2(471, 47)
+
+[node name="trap" type="Node2D" parent="."]
+
+[node name="trap1" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(648, 22)
+
+[node name="trap2" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(665, -5)
+
+[node name="trap3" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(647, -52)
+
+[node name="trap4" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(662, -66)
+
+[node name="trap5" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(641, -114)
+
+[node name="trap6" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(649, -96)
+
+[node name="trap7" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(660, -132)
+
+[node name="trap8" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(728, -24)
+
+[node name="trap9" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(761, -7)
+
+[node name="trap10" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(761, -61)
+
+[node name="trap11" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(761, -75)
+
+[node name="trap12" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(743, -108)
+
+[node name="trap13" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(761, -141)
+
+[node name="trap14" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(728, -157)
+
+[node name="trap15" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(727, -172)
+
+[node name="trap16" parent="trap" instance=ExtResource("25_uxbes")]
+position = Vector2(692, -167)
 
 [connection signal="body_entered" from="out" to="out" method="_on_body_entered"]
 [connection signal="body_entered" from="toxic/player_in" to="toxic/gaz" method="_on_player_in_body_entered"]

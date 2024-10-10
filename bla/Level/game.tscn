@@ -2833,7 +2833,7 @@ position = Vector2(2, 0)
 
 [node name="Player" parent="." instance=ExtResource("12_l25pa")]
 process_mode = 3
-position = Vector2(576, 6)
+position = Vector2(554, -315)
 
 [node name="Cam Controller" parent="." instance=ExtResource("45_v5qgh")]
 process_mode = 3

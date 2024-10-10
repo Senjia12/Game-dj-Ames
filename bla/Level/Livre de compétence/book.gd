@@ -9,6 +9,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") && player_in:
 		if book_type == "light":
 			Globals.light = true
+			get_parent().get_node("player light").show()
 		elif book_type == "gravity":
 			Globals.gravity2 = true
 		elif book_type == "glace":
@@ -17,6 +18,8 @@ func _input(event: InputEvent) -> void:
 			Globals.immune = true
 		elif book_type == "trap detect":
 			Globals.trap_detect = true
+			for i in get_parent().get_node("trap").get_children():
+				i.show()
 		elif book_type == "time stop":
 			Globals.time_stop = true
 		elif book_type == "ame":

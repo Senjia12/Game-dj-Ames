@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6nmha44yincq"]
+
+[ext_resource type="Script" path="res://Level/Grotte/trap/trap.gd" id="1_38a5e"]
+[ext_resource type="Texture2D" uid="uid://b6ml2v14k3t50" path="res://Level/Grotte/trap/Tiles_pics.png" id="2_kgebw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4oy3"]
+size = Vector2(14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qat21"]
+atlas = ExtResource("2_kgebw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uujgc"]
+atlas = ExtResource("2_kgebw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ofkg"]
+atlas = ExtResource("2_kgebw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l83in"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qat21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uujgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ofkg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="trap" type="Node2D"]
+z_index = -1
+script = ExtResource("1_38a5e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_v4oy3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l83in")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
