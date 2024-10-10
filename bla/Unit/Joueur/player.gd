@@ -9,6 +9,8 @@ var atk_cd = true
 var dash_end = false
 var velocity_dash = velocity * 5
 
+var dash_cooldown := false
+
 func _enter_tree() -> void:
 	Globals.player = self
 
