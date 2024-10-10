@@ -41,7 +41,7 @@ func _physics_process(delta):
 	if $sword.global_position.distance_to(global_position) > 20:
 		$sword.position = (global_position - $sword.global_position).normalized() * 10
 				
-	if Input.is_action_just_pressed("espace") == true:
+	if Input.is_action_just_pressed("clic_gauche") == true:
 		$sword.play("sword_attack")
 
 
