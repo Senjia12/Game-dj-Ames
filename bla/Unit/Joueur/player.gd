@@ -43,7 +43,7 @@ func _physics_process(delta):
 	if $sword.global_position.distance_to(global_position) > 20:
 		$sword.position = (global_position - $sword.global_position).normalized() * 10
 				
-	if Input.is_action_just_pressed("espace") == true && atk_cd == true:
+	if Input.is_action_just_pressed("clic_gauche") == true:
 		$sword.play("sword_attack")
 		atk_cd = false
 	
@@ -70,3 +70,4 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 
 func _on_attack_area_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
+
