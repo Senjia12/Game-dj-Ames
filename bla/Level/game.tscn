@@ -57,7 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://ql1gumaiscj4" path="res://UI/light tempo.png" id="47_de1yy"]
 [ext_resource type="Texture2D" uid="uid://b7j4okqjoy6gn" path="res://Level/Grotte/glace/Tile_glace_creee.png" id="48_akw75"]
 [ext_resource type="Script" path="res://Level/Grotte/zone_gelable.gd" id="49_rkrto"]
-[ext_resource type="PackedScene" uid="uid://c0stg7wvum1ci" path="res://Level/Livre de compétence/book.tscn" id="50_d7jw6"]
+[ext_resource type="PackedScene" path="res://Level/Livre de compétence/book.tscn" id="50_d7jw6"]
 [ext_resource type="Texture2D" uid="uid://cugncyam6k1hd" path="res://Level/Livre de compétence/livre_de_Lumiere_1.png" id="51_dh048"]
 [ext_resource type="Texture2D" uid="uid://c8dikbwilt8q0" path="res://Level/Livre de compétence/livre_de_lImunite_1.png" id="51_jlbr6"]
 
@@ -657,9 +657,6 @@ texture = ExtResource("14_36e4m")
 offset = Vector2(0, -5.5)
 flip_h = true
 script = ExtResource("9_t3gc5")
-
-[node name="text display 2" type="Timer" parent="village/intérieur/maison vieux sage/vieux"]
-wait_time = 0.001
 
 [node name="Area2D" type="Area2D" parent="village/intérieur/maison vieux sage/vieux"]
 
@@ -3009,7 +3006,6 @@ texture = ExtResource("51_dh048")
 [connection signal="animation_finished" from="village/GrotteDuDragon/transi" to="village/GrotteDuDragon" method="_on_transi_animation_finished"]
 [connection signal="body_entered" from="village/intérieur/maison sorcière/int_detect" to="village/intérieur/maison sorcière/int_detect" method="_on_body_entered"]
 [connection signal="body_exited" from="village/intérieur/maison sorcière/int_detect" to="village/intérieur/maison sorcière/int_detect" method="_on_body_exited"]
-[connection signal="timeout" from="village/intérieur/maison vieux sage/vieux/text display 2" to="village/intérieur/maison vieux sage/vieux" method="_on_text_display_2_timeout"]
 [connection signal="body_entered" from="village/intérieur/maison vieux sage/vieux/Area2D" to="village/intérieur/maison vieux sage/vieux" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="village/intérieur/maison vieux sage/vieux/Area2D" to="village/intérieur/maison vieux sage/vieux" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="village/intérieur/maison vieux sage/int_detect" to="village/intérieur/maison vieux sage/int_detect" method="_on_body_entered"]
