@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0stg7wvum1ci"]
+[gd_scene load_steps=6 format=3 uid="uid://c0stg7wvum1ci"]
 
 [ext_resource type="Texture2D" uid="uid://uubi1f1de04n" path="res://Level/Livre de compétence/livre_des_Ames_1.png" id="1_sxii5"]
 [ext_resource type="Script" path="res://Level/Livre de compétence/book.gd" id="2_jti5g"]
+[ext_resource type="Texture2D" uid="uid://bqkkktf4fnpjr" path="res://UI/livre blabla.png" id="3_qb2g5"]
+[ext_resource type="Script" path="res://Level/Livre de compétence/reading.gd" id="4_fbp0s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62p6d"]
 radius = 11.0
@@ -14,6 +16,285 @@ script = ExtResource("2_jti5g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_62p6d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="reading" type="TextureRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qb2g5")
+script = ExtResource("4_fbp0s")
+
+[node name="light" type="Control" parent="CanvasLayer/reading"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/reading/light"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 95.0
+offset_right = 493.0
+offset_bottom = 279.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Light is electromagnetic radiation that can be detected by the eye. Light is therefore a form of radiant energy.
+Light radiation can be emitted by a natural source, such as the Sun and other stars, or by an artificial source, such as a light bulb."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/reading/light"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 324.0
+offset_right = 492.0
+offset_bottom = 508.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Light is almost instantaneous. It travels at a speed of 300,000 km/sec, a speed that it is impossible to exceed."
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/reading/light"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 171.0
+offset_right = 937.0
+offset_bottom = 355.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Some of the light that strikes an object is reflected by it, allowing us to see it. The other part of the light is absorbed."
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CanvasLayer/reading/light"]
+layout_mode = 0
+offset_left = 653.0
+offset_top = 298.0
+offset_right = 945.0
+offset_bottom = 482.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "White light is made up of all the colours. When white light separates into its constituent colours, the light is dispersed."
+fit_content = true
+
+[node name="time" type="Control" parent="CanvasLayer/reading"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/reading/time"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 95.0
+offset_right = 493.0
+offset_bottom = 279.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "In the International System of Units (SI), the unit of time is the second. It has been defined since 1967 as \"the duration of 9192631770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the caesium 133 atom\", and is an SI base unit."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/reading/time"]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 329.0
+offset_right = 485.0
+offset_bottom = 536.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Galileo, Newton, and most people up until the 20th century thought that time was the same for everyone everywhere. This is the basis for timelines, where time is a parameter."
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/reading/time"]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 130.0
+offset_right = 938.0
+offset_bottom = 360.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "This is the basis for timelines, where time is a parameter. The modern understanding of time is based on Einstein's theory of relativity, in which rates of time run differently depending on relative motion, and space and time are merged into spacetime, where we live on a world line rather than a timeline. In this view time is a coordinate.
+"
+fit_content = true
+
+[node name="anihilation" type="Control" parent="CanvasLayer/reading"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/reading/anihilation"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 125.0
+offset_right = 515.0
+offset_bottom = 470.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "In nuclear fusion, two low-mass nuclei come into very close contact with each other so that the strong force fuses them. It requires a large amount of energy for the strong or nuclear forces to overcome the electrical repulsion between the nuclei in order to fuse them; 
+
+therefore nuclear fusion can only take place at very high temperatures or high pressures. When nuclei fuse, a very large amount of energy is released and the combined nucleus assumes a lower energy level."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/reading/anihilation"]
+layout_mode = 0
+offset_left = 651.0
+offset_top = 174.0
+offset_right = 943.0
+offset_bottom = 519.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Nuclear fission is the reverse process to fusion. For nuclei heavier than nickel-62 the binding energy per nucleon decreases with the mass number. It is therefore possible for energy to be released if a heavy nucleus breaks apart into two lighter ones. 
+"
+fit_content = true
+
+[node name="trap" type="Control" parent="CanvasLayer/reading"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/reading/trap"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 117.0
+offset_right = 509.0
+offset_bottom = 462.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Hunting is the human practice of seeking, pursuing, capturing, and killing wildlife or feral animals."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/reading/trap"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 217.0
+offset_right = 503.0
+offset_bottom = 562.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "The most common reasons for humans to hunt are to obtain the animal's body for meat and useful animal products (fur/hide, bone/tusks, horn/antler, etc.), for recreation/taxidermy (see trophy hunting), although it may also be done for resourceful reasons such as removing predators dangerous to humans or domestic animals (e.g. wolf hunting),"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/reading/trap"]
+layout_mode = 0
+offset_left = 637.0
+offset_top = 202.0
+offset_right = 929.0
+offset_bottom = 547.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "to eliminate pests and nuisance animals that damage crops/livestock/poultry or spread diseases, for trade/tourism, or for ecological conservation against overpopulation and invasive species. "
+fit_content = true
+
+[node name="ice" type="Control" parent="CanvasLayer/reading"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/reading/ice"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 117.0
+offset_right = 509.0
+offset_bottom = 462.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Temperature is a physical quantity that quantitatively expresses the attribute of hotness or coldness. Temperature is measured with a thermometer. It reflects the average kinetic energy of the vibrating and colliding atoms making up a substance."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/reading/ice"]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 210.0
+offset_right = 954.0
+offset_bottom = 555.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Absolute zero, i.e., zero kelvin or −273.15 °C, is the lowest point in the thermodynamic temperature scale. Experimentally, it can be approached very closely but not actually reached, as recognized in the third law of thermodynamics. 
+
+"
+fit_content = true
+
+[node name="immune" type="Control" parent="CanvasLayer/reading"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/reading/immune"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 109.0
+offset_right = 506.0
+offset_bottom = 454.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "An individual's physical strength is determined by two factors: the cross-sectional area of muscle fibers recruited to generate force and the intensity of the recruitment."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/reading/immune"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 287.0
+offset_right = 506.0
+offset_bottom = 632.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Individuals with a high proportion of type I slow twitch muscle fibers will be relatively weaker than a similar individual with a high proportion of type II fast twitch fibers, but would have greater endurance."
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/reading/immune"]
+layout_mode = 0
+offset_left = 667.0
+offset_top = 185.0
+offset_right = 959.0
+offset_bottom = 530.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "The genetic inheritance of muscle fiber type sets the outermost boundaries of physical strength possible (barring the use of enhancing agents such as testosterone), although the unique position within this envelope is determined by training."
+fit_content = true
+
+[node name="soul" type="Control" parent="CanvasLayer/reading"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/reading/soul"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 109.0
+offset_right = 506.0
+offset_bottom = 454.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Death is the end of life; the irreversible cessation of all biological functions that sustain a living organism."
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/reading/soul"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 340.0
+offset_right = 495.0
+offset_bottom = 685.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "The remains of a former organism normally begin to decompose shortly after death. Death eventually and inevitably occurs in all organisms."
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/reading/soul"]
+layout_mode = 0
+offset_left = 651.0
+offset_top = 191.0
+offset_right = 943.0
+offset_bottom = 536.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Some organisms, such as Turritopsis dohrnii, are biologically immortal; however, they can still die from means other than aging. Death is generally applied to whole organisms; the equivalent for individual components of an organism, such as cells or tissues, is necrosis."
+fit_content = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

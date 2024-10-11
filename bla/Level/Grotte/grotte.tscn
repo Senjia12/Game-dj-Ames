@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://dbfgxaqud11xy"]
+[gd_scene load_steps=105 format=4 uid="uid://dbfgxaqud11xy"]
 
 [ext_resource type="PackedScene" uid="uid://dm4p41d4srv03" path="res://UI/cam_controller.tscn" id="2_eyawh"]
 [ext_resource type="Texture2D" uid="uid://dtrsyrdy86xbm" path="res://Level/Grotte/Cailloux/Tile_mur_de_pierre_2_de_haut.png" id="3_gm0v7"]
@@ -27,6 +27,23 @@
 [ext_resource type="PackedScene" uid="uid://b6nmha44yincq" path="res://Level/Grotte/trap/trap.tscn" id="25_uxbes"]
 [ext_resource type="PackedScene" uid="uid://gyhcgpb5n5h0" path="res://Level/maison/truc_déplassable.tscn" id="27_53nuv"]
 [ext_resource type="PackedScene" uid="uid://deghtjttpn12g" path="res://Unit/player v2/player.tscn" id="27_eqpe6"]
+[ext_resource type="Texture2D" uid="uid://c4wco3xh6xdhk" path="res://Unit/Dragon/Dragon_mort_sortie_de_lame.png" id="28_hdkei"]
+[ext_resource type="Script" path="res://Level/Grotte/anim_fin.gd" id="28_pl0fu"]
+[ext_resource type="Script" path="res://Level/book_desc_container.gd" id="28_wpn0g"]
+[ext_resource type="Texture2D" uid="uid://dwy2sl6cwyfrb" path="res://UI/desc livre.png" id="29_m8fl3"]
+[ext_resource type="Texture2D" uid="uid://d31bkliye71i3" path="res://Unit/Dragon/Dragon_mort_lame_qui_parle.png" id="29_mufh3"]
+[ext_resource type="Texture2D" uid="uid://uubi1f1de04n" path="res://Level/Livre de compétence/livre_des_Ames_1.png" id="30_ye2m4"]
+[ext_resource type="Texture2D" uid="uid://cvjhoiiugornf" path="res://Unit/Dragon/Dragon_mort_MDR.png" id="31_s8mqc"]
+[ext_resource type="Texture2D" uid="uid://752s8ty1aox6" path="res://Level/Livre de compétence/livre_de_Gravitation_2.png" id="31_xnd6o"]
+[ext_resource type="Texture2D" uid="uid://dbwfr5ryj8sud" path="res://Level/Livre de compétence/livre_du_Temps_1.png" id="32_7gbxs"]
+[ext_resource type="Texture2D" uid="uid://cugncyam6k1hd" path="res://Level/Livre de compétence/livre_de_Lumiere_1.png" id="33_ybpnv"]
+[ext_resource type="Texture2D" uid="uid://bhe7o4d10towk" path="res://Level/Livre de compétence/livre_de_Glace_1.png" id="34_awxhk"]
+[ext_resource type="Texture2D" uid="uid://c8dikbwilt8q0" path="res://Level/Livre de compétence/livre_de_lImunite_1.png" id="35_8axh5"]
+[ext_resource type="Texture2D" uid="uid://b51ded4v81pw4" path="res://UI/écran de fin.png" id="40_b5y3i"]
+[ext_resource type="AudioStream" uid="uid://bbijbpvva7rj0" path="res://UI/medievl bosss.wav" id="41_o2smv"]
+[ext_resource type="Script" path="res://Level/Grotte/musique.gd" id="42_1wvqi"]
+[ext_resource type="AudioStream" uid="uid://cqqvcqc2ndgll" path="res://UI/grotte ambiance music.mp3" id="43_h7bo7"]
+[ext_resource type="Script" path="res://Level/Grotte/checkpoint.gd" id="44_nk65b"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6h3gm"]
 polygon = PackedVector2Array(-8, -7.5, 8, -7.5, 8, 7.5, -8, 7.5)
@@ -750,6 +767,463 @@ _data = {
 "dmg": SubResource("Animation_ck84q")
 }
 
+[sub_resource type="Animation" id="Animation_5eeki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("anim fin/dragon couik:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("anim fin/dragon:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("anim fin/cinématique/Control/haut:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("anim fin/cinématique/Control/bas:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("anim fin/cinématique/Control/bas:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 648)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("anim fin/dragon:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("anim fin/dragon:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"dead"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("anim fin/PointLight2D:energy")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("anim fin/PointLight2D:texture_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("anim fin/MarginContainer/blabla:visible_ratio")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("anim fin/cinématique/Control/tout:color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("anim fin/cinématique/Control/end:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("anim fin/MarginContainer:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1431, -319)]
+}
+
+[sub_resource type="Animation" id="Animation_21i5k"]
+resource_name = "anim fin"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1277, -160), Vector2(1391, -157)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("anim fin/dragon couik:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("anim fin/dragon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("anim fin/cinématique/Control/haut:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 0), Vector2(1152, 100)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("anim fin/cinématique/Control/bas:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 0), Vector2(1152, 100)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("anim fin/cinématique/Control/bas:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 648), Vector2(0, 548)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("anim fin/dragon:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(5, 5.33333, 5.7, 6.06667, 6.4, 6.7, 7.06667, 7.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("anim fin/dragon:animation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(5.03333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"dead"]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("anim fin/PointLight2D:energy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 5.3, 6.93333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.3]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("anim fin/PointLight2D:texture_scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 5.3, 6.93333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.01, 0.01, 1.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("anim fin/MarginContainer/blabla:visible_ratio")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 7.93333, 9.43333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("anim fin/cinématique/Control/tout:color")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(14.7667, 16.7333, 18.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("anim fin/cinématique/Control/end:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 16.7333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("anim fin/MarginContainer:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(7.93333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1431, -319)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("anim fin/cinématique/base:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("anim fin/cinématique/bossfight:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1po3"]
+_data = {
+"RESET": SubResource("Animation_5eeki"),
+"anim fin": SubResource("Animation_21i5k")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl30p"]
+atlas = ExtResource("28_hdkei")
+region = Rect2(840, 0, 120, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxctt"]
+atlas = ExtResource("28_hdkei")
+region = Rect2(720, 0, 120, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp0lq"]
+atlas = ExtResource("28_hdkei")
+region = Rect2(600, 0, 120, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njpoo"]
+atlas = ExtResource("28_hdkei")
+region = Rect2(480, 0, 120, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkc5w"]
+atlas = ExtResource("28_hdkei")
+region = Rect2(360, 0, 120, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps1kd"]
+atlas = ExtResource("28_hdkei")
+region = Rect2(240, 0, 120, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oueoy"]
+atlas = ExtResource("28_hdkei")
+region = Rect2(120, 0, 120, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su7wd"]
+atlas = ExtResource("28_hdkei")
+region = Rect2(0, 0, 120, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6hyc"]
+atlas = ExtResource("29_mufh3")
+region = Rect2(0, 0, 120, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mah4"]
+atlas = ExtResource("29_mufh3")
+region = Rect2(120, 0, 120, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qe80"]
+atlas = ExtResource("29_mufh3")
+region = Rect2(240, 0, 120, 104)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o28ox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl30p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxctt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp0lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njpoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkc5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps1kd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oueoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su7wd")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6hyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mah4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qe80")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xidq"]
+size = Vector2(30, 31)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v88mg"]
+radius = 39.0128
+
 [node name="Grotte" type="Node2D"]
 
 [node name="Cam Controller" parent="." instance=ExtResource("2_eyawh")]
@@ -917,7 +1391,7 @@ talk = ["Pay attention !", "There is a lot of traps in this cave...", "I died be
 
 [node name="Soul6" parent="." instance=ExtResource("21_gbo0n")]
 position = Vector2(650, 36)
-talk = ["Warning ! ", "Thetr is hidden traps can kill you if you are not careful"]
+talk = ["Warning ! ", "There is hidden traps can kill you if you are not careful"]
 
 [node name="Soul7" parent="." instance=ExtResource("21_gbo0n")]
 position = Vector2(302, -254)
@@ -1084,6 +1558,564 @@ position = Vector2(692, -167)
 [node name="player" parent="." instance=ExtResource("27_eqpe6")]
 position = Vector2(35, -13)
 
+[node name="book UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="book UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="book desc container" type="HBoxContainer" parent="book UI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -215.0
+offset_right = 154.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.88, 0.88)
+alignment = 1
+script = ExtResource("28_wpn0g")
+
+[node name="soul reading" type="TextureRect" parent="book UI/Control/book desc container"]
+visible = false
+layout_mode = 2
+texture = ExtResource("29_m8fl3")
+
+[node name="icon" type="TextureRect" parent="book UI/Control/book desc container/soul reading"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -43.5
+offset_right = -13.0
+offset_bottom = -35.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+texture = ExtResource("30_ye2m4")
+
+[node name="book name" type="Label" parent="book UI/Control/book desc container/soul reading"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 39.0
+offset_right = 65.5
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("23_ebgwe")
+text = "Soul Reading"
+horizontal_alignment = 1
+
+[node name="desc" type="RichTextLabel" parent="book UI/Control/book desc container/soul reading"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -93.0
+offset_right = 96.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+text = "Allows you to see and talk to close souls (RMB)"
+
+[node name="Annihilate" type="TextureRect" parent="book UI/Control/book desc container"]
+visible = false
+layout_mode = 2
+texture = ExtResource("29_m8fl3")
+
+[node name="icon" type="TextureRect" parent="book UI/Control/book desc container/Annihilate"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -43.5
+offset_right = -13.0
+offset_bottom = -35.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+texture = ExtResource("31_xnd6o")
+
+[node name="book name" type="Label" parent="book UI/Control/book desc container/Annihilate"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 39.0
+offset_right = 65.5
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("23_ebgwe")
+text = "Annihilate"
+horizontal_alignment = 1
+
+[node name="desc" type="RichTextLabel" parent="book UI/Control/book desc container/Annihilate"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -93.0
+offset_right = 96.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+text = "Allows you to destroy certain objects (passive)"
+
+[node name="Time stop" type="TextureRect" parent="book UI/Control/book desc container"]
+visible = false
+layout_mode = 2
+texture = ExtResource("29_m8fl3")
+
+[node name="icon" type="TextureRect" parent="book UI/Control/book desc container/Time stop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -43.5
+offset_right = -13.0
+offset_bottom = -35.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+texture = ExtResource("32_7gbxs")
+
+[node name="book name" type="Label" parent="book UI/Control/book desc container/Time stop"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 39.0
+offset_right = 65.5
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("23_ebgwe")
+text = "Time stop"
+horizontal_alignment = 1
+
+[node name="desc" type="RichTextLabel" parent="book UI/Control/book desc container/Time stop"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -93.0
+offset_right = 96.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+text = "Allows you to stop time for a short duration (A)"
+
+[node name="Light" type="TextureRect" parent="book UI/Control/book desc container"]
+visible = false
+layout_mode = 2
+texture = ExtResource("29_m8fl3")
+
+[node name="icon" type="TextureRect" parent="book UI/Control/book desc container/Light"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -43.5
+offset_right = -13.0
+offset_bottom = -35.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+texture = ExtResource("33_ybpnv")
+
+[node name="book name" type="Label" parent="book UI/Control/book desc container/Light"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 39.0
+offset_right = 65.5
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("23_ebgwe")
+text = "Light"
+horizontal_alignment = 1
+
+[node name="desc" type="RichTextLabel" parent="book UI/Control/book desc container/Light"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -93.0
+offset_right = 96.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+text = "Allows you to emit light (passive)"
+
+[node name="Trap détection" type="TextureRect" parent="book UI/Control/book desc container"]
+visible = false
+layout_mode = 2
+texture = ExtResource("29_m8fl3")
+
+[node name="icon" type="TextureRect" parent="book UI/Control/book desc container/Trap détection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -43.5
+offset_right = -13.0
+offset_bottom = -35.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+texture = ExtResource("25_7pafw")
+
+[node name="book name" type="Label" parent="book UI/Control/book desc container/Trap détection"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 39.0
+offset_right = 65.5
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("23_ebgwe")
+text = "Trap Detection"
+horizontal_alignment = 1
+
+[node name="desc" type="RichTextLabel" parent="book UI/Control/book desc container/Trap détection"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -93.0
+offset_right = 96.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+text = "Allows you to see all the hidden traps (passive)"
+
+[node name="Ice" type="TextureRect" parent="book UI/Control/book desc container"]
+visible = false
+layout_mode = 2
+texture = ExtResource("29_m8fl3")
+
+[node name="icon" type="TextureRect" parent="book UI/Control/book desc container/Ice"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -43.5
+offset_right = -13.0
+offset_bottom = -35.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+texture = ExtResource("34_awxhk")
+
+[node name="book name" type="Label" parent="book UI/Control/book desc container/Ice"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 39.0
+offset_right = 65.5
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("23_ebgwe")
+text = "Ice"
+horizontal_alignment = 1
+
+[node name="desc" type="RichTextLabel" parent="book UI/Control/book desc container/Ice"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -93.0
+offset_right = 96.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+text = "Allows you to freeze the water under your feet (passive)"
+
+[node name="Immune" type="TextureRect" parent="book UI/Control/book desc container"]
+visible = false
+layout_mode = 2
+texture = ExtResource("29_m8fl3")
+
+[node name="icon" type="TextureRect" parent="book UI/Control/book desc container/Immune"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -43.5
+offset_right = -13.0
+offset_bottom = -35.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+texture = ExtResource("35_8axh5")
+
+[node name="book name" type="Label" parent="book UI/Control/book desc container/Immune"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 39.0
+offset_right = 65.5
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("23_ebgwe")
+text = "Immune"
+horizontal_alignment = 1
+
+[node name="desc" type="RichTextLabel" parent="book UI/Control/book desc container/Immune"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -93.0
+offset_right = 96.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+text = "Makes you immune to poison (passive)"
+
+[node name="anim fin" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r1po3")
+}
+script = ExtResource("28_pl0fu")
+
+[node name="dragon" type="AnimatedSprite2D" parent="anim fin"]
+visible = false
+position = Vector2(1468, -180)
+sprite_frames = SubResource("SpriteFrames_o28ox")
+animation = &"dead"
+
+[node name="detect_enter" type="Area2D" parent="anim fin"]
+position = Vector2(1298, -171)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="anim fin/detect_enter"]
+position = Vector2(-5, 5.5)
+shape = SubResource("RectangleShape2D_6xidq")
+
+[node name="dragon couik" type="Sprite2D" parent="anim fin"]
+position = Vector2(1477, -156)
+texture = ExtResource("31_s8mqc")
+
+[node name="cinématique" type="CanvasLayer" parent="anim fin"]
+
+[node name="Control" type="Control" parent="anim fin/cinématique"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="haut" type="ColorRect" parent="anim fin/cinématique/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+scale = Vector2(5, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="bas" type="ColorRect" parent="anim fin/cinématique/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(5, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="tout" type="ColorRect" parent="anim fin/cinématique/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 1)
+color = Color(0, 0, 0, 0)
+
+[node name="end" type="TextureRect" parent="anim fin/cinématique/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("40_b5y3i")
+
+[node name="bossfight" type="AudioStreamPlayer" parent="anim fin/cinématique"]
+process_mode = 3
+stream = ExtResource("41_o2smv")
+script = ExtResource("42_1wvqi")
+
+[node name="base" type="AudioStreamPlayer" parent="anim fin/cinématique"]
+process_mode = 3
+stream = ExtResource("43_h7bo7")
+autoplay = true
+script = ExtResource("42_1wvqi")
+
+[node name="8s" type="Timer" parent="anim fin"]
+wait_time = 8.0
+one_shot = true
+
+[node name="8s2" type="Timer" parent="anim fin"]
+wait_time = 5.0
+one_shot = true
+
+[node name="10s" type="Timer" parent="anim fin"]
+wait_time = 10.0
+one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="anim fin"]
+position = Vector2(1419, -166)
+color = Color(0.415686, 1, 1, 1)
+energy = 0.0
+texture = ExtResource("6_ndvd0")
+texture_scale = 0.01
+
+[node name="MarginContainer" type="VBoxContainer" parent="anim fin"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 855.0
+offset_top = -967.0
+offset_right = 1062.0
+offset_bottom = -430.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+alignment = 2
+
+[node name="blabla" type="RichTextLabel" parent="anim fin/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.160784, 0.976471, 0.894118, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_outline_size = 3
+bbcode_enabled = true
+text = "[wave amp=20][center][i]How is it possible to be stupid like that... I really died because I ate too much !? ...[/i][/center][/wave]"
+fit_content = true
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+
+[node name="checkpoint" type="Area2D" parent="."]
+position = Vector2(35, -13)
+script = ExtResource("44_nk65b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoint"]
+shape = SubResource("CircleShape2D_v88mg")
+
+[node name="checkpoint2" type="Area2D" parent="."]
+position = Vector2(595, -105)
+script = ExtResource("44_nk65b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoint2"]
+shape = SubResource("CircleShape2D_v88mg")
+
+[node name="checkpoint3" type="Area2D" parent="."]
+position = Vector2(644, 53)
+script = ExtResource("44_nk65b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoint3"]
+shape = SubResource("CircleShape2D_v88mg")
+
+[node name="checkpoint4" type="Area2D" parent="."]
+position = Vector2(753, -343)
+script = ExtResource("44_nk65b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoint4"]
+shape = SubResource("CircleShape2D_v88mg")
+
+[node name="checkpoint5" type="Area2D" parent="."]
+position = Vector2(1071, -165)
+script = ExtResource("44_nk65b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="checkpoint5"]
+shape = SubResource("CircleShape2D_v88mg")
+
 [connection signal="body_entered" from="out" to="out" method="_on_body_entered"]
 [connection signal="body_entered" from="toxic/player_in" to="toxic/gaz" method="_on_player_in_body_entered"]
 [connection signal="timeout" from="toxic/Timer" to="toxic/gaz" method="_on_timer_timeout"]
+[connection signal="body_entered" from="anim fin/detect_enter" to="anim fin" method="_on_detect_enter_body_entered"]
+[connection signal="timeout" from="anim fin/8s" to="anim fin" method="_on_s_timeout"]
+[connection signal="timeout" from="anim fin/8s2" to="anim fin" method="_on_s_2_timeout"]
+[connection signal="body_entered" from="checkpoint" to="checkpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="checkpoint2" to="checkpoint2" method="_on_body_entered"]
+[connection signal="body_entered" from="checkpoint3" to="checkpoint3" method="_on_body_entered"]
+[connection signal="body_entered" from="checkpoint4" to="checkpoint4" method="_on_body_entered"]
+[connection signal="body_entered" from="checkpoint5" to="checkpoint5" method="_on_body_entered"]

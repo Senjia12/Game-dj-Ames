@@ -22,11 +22,13 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	Globals.player = self
 	update_ui()
+	if Globals.in_grotte:
+		global_position = Globals.checkpoint_pos
 
 
 func _physics_process(delta: float) -> void:
 	if dead: return
-	velocity = Vector2(Input.get_action_strength("right") - Input.get_action_strength("left"),Input.get_action_strength("bottom") - Input.get_action_strength("top")) * speed
+	velocity = Vector2(Input.get_action_strength("right") - Input.get_action_strength("left"),Input.get_action_strength("bottom") - Input.get_action_strength("top")).normalized() * speed
 	
 	if velocity != Vector2.ZERO:
 		$AnimatedSprite2D.play("run")
@@ -58,7 +60,7 @@ func update_ui():
 func take_damage(dmg:int):
 	current_hp -= dmg
 	update_ui()
-	$CanvasLayer.show()
+#	$CanvasLayer.show()
 	if current_hp <= 0:
 		$AnimatedSprite2D.play("couik")
 		dead = true

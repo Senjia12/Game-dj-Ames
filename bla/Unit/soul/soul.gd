@@ -3,7 +3,7 @@ extends StaticBody2D
 
 @export var talk := ["coincoin ?", "oui coinconi", "..."]
 var current_text := 0
-@onready var blabla: RichTextLabel = $MarginContainer/blabla
+@onready var blabla: RichTextLabel = $Node2D/MarginContainer/blabla
 
 @export var important := false
 
@@ -37,8 +37,9 @@ func activate():
 
 
 func desactivate():
-	$AnimatedSprite2D.hide()
-	$AnimationPlayer.play("RESET")
+	pass
+#	$AnimatedSprite2D.hide()
+#	$AnimationPlayer.play("RESET")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") && $AnimatedSprite2D.is_visible_in_tree():
