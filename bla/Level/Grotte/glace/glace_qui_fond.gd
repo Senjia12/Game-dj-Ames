@@ -8,7 +8,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if !breaked && !Globals.glace:
 			$AnimatedSprite2D.play("default")
-		else:
+		elif !Globals.glace:
 			body.queue_free()
 
 

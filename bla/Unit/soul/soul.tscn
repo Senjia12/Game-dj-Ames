@@ -126,6 +126,7 @@ alignment = 2
 
 [node name="blabla" type="RichTextLabel" parent="Node2D/MarginContainer"]
 layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.160784, 0.976471, 0.894118, 1)
 theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_offset_x = 0
